@@ -1,0 +1,5 @@
+<com.baidu.screenlock.core.lock.service.d: c()V>#9#virtualinvoke $r1.<android.app.KeyguardManager$KeyguardLock: void disableKeyguard()>()#<android.app.KeyguardManager$KeyguardLock: disableKeyguard()V>
+<com.baidu.screenlock.core.lock.service.d: b()V>#9#virtualinvoke $r1.<android.app.KeyguardManager$KeyguardLock: void reenableKeyguard()>()#<android.app.KeyguardManager$KeyguardLock: reenableKeyguard()V>
+<com.baidu.passwordlock.notification.view.ConsumePowerNotificationView: doRecyclerViewItem()V>#270#virtualinvoke $r3.<android.app.ActivityManager: void killBackgroundProcesses(java.lang.String)>($r9)#<android.app.ActivityManager: killBackgroundProcesses(Ljava/lang/String;)V>
+<com.baidu.cleanup.bh: run()V>#100#virtualinvoke $r4.<android.app.ActivityManager: void killBackgroundProcesses(java.lang.String)>($r11)#<android.app.ActivityManager: killBackgroundProcesses(Ljava/lang/String;)V>
+<com.baidu.cleanup.z: run()V>#136#virtualinvoke $r4.<android.app.ActivityManager: void killBackgroundProcesses(java.lang.String)>($r10)#<android.app.ActivityManager: killBackgroundProcesses(Ljava/lang/String;)V>

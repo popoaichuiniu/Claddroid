@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_menu_normal" android:id="@id/normal" android:title="@string/normal" />
+    <item android:icon="@drawable/ic_menu_black" android:id="@id/black" android:title="@string/black" />
+    <item android:icon="@drawable/ic_menu_viewfinder" android:id="@id/viewfinder" android:title="@string/viewfinder" />
+</menu>

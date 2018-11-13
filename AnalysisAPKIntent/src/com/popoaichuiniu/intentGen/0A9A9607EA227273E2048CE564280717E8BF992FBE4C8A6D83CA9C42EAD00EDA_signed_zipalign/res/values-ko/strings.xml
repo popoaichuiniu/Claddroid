@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">카메라는 사용중인 다른 응용 프로그램입니다</string>
+    <string name="dialog_ok">확인</string>
+    <string name="viewfinder">뷰파인더</string>
+    <string name="normal">표준</string>
+    <string name="touch_here">여기에 터치</string>
+</resources>

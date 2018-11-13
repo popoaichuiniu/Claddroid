@@ -1,0 +1,1 @@
+/home/zms/huaweiAPPSelect/instrumented/美团_9.5.1_signed_zipalign.apk

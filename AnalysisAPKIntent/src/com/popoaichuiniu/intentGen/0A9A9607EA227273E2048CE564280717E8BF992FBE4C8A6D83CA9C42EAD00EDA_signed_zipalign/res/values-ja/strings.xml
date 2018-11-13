@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">カメラが使用中の別のアプリケーションによっては</string>
+    <string name="dialog_ok">OK</string>
+    <string name="viewfinder">ファインダー</string>
+    <string name="normal">標準</string>
+    <string name="touch_here">ここにタッチ</string>
+</resources>

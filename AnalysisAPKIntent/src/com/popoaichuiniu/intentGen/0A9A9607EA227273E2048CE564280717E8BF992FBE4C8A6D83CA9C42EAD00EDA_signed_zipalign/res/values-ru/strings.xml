@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">Камера используется другим приложением</string>
+    <string name="dialog_ok">OK</string>
+    <string name="viewfinder">видоискатель</string>
+    <string name="normal">стандартный</string>
+    <string name="touch_here">Нажмите здесь</string>
+</resources>

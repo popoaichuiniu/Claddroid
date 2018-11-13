@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Class-Path: commons-io-2.4.jar commons-io-2.6-tests.jar j2ee.jar cos.j
+ ar bcel-5.2-src.zip gexf4j-1.0.0.jar javacsv.jar AXMLPrinter2.jar com
+ mons-io-2.6-javadoc.jar commons-io-2.6-test-sources.jar bcel-5.2.jar 
+ log4j-1.2.17.jar commons-io-2.6-sources.jar slf4j-log4j12-1.7.25.jar 
+ axml-2.0.jar junit-4.11.jar slf4j-api-1.7.5.jar guava-18.0.jar mockit
+ o-all-1.9.5.jar org.hamcrest.core_1.3.0.jar slf4j-api-1.7.25-sources.
+ jar slf4j-simple-1.7.5.jar woodstox-core-asl-4.0.6.jar commons-cli-1.
+ 3.1.jar java_cup.jar AXMLPrinter2.jar coal-strings-0.1.1.jar commons-
+ cli-1.3.1.jar commons-io-2.4.jar DroidRA.jar gson-2.3.1.jar commons-i
+ o-2.6.jar javatuples-1.2.jar ant.jar asm-debug-all-5.1.jar AXMLPrinte
+ r2.jar cglib-nodep-2.2.2.jar dexlib2-2.1.3-a5d82813.jar guava-18.0.ja
+ r hamcrest-all-1.3.jar javassist-3.18.2-GA.jar jboss-common-core-2.5.
+ 0.Final.jar junit-4.11.jar mockito-all-1.10.8.jar polyglot.jar powerm
+ ock-mockito-1.6.1-full.jar slf4j-api-1.7.5.jar slf4j-simple-1.7.5.jar
+  util-2.1.3-a5d82813.jar AXMLPrinter2.jar stax2-api-3.1.1.jar junit-4
+ .12.jar javatuples-1.2.jar axml-2.0.jar gson-2.3.1.jar slf4j-api-1.7.
+ 25.jar cos.jar j2ee.jar junit.jar org.hamcrest.core_1.3.0.jar slf4j-a
+ pi-1.7.5.jar slf4j-simple-1.7.5.jar
+Main-Class: com.zhou.InstrumentAPPBeforePermissionInvoke
+

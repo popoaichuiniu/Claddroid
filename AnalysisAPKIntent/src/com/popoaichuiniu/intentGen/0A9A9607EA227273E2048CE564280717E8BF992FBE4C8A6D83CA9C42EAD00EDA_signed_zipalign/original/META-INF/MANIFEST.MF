@@ -1,0 +1,75 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0_23 (Sun Microsystems Inc.)
+
+Name: res/drawable-hdpi/lightbulb.xml
+SHA1-Digest: j/sbwnCRKT9SFuLgKkIdJAhgJuE=
+
+Name: res/drawable-hdpi/light_on.png
+SHA1-Digest: eSBaluMpWQp9cJP/sjL+ceJsRTc=
+
+Name: AndroidManifest.xml
+SHA1-Digest: q7GbeTQS95ysOl0oYA/BO2zTSc4=
+
+Name: res/layout/main.xml
+SHA1-Digest: H4TZkJ6RL5NBCd2JnhjMQXkHcZY=
+
+Name: res/drawable-hdpi/light_off.png
+SHA1-Digest: x7PoOL79H6xc3BP3XYPvghnyy5Q=
+
+Name: res/drawable-hdpi/light_small_on.png
+SHA1-Digest: uehtQs1sq6gOOXaEmoXY6U+4t2Q=
+
+Name: res/layout/black.xml
+SHA1-Digest: 48nmeCJEOSaQJCWMFbgQDcRG438=
+
+Name: res/drawable-hdpi/lightbulb_small.xml
+SHA1-Digest: Fd8wUd3WjtGgxym5aXT7PmAjsLk=
+
+Name: res/drawable-hdpi/ic_menu_normal.png
+SHA1-Digest: nnMwGmiBE7bLiihvoOEg1fY5fX0=
+
+Name: res/drawable-mdpi/ic_menu_viewfinder.png
+SHA1-Digest: u7iuxZYOnjlUTm7iZjsrUCrcStM=
+
+Name: res/drawable-hdpi/ic_menu_viewfinder.png
+SHA1-Digest: HDjkk07YxInFAPivgK6TchrYNog=
+
+Name: res/drawable-mdpi/ic_menu_normal.png
+SHA1-Digest: bifeEIOBCITszaFgfqZA9D3FSO4=
+
+Name: res/anim/fade_out.xml
+SHA1-Digest: QpmTJBci8ImfFRonJY/bwkqRPqk=
+
+Name: res/drawable-mdpi/ic_menu_black.png
+SHA1-Digest: 551oVgjmnfdFSyHxskD2YizS8Ko=
+
+Name: res/drawable-hdpi/ic_menu_black.png
+SHA1-Digest: mOE+/LbvEh+R+dcHGs4uqtg08uY=
+
+Name: res/drawable-hdpi/light_small_off.png
+SHA1-Digest: r/6qAuwNxYbPTfRep4k6wfhhGbE=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: rvaOyI8Lg4xxcUXXTJFFciO4iv0=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: n7lweQ+9mgIatD0WWyor6rd7vPM=
+
+Name: res/menu/options_menu.xml
+SHA1-Digest: dpqBKUuqJaNY4UyK3nwEPwZd2OM=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: hDuTKnBYfC4HzE0glfrI8Dm6r/A=
+
+Name: res/drawable-hdpi/rectangle.xml
+SHA1-Digest: WEj4hpV4U0PVddH8jw31Jp7tsCE=
+
+Name: resources.arsc
+SHA1-Digest: WuGGaWDdtYSoiyP/1sIchbsSSIg=
+
+Name: classes.dex
+SHA1-Digest: 0Rz7tEy6F4Wme72bCkmsqDsnTnc=
+
+Name: res/layout/viewfinder.xml
+SHA1-Digest: T6fkY2PtwSeoksmGVco+igmQjrc=
+

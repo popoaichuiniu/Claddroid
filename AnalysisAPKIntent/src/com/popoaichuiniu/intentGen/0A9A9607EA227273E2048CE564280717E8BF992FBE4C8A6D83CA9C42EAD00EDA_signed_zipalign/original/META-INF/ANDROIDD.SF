@@ -1,0 +1,77 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: JuyVKq94jyK6GhOSaZftFDgB0QE=
+SHA1-Digest-Manifest: L+YCLVa5E3QyhY7hAqlNT1dTIVs=
+Created-By: 1.8.0_161 (Oracle Corporation)
+
+Name: res/drawable-hdpi/lightbulb.xml
+SHA1-Digest: Rge8xxww18jMoFzYjBM7TNTvDBk=
+
+Name: res/drawable-hdpi/light_on.png
+SHA1-Digest: 5iGHJeMyVolcUIU+YsFYcPuuBgM=
+
+Name: AndroidManifest.xml
+SHA1-Digest: iEWaWYdrOzRfteUNQ3qwxW+5PDk=
+
+Name: res/layout/main.xml
+SHA1-Digest: NhV/k7BDv2GTQcXA5bQwNLkhAQI=
+
+Name: res/drawable-hdpi/light_off.png
+SHA1-Digest: MCQHqAuOYeq1/gwPxuBQ+B50qbo=
+
+Name: res/drawable-hdpi/light_small_on.png
+SHA1-Digest: N1Zul5uCauJ/NKD6TXAQ82T/fo0=
+
+Name: res/layout/black.xml
+SHA1-Digest: cDx9sbJJkUt2mAjbtWhfhIqBleY=
+
+Name: res/drawable-hdpi/lightbulb_small.xml
+SHA1-Digest: a/NPaOiw2YOqlSOKA+2q5w+VAIQ=
+
+Name: res/drawable-hdpi/ic_menu_normal.png
+SHA1-Digest: kcSldYXTKtxOOnsGFM+CTXmuBTg=
+
+Name: res/drawable-mdpi/ic_menu_viewfinder.png
+SHA1-Digest: Qc9FmFXcMKi85UXXHMgAN61EhHQ=
+
+Name: res/drawable-hdpi/ic_menu_viewfinder.png
+SHA1-Digest: KKza0k8Xp44aJO1LniqrASNRnd0=
+
+Name: res/drawable-mdpi/ic_menu_normal.png
+SHA1-Digest: dL8Dx1n0zi02VIYLhTOphgZ2PLw=
+
+Name: res/anim/fade_out.xml
+SHA1-Digest: 2GHHWwolDV4kvsnhYTo2l+4hULY=
+
+Name: res/drawable-mdpi/ic_menu_black.png
+SHA1-Digest: qFgu+ePQaWyhR6ZGz9CXKVSa8xc=
+
+Name: res/drawable-hdpi/ic_menu_black.png
+SHA1-Digest: aaG2PypNrGlTbXWVVGT7RJgNTaY=
+
+Name: res/drawable-hdpi/light_small_off.png
+SHA1-Digest: rKmFUNiA2J/b/bFCfKNZfNXsIME=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: TRcvI5Rm2o5NDQbKIsBYhbH9oAw=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: 9CKqxSuQ0x/3bVs5/irL1vvV7jo=
+
+Name: res/menu/options_menu.xml
+SHA1-Digest: FhuUVFFSokR52WS+IsbsiHzVWMc=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: 3qspnnAdaXNFGG1/01IIL8d1DAU=
+
+Name: res/drawable-hdpi/rectangle.xml
+SHA1-Digest: s72qDn0Q0kag4tiqvruiuyAepYU=
+
+Name: resources.arsc
+SHA1-Digest: 2/NlWOsoF2Q1XfKNccCpmx4+sMI=
+
+Name: classes.dex
+SHA1-Digest: z5oYnnm6yLrNepCJfGb+fE5oG1w=
+
+Name: res/layout/viewfinder.xml
+SHA1-Digest: CdWipWjtB3IL9/G+mue/1bKxaTA=
+

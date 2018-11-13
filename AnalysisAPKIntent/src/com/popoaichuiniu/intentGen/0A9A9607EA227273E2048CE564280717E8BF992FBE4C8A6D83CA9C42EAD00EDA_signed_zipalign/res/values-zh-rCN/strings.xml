@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">该相机是由另一个应用程序使用</string>
+    <string name="dialog_ok">确定</string>
+    <string name="viewfinder">取景器</string>
+    <string name="normal">标准</string>
+    <string name="touch_here">触摸此处</string>
+</resources>

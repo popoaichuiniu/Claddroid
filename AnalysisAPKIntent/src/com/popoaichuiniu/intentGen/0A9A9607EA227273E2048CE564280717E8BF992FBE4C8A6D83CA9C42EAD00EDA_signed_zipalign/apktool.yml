@@ -1,0 +1,21 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: 0A9A9607EA227273E2048CE564280717E8BF992FBE4C8A6D83CA9C42EAD00EDA_signed_zipalign.apk
+compressionType: false
+doNotCompress:
+- arsc
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '8'
+sharedLibrary: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.3.1
+versionInfo:
+  versionCode: '4'
+  versionName: '1.3'

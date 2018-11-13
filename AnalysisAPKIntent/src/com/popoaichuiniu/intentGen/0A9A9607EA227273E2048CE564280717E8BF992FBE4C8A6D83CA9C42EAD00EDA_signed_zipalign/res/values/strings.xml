@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">The camera is in use by another application</string>
+    <string name="dialog_ok">OK</string>
+    <string name="black">Black Screen</string>
+    <string name="viewfinder">Viewfinder</string>
+    <string name="normal">Standard</string>
+    <string name="touch_here">touch here</string>
+</resources>

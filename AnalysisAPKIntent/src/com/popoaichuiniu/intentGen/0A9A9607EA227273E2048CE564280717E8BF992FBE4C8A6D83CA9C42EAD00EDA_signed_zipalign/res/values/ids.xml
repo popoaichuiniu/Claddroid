@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="dialog_camera_na" />
+    <item type="id" name="mode_normal" />
+    <item type="id" name="mode_viewfinder" />
+    <item type="id" name="mode_black" />
+    <item type="id" name="surface">false</item>
+    <item type="id" name="toggleButton">false</item>
+    <item type="id" name="button">false</item>
+    <item type="id" name="normal">false</item>
+    <item type="id" name="black">false</item>
+    <item type="id" name="viewfinder">false</item>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search Light</string>
+    <string name="dialog_camera_na">La cámara está en uso por otra aplicación</string>
+    <string name="dialog_ok">Aceptar</string>
+    <string name="viewfinder">Visor</string>
+    <string name="normal">Estándar</string>
+    <string name="touch_here">toque aquí</string>
+</resources>

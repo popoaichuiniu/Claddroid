@@ -1,0 +1,4 @@
+<com.cyou.cma.keyguard.b: a()V>#48#virtualinvoke $r4.<android.app.KeyguardManager$KeyguardLock: void disableKeyguard()>()#<android.app.KeyguardManager$KeyguardLock: disableKeyguard()V>
+<com.cyou.cma.keyguard.b: b()V>#14#virtualinvoke $r1.<android.app.KeyguardManager$KeyguardLock: void reenableKeyguard()>()#<android.app.KeyguardManager$KeyguardLock: reenableKeyguard()V>
+<com.cyou.cma.clauncher.kb: run()V>#178#virtualinvoke $r4.<android.app.ActivityManager: void killBackgroundProcesses(java.lang.String)>($r1)#<android.app.ActivityManager: killBackgroundProcesses(Ljava/lang/String;)V>
+<com.cyou.cma.cleanmemory.c: run()V>#146#virtualinvoke $r13.<android.app.ActivityManager: void killBackgroundProcesses(java.lang.String)>($r1)#<android.app.ActivityManager: killBackgroundProcesses(Ljava/lang/String;)V>
