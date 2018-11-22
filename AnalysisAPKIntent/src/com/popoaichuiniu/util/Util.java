@@ -5,8 +5,8 @@ import java.util.*;
 
 import com.google.common.collect.Lists;
 import com.popoaichuiniu.intentGen.*;
-import com.popoaichuiniu.jacy.AndroidCallGraph;
-import com.popoaichuiniu.jacy.AndroidInfo;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidInfo;
 import org.apache.log4j.Logger;
 import org.javatuples.Triplet;
 import soot.*;

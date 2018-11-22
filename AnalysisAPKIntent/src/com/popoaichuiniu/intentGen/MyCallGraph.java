@@ -1,6 +1,6 @@
 package com.popoaichuiniu.intentGen;
 
-import com.popoaichuiniu.jacy.CGExporter;
+import com.popoaichuiniu.jacy.statistic.CGExporter;
 import com.popoaichuiniu.util.MyLogger;
 import com.popoaichuiniu.util.WriteFile;
 import soot.Kind;

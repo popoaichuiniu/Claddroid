@@ -1,21 +1,5 @@
 package com.popoaichuiniu.intentGen;
 
-import com.popoaichuiniu.jacy.AndroidCallGraph;
-import com.popoaichuiniu.jacy.AndroidInfo;
-import com.popoaichuiniu.util.Config;
-import com.popoaichuiniu.util.Util;
-import org.javatuples.Pair;
-import soot.SootMethod;
-import soot.jimple.toolkits.callgraph.CallGraph;
-import soot.toolkits.graph.BriefUnitGraph;
-
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
 public class TestCFGReduced {//没有使用
 //    private static Set<Pair<Integer, String>> targets = new LinkedHashSet<Pair<Integer, String>>();
 //

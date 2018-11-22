@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.popoaichuiniu.jacy.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
 import soot.SootMethod;
 import soot.Unit;
 import soot.jimple.toolkits.callgraph.Edge;

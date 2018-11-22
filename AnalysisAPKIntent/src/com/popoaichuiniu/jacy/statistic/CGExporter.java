@@ -1,4 +1,4 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
 import it.uniroma1.dis.wsngroup.gexf4j.core.EdgeType;
 import it.uniroma1.dis.wsngroup.gexf4j.core.Gexf;

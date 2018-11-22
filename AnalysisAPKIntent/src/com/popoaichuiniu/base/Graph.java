@@ -1,6 +1,6 @@
 package com.popoaichuiniu.base;
 
-import com.popoaichuiniu.jacy.CGExporter;
+import com.popoaichuiniu.jacy.statistic.CGExporter;
 import soot.SootMethod;
 import soot.Unit;
 

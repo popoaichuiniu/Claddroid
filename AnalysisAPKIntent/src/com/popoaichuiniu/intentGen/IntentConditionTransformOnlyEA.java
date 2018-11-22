@@ -1,6 +1,6 @@
 package com.popoaichuiniu.intentGen;
 
-import com.popoaichuiniu.jacy.AndroidInfo;
+import com.popoaichuiniu.jacy.statistic.AndroidInfo;
 import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.MyLogger;
 import org.apache.log4j.Logger;

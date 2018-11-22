@@ -1,15 +1,12 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import org.apache.log4j.FileAppender;

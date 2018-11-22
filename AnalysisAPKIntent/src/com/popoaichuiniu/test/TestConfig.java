@@ -1,6 +1,6 @@
 package com.popoaichuiniu.test;
 
-import com.popoaichuiniu.jacy.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
 import soot.Scene;
 import soot.SootClass;
 import soot.util.Chain;

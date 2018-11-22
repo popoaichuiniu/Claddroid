@@ -1,10 +1,10 @@
 package com.popoaichuiniu.intentGen;
 
 import com.microsoft.z3.Z3Exception;
-import com.popoaichuiniu.jacy.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
 
-import com.popoaichuiniu.jacy.AndroidCallGraphProxy;
-import com.popoaichuiniu.jacy.AndroidInfo;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraphProxy;
+import com.popoaichuiniu.jacy.statistic.AndroidInfo;
 import com.popoaichuiniu.util.*;
 import org.apache.log4j.Logger;
 import org.javatuples.Pair;

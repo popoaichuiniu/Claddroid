@@ -1,4 +1,4 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
 public class ProcessUnexpectedException extends Exception {
 

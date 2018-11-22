@@ -1,8 +1,8 @@
 package com.popoaichuiniu.intentGen;
 
-import com.popoaichuiniu.jacy.AndroidCallGraph;
-import com.popoaichuiniu.jacy.AndroidCallGraphProxy;
-import com.popoaichuiniu.jacy.AndroidInfo;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraphProxy;
+import com.popoaichuiniu.jacy.statistic.AndroidInfo;
 import com.popoaichuiniu.util.*;
 import org.apache.log4j.Logger;
 import soot.*;

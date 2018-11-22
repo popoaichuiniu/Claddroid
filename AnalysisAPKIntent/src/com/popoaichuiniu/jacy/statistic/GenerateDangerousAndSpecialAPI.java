@@ -1,4 +1,4 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
 import java.io.BufferedWriter;
 import java.io.File;

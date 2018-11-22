@@ -1,13 +1,11 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
 
-import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.ExceptionStackMessageUtil;
-import com.popoaichuiniu.util.WriteFile;
 import org.apache.commons.io.FileUtils;
 
 import org.apache.log4j.Logger;

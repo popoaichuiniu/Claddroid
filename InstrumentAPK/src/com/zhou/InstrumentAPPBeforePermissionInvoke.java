@@ -3,7 +3,7 @@ package com.zhou;
 import java.io.*;
 import java.util.*;
 
-import com.popoaichuiniu.jacy.AndroidInfo;
+import com.popoaichuiniu.jacy.statistic.AndroidInfo;
 import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.ReadFileOrInputStream;
 import com.popoaichuiniu.util.Util;

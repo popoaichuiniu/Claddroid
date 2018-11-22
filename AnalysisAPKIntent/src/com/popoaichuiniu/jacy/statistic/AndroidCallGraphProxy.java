@@ -1,9 +1,6 @@
-package com.popoaichuiniu.jacy;
+package com.popoaichuiniu.jacy.statistic;
 
-import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.ExceptionStackMessageUtil;
-import com.popoaichuiniu.util.MyLogger;
-import com.popoaichuiniu.util.WriteFile;
 import org.apache.log4j.Logger;
 import org.xmlpull.v1.XmlPullParserException;
 import soot.jimple.toolkits.callgraph.CallGraph;

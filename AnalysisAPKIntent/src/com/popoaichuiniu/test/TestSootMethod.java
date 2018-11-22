@@ -2,7 +2,7 @@ package com.popoaichuiniu.test;
 
 import java.util.*;
 
-import com.popoaichuiniu.jacy.AndroidCallGraph;
+import com.popoaichuiniu.jacy.statistic.AndroidCallGraph;
 import com.popoaichuiniu.util.Config;
 import org.apache.log4j.Logger;
 
