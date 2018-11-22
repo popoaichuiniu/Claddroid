@@ -9,7 +9,6 @@ import soot.*;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
 import soot.jimple.toolkits.callgraph.CallGraph;
-import soot.jimple.toolkits.callgraph.Edge;
 
 import java.io.*;
 import java.util.*;
@@ -51,7 +50,7 @@ public class GenerateUnitNeedToAnalysis {
                 PatchingChain<Unit> units = body.getUnits();
                 for (Unit unit : units) {
 
-                    SootMethod calleeSootMethod = Util.getCalleeSootMethodat(unit);
+                    SootMethod calleeSootMethod = Util.getCalleeSootMethodAt(unit);
                     if (calleeSootMethod == null) {
                         continue;
                     }

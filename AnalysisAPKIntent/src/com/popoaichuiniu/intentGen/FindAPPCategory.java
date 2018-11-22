@@ -13,7 +13,7 @@ public class FindAPPCategory {
 
     private static  String  apkCategoryDir="/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/apks_wandoujia/apks";
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/FindAPPCategory","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/FindAPPCategory","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
 

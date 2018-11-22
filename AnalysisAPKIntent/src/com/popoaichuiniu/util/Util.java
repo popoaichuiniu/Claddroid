@@ -57,35 +57,12 @@ public class Util {
 
     }
 
-    public static SootMethod getCalleeSootMethodat(Unit unit) {
-        if (unit instanceof DefinitionStmt) {
-            DefinitionStmt uStmt = (DefinitionStmt) unit;
-
-            Value rValue = uStmt.getRightOp();
-
-            if (rValue instanceof InvokeExpr) {
-
-                InvokeExpr invokeExpr = (InvokeExpr) rValue;
-
-                return invokeExpr.getMethod();
-
-
-            }
-        } else if (unit instanceof InvokeStmt) {
-            InvokeStmt invokeStmt = (InvokeStmt) unit;
-
-            InvokeExpr invokeExpr = invokeStmt.getInvokeExpr();
-
-            return invokeExpr.getMethod();
-
-        } else {
+    public static SootMethod getCalleeSootMethodAt(Unit unit) {
 
             Stmt stmt = (Stmt) unit;
             if (stmt.containsInvokeExpr()) {
-                throw new RuntimeException("getCalleeSootMethodat出现未预料的问题！");
+                return stmt.getInvokeExpr().getMethod();
             }
-
-        }
         return null;
     }
 

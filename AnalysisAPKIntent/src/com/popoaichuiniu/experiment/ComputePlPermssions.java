@@ -13,7 +13,7 @@ public class ComputePlPermssions {
 
 
     private static String appDir="/home/zms/logger_file/testlog/all_app";
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputePlPermssions","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputePlPermssions","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
         ReadFileOrInputStream readFileOrInputStream=new ReadFileOrInputStream(appDir+"/ZMSInstrument.log",logger);

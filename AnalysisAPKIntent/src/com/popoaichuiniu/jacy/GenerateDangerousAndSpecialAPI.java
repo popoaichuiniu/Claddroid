@@ -20,7 +20,7 @@ import org.apache.log4j.Logger;
 
 public class GenerateDangerousAndSpecialAPI {
 
-	private static Logger looger=new MyLogger("AnalysisAPKIntent/GenerateDangerousAndSpecialAPI","exception").getLogger();
+	private static Logger looger=new MyLogger("AnalysisAPKIntent/GenerateDangerousAndSpecialAPI","exceptionLogger").getLogger();
 	
 	public static void main(String[] args) {
 		AndroidInfo androidInfo =new AndroidInfo("testSoot.apk",looger);

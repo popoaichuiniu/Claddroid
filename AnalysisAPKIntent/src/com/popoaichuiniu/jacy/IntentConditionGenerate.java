@@ -349,7 +349,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 		internalTransform(null, null);
 	}
 //	public Set<String> handleIfStmt(int tabs, IfStmt currIfStmt, Unit succUnit, SootMethod method, SimpleLocalDefs defs, Set<String> decls, List<Unit> currPath) {
-//		//logger.debug("currUnit: " + currIfStmt);
+//		//exceptionLogger.debug("currUnit: " + currIfStmt);
 //		String returnExpr = "";
 //		String opVal1Assert = null;
 //		String opVal2Assert = null;
@@ -358,8 +358,8 @@ public class IntentConditionGenerate extends SceneTransformer {
 //		Unit opVal2DefUnit = null;
 //
 //		ConditionExpr condition = (ConditionExpr) currIfStmt.getCondition();
-////		logger.debug(Utils.createTabsStr(tabs) + "Handling if stmt: " + currIfStmt);
-////		logger.debug(Utils.createTabsStr(tabs) + "\thandling symbol: " + condition.getSymbol());
+////		exceptionLogger.debug(Utils.createTabsStr(tabs) + "Handling if stmt: " + currIfStmt);
+////		exceptionLogger.debug(Utils.createTabsStr(tabs) + "\thandling symbol: " + condition.getSymbol());
 //		Value opVal1 = condition.getOp1();
 //		Value opVal2 = condition.getOp2();
 //
@@ -368,7 +368,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 //
 //		boolean generateCondExpr = true;
 //		if (opVal1.getType() instanceof ByteType) {//ByteType bundle
-//			logger.debug("opVal1.getType() instanceof ByteType");
+//			exceptionLogger.debug("opVal1.getType() instanceof ByteType");
 //			Pair<Quartet<Value, String, String, Unit>, Quartet<Value, String, String, Unit>> condValuesPair = findLeftAndRightValuesOfByteVal(method, defs, currIfStmt, opVal1, currPath);
 //			Quartet<Value, String, String, Unit> left = condValuesPair.getValue0();
 //			Quartet<Value, String, String, Unit> right = condValuesPair.getValue1();
@@ -387,7 +387,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 //			opVal1DefUnit = left.getValue3();
 //			opVal2DefUnit = right.getValue3();
 //		} else if (opVal1.getType() instanceof BooleanType) {
-//			//logger.debug("opVal1.getType() instanceof BooleanType");
+//			//exceptionLogger.debug("opVal1.getType() instanceof BooleanType");
 //			Pair<Quartet<Value, String, String, Unit>, Quartet<Value, String, String, Unit>> condValuesPair = findStringValuesOfBoolType(method, defs, currIfStmt, opVal1, currPath);
 //			Quartet<Value, String, String, Unit> left = condValuesPair.getValue0();
 //			Quartet<Value, String, String, Unit> right = condValuesPair.getValue1();
@@ -450,7 +450,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 //				opVal2Assert = assignOpVals.getOpVal2Assert();
 //			}
 //		} else {
-//			logger.debug("else branch, simply invoking findKeysForLeftAndRightValues(...)");
+//			exceptionLogger.debug("else branch, simply invoking findKeysForLeftAndRightValues(...)");
 //			findKeysForLeftAndRightValues(currIfStmt, opVal1, opVal2, defs, currPath);
 //			opVal1DefUnit = getDefOfValInPath(opVal1, currIfStmt, currPath, defs);
 //			opVal2DefUnit = getDefOfValInPath(opVal2, currIfStmt, currPath, defs);
@@ -458,7 +458,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 //
 //		Set<String> returnExprs = new LinkedHashSet<String>();
 //		if (opVal1DefUnit == null && opVal2DefUnit == null && opVal1Assert == null && opVal2Assert == null) {
-//			logger.debug("No new information from this if stmt, so returning empty set of expressions");
+//			exceptionLogger.debug("No new information from this if stmt, so returning empty set of expressions");
 //			return returnExprs;
 //		}
 //
@@ -466,25 +466,25 @@ public class IntentConditionGenerate extends SceneTransformer {
 //		String opExpr2 = null;
 //		try {
 //			if (opVal1 == null) {
-//				logger.debug("Could not resolve opVal1, so setting it to true");
+//				exceptionLogger.debug("Could not resolve opVal1, so setting it to true");
 //				opExpr1 = "";
 //			} else {
 //				opExpr1 = createZ3Expr(opVal1, currIfStmt, opVal1DefUnit, method, decls, tabs);
 //			}
 //
 //			if (opVal2 == null) {
-//				logger.debug("Could not resolve opVal2, so setting it to true");
+//				exceptionLogger.debug("Could not resolve opVal2, so setting it to true");
 //				opExpr2 = "";
 //			} else {
 //				opExpr2 = createZ3Expr(opVal2, currIfStmt, opVal2DefUnit, method, decls, tabs);
 //			}
 //		} catch (RuntimeException e) {
-//			logger.warn("caught exception: ", e);
+//			exceptionLogger.warn("caught exceptionLogger: ", e);
 //			return null;
 //		}
 //
 //		if (opExpr1 == opExpr2 && opExpr1 == null) {
-//			logger.debug("op1 and op2 are both null, so just returning true expression");
+//			exceptionLogger.debug("op1 and op2 are both null, so just returning true expression");
 //			return Collections.singleton(returnExpr);
 //		}
 //
@@ -540,7 +540,7 @@ public class IntentConditionGenerate extends SceneTransformer {
 //						continue;
 //					}
 //					if (potentialCmpUnit.toString().contains("cmp")) {
-//						logger.debug("Found potential cmp* statement: " + potentialCmpUnit);
+//						exceptionLogger.debug("Found potential cmp* statement: " + potentialCmpUnit);
 //						if (potentialCmpUnit instanceof DefinitionStmt) {
 //							DefinitionStmt defStmt = (DefinitionStmt)potentialCmpUnit;
 //							Value rightOp = defStmt.getRightOp();

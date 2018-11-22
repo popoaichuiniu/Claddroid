@@ -1,0 +1,10 @@
+2018-11-01 15:29:54,862 WARN [Thread-41] com.popoaichuiniu.jacy.AndroidInfo.calcaulateEAs(175) | /media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment/手机百度.apk&&<activity exported="2131492871" windowSoftInputMode="2" screenOrientation="1" name="com.baidu.home.HomeWebViewActivity" configChanges="1248" theme="2131427532" excludeFromRecents="true">exported属性异常！:exported="2131492871"
+
+2018-11-01 15:29:54,863 WARN [Thread-41] com.popoaichuiniu.jacy.AndroidInfo.calcaulateEAs(175) | /media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment/手机百度.apk&&<service exported="2131492906" name="com.baidu.performance.MonitorService" permission="com.baidu.permission.perdformance.monitor">exported属性异常！:exported="2131492906"
+
+2018-11-01 15:29:54,863 WARN [Thread-41] com.popoaichuiniu.jacy.AndroidInfo.calcaulateEAs(175) | /media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment/手机百度.apk&&<activity exported="2131492915" screenOrientation="1" name="com.baidu.searchbox.story.ReaderStartActivity" launchMode="3" theme="16973840" label="2131230738">exported属性异常！:exported="2131492915"
+
+2018-11-01 15:29:54,866 WARN [Thread-41] com.popoaichuiniu.jacy.AndroidInfo.calcaulateEAs(175) | /media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment/手机百度.apk&&<activity exported="2131492871" windowSoftInputMode="2" screenOrientation="1" name="com.baidu.personal.ui.TransferRecvSmsActivity" configChanges="1248" theme="2131427532" excludeFromRecents="true">exported属性异常！:exported="2131492871"
+
+2018-11-01 15:29:54,866 WARN [Thread-41] com.popoaichuiniu.jacy.AndroidInfo.calcaulateEAs(175) | /media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment/手机百度.apk&&<activity exported="2131492871" windowSoftInputMode="2" screenOrientation="1" name="com.baidu.personal.ui.GatheringResultActivity" configChanges="1248" theme="2131427532" excludeFromRecents="true">exported属性异常！:exported="2131492871"
+

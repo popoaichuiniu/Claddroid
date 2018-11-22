@@ -56,8 +56,8 @@ import java.util.Set;
  * <code>get</code> and <code>opt</code> methods, or to convert values into a
  * JSON text using the <code>put</code> and <code>toString</code> methods. A
  * <code>get</code> method returns a value if one can be found, and throws an
- * exception if one cannot be found. An <code>opt</code> method returns a
- * default value instead of throwing an exception, and so is useful for
+ * exceptionLogger if one cannot be found. An <code>opt</code> method returns a
+ * default value instead of throwing an exceptionLogger, and so is useful for
  * obtaining optional values.
  * <p>
  * The generic <code>get()</code> and <code>opt()</code> methods return an
@@ -490,7 +490,7 @@ public class JSONObject {
         if(val==null) {
             // JSONException should really take a throwable argument.
             // If it did, I would re-implement this with the Enum.valueOf
-            // method and place any thrown exception in the JSONException
+            // method and place any thrown exceptionLogger in the JSONException
             throw new JSONException("JSONObject[" + quote(key)
                     + "] is not an enum of type " + quote(clazz.getSimpleName())
                     + ".");
@@ -1564,7 +1564,7 @@ public class JSONObject {
     }
 
     /**
-     * Throw an exception if the object is a NaN or infinite number.
+     * Throw an exceptionLogger if the object is a NaN or infinite number.
      *
      * @param o
      *            The object to test.

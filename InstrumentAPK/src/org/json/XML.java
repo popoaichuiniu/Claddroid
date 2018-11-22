@@ -105,7 +105,7 @@ public class XML {
     }
 
     /**
-     * Throw an exception if the string contains whitespace. Whitespace is not
+     * Throw an exceptionLogger if the string contains whitespace. Whitespace is not
      * allowed in tagNames and attributes.
      * 
      * @param string

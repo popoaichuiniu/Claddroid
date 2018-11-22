@@ -168,7 +168,7 @@ public class MySetupApplication extends SetupApplication {
 //														// resource.arsc file. Structure declarations and comments taken
 //														// from the Android source code and ported from C to Java.
 //		resParser.parse(apkFileLocation);
-//		logger.info("ARSC file parsing took " + (System.nanoTime() - beforeARSC) / 1E9 + " seconds");
+//		exceptionLogger.info("ARSC file parsing took " + (System.nanoTime() - beforeARSC) / 1E9 + " seconds");
 //		this.resourcePackages = resParser.getPackages();// Its value is
 //														// [soot.jimple.infoflow.android.resources.ARSCFileParser$ResPackage@3e6fa38a]
 

@@ -1,36 +1,80 @@
 package com.popoaichuiniu.intentGen;
 
-import com.popoaichuiniu.intentGen.MyCallGraph;
-import soot.Pack;
 import soot.SootMethod;
+
 import soot.Unit;
 import soot.Value;
-import soot.jimple.Jimple;
-import soot.jimple.Stmt;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.toolkits.graph.BriefUnitGraph;
-import soot.toolkits.scalar.SimpleLocalDefs;
 
 import java.util.*;
 
+//注意：OverallIntentFlowAnalysis static map 只会在一个apk个重用，所以换一个apk分析时，需要清除。否则outofmemory
 public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph，就会有一个OverallIntentFlowAnalysis,但是其中存在相同计算的
     //
 
 
     private MyCallGraph myCallGraph = null;
 
-    private boolean isOverallAnalysis = true;
+    private boolean isOverallAnalysis = false;
 
-    public static Map<Unit, SingleSootMethodIntentFlowAnalysis> unitSingleSootMethodIntentFlowAnalysisMap = new HashMap<>();//key:目标unit
+    private static  String appPath=null;
+
+
+    //全局数据流分析使用
+    public static Map<Edge, SingleSootMethodIntentFlowAnalysis> edgeSingleSootMethodIntentFlowAnalysisMap = new HashMap<>();//key: Edge 调用的sootMethod的SingleSootMethodIntentFlowAnalysis
+
+
+    public static Map<SootMethod,SingleSootMethodIntentFlowAnalysis>  localSingleSootMethodIntentFlowAnalysisMap=new HashMap<>();
 
     public static Map<SootMethod, BriefUnitGraph> sootMethodBriefUnitGraphMap = new HashMap<>();
 
 
-    public OverallIntentFlowAnalysis(MyCallGraph myCallGraph, boolean isOverallAnalysis) {
+    public OverallIntentFlowAnalysis(String appPath,MyCallGraph myCallGraph, boolean isOverallAnalysis) {
+
+        if(this.appPath==null)
+        {
+            this.appPath=appPath;
+        }
+        else
+        {
+            if(!this.appPath.equals(appPath))//开始新的apk分析
+            {
+                this.appPath=appPath;
+                edgeSingleSootMethodIntentFlowAnalysisMap.clear();
+                localSingleSootMethodIntentFlowAnalysisMap.clear();
+                sootMethodBriefUnitGraphMap.clear();
+            }
+
+        }
 
         this.myCallGraph = myCallGraph;
         this.isOverallAnalysis = isOverallAnalysis;
-        process();
+
+        if(isOverallAnalysis)
+        {
+            myCallGraph.constructTargetUnitInCallEdge();
+            process();
+        }
+        else
+        {
+            for(Map.Entry<SootMethod, Set<MyPairUnitToEdge>> entry: myCallGraph.targetUnitInSootMethod.entrySet())
+
+            {
+                BriefUnitGraph briefUnitGraph = sootMethodBriefUnitGraphMap.get(entry.getKey());
+                if (briefUnitGraph == null) {
+                    briefUnitGraph = new BriefUnitGraph(entry.getKey().getActiveBody());
+
+                    sootMethodBriefUnitGraphMap.put(entry.getKey(), briefUnitGraph);
+                }
+                SingleSootMethodIntentFlowAnalysis singleSootMethodIntentFlowAnalysis=new SingleSootMethodIntentFlowAnalysis(entry.getKey(),briefUnitGraph,new HashSet<>(),isOverallAnalysis);
+
+                localSingleSootMethodIntentFlowAnalysisMap.put(entry.getKey(),singleSootMethodIntentFlowAnalysis);
+
+            }
+
+        }
+
 
 
     }
@@ -38,8 +82,9 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
     private void process() {
 
         SootMethod rootSootMethod = myCallGraph.dummyMainMethod;
+        Edge rootEdge = myCallGraph.dummyMainMethodUnitOfEdge;
 
-        Queue<UnitToSootMethod> queue = new LinkedList<>();
+        Queue<EdgeToSootMethod> queue = new LinkedList<>();
 
 
         BriefUnitGraph rootBriefUnitGraph = sootMethodBriefUnitGraphMap.get(rootSootMethod);
@@ -52,26 +97,30 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
         Set<Value> rootParameterDataSet = new HashSet<>();
 
-        Unit rootUnit = myCallGraph.dummyMainMethodUnit;
 
-        queue.add(new UnitToSootMethod(rootUnit, rootSootMethod));
-
-
-        unitSingleSootMethodIntentFlowAnalysisMap.put(rootUnit, new SingleSootMethodIntentFlowAnalysis(rootBriefUnitGraph, rootParameterDataSet));
+        queue.add(new EdgeToSootMethod(rootEdge, rootSootMethod));
 
 
-        Set<UnitToSootMethod> visited = new HashSet<>();
+        edgeSingleSootMethodIntentFlowAnalysisMap.put(rootEdge, new SingleSootMethodIntentFlowAnalysis(rootSootMethod,rootBriefUnitGraph, rootParameterDataSet,isOverallAnalysis));
+
+
+        Set<EdgeToSootMethod> visited = new HashSet<>();
         while (!queue.isEmpty()) {
-            UnitToSootMethod first = queue.poll();
+            EdgeToSootMethod first = queue.poll();
 
             visited.add(first);
 
-            Map<Unit, Set<Value>> singleSootMethodIntentFlowAnalysis = unitSingleSootMethodIntentFlowAnalysisMap.get(first.unit).getUnitCallMethodIntentRelativeMap();
+            Map<Unit, Set<Value>> singleSootMethodIntentFlowAnalysis = edgeSingleSootMethodIntentFlowAnalysisMap.get(first.edge).getUnitCallMethodIntentRelativeMap();
 
 
             for (Edge oneEdge : myCallGraph.outEdgesOfThisMethod.get(first.sootMethod)) {
-                SootMethod oneSootMethod = oneEdge.tgt();
 
+                if(oneEdge.srcUnit()==null)
+                {
+                    continue;
+                }
+
+                SootMethod oneSootMethod = oneEdge.tgt();
 
                 BriefUnitGraph briefUnitGraph = sootMethodBriefUnitGraphMap.get(oneSootMethod);
 
@@ -84,23 +133,19 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
                 Set<Value> parameterDataSet = singleSootMethodIntentFlowAnalysis.get(oneEdge.srcUnit());
 
-                if(parameterDataSet==null)
-                {
-                    throw  new RuntimeException("singleSootMethodIntentFlowAnalysis出现错误！");
+                if (parameterDataSet == null) {
+                    throw new RuntimeException("singleSootMethodIntentFlowAnalysis出现错误！"+oneEdge.srcUnit());
                 }
 
-                if (!isOverallAnalysis) {
-                    parameterDataSet = new HashSet<>();//如果不采取全局分析，则让parameterDataSet一直为空
-                }
 
-                SingleSootMethodIntentFlowAnalysis oneSootMethodIntentFlowAnalysis = new SingleSootMethodIntentFlowAnalysis(briefUnitGraph, parameterDataSet);
+                SingleSootMethodIntentFlowAnalysis oneSootMethodIntentFlowAnalysis = new SingleSootMethodIntentFlowAnalysis(oneSootMethod,briefUnitGraph, parameterDataSet,isOverallAnalysis);
 
-                unitSingleSootMethodIntentFlowAnalysisMap.put(oneEdge.srcUnit(), oneSootMethodIntentFlowAnalysis);
+                edgeSingleSootMethodIntentFlowAnalysisMap.put(oneEdge, oneSootMethodIntentFlowAnalysis);
 
-                UnitToSootMethod unitToSootMethod = new UnitToSootMethod(oneEdge.srcUnit(), oneSootMethod);
+                EdgeToSootMethod edgeToSootMethod = new EdgeToSootMethod(oneEdge, oneSootMethod);
 
-                if (!visited.contains(unitToSootMethod)) {
-                    queue.add(unitToSootMethod);
+                if (!visited.contains(edgeToSootMethod)) {
+                    queue.add(edgeToSootMethod);
                 }
 
 
@@ -110,27 +155,27 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
     }
 
 
-
 }
-class UnitToSootMethod {//unit调用的sootmethod
-    Unit unit;
+
+class EdgeToSootMethod {//edge 中的srcUnit调用了sootmethod
+    Edge edge;
     SootMethod sootMethod;
+
+    public EdgeToSootMethod(Edge edge, SootMethod sootMethod) {
+        this.edge = edge;
+        this.sootMethod = sootMethod;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UnitToSootMethod that = (UnitToSootMethod) o;
-        return Objects.equals(unit, that.unit);
+        EdgeToSootMethod that = (EdgeToSootMethod) o;
+        return Objects.equals(edge, that.edge);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(unit);
-    }
-
-    public UnitToSootMethod(Unit unit, SootMethod sootMethod) {
-        this.unit = unit;
-        this.sootMethod = sootMethod;
+        return Objects.hash(edge);
     }
 }

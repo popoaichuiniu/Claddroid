@@ -11,7 +11,7 @@ import java.util.List;
 public class Config {
 
 
-    public static String androidJar = "/media/softdata/AndroidSDKdirectory/platforms";//public  static  String androidJar="/home/zms/platforms";
+    public static String androidJar = "/media/mobile/myExperiment/idea_ApkIntentAnalysis/platforms";//public  static  String androidJar="/home/zms/platforms";
 
 
     //app path
@@ -22,7 +22,7 @@ public class Config {
 
     public static String fDroidAPPDir = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/sootOutput";
 
-    public static String wandoijiaAPP = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/apks_wandoujia/apks/all_app";
+    public static String wandoijiaAPP = "/media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app";
     public static String selectAPP = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/selectAPP";
 
     public static String big_app_set = "/home/zms/benign_apps/2016";
@@ -40,7 +40,7 @@ public class Config {
 
     public static String defaultAppPath = "/media/mobile/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
 
-    public static String defaultAppDirPath=Config.repeatExperiment;
+    public static String defaultAppDirPath=Config.wandoijiaAPP;
 
 
     //log path
@@ -50,7 +50,7 @@ public class Config {
     public static String writeFileAppExceptionPathGenerateUnitNeedToAnalysis = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
 
-    public static String logDir = "logger_file";
+    public static String logDir = "/home/zms/logger_file";
 
 
     public static boolean isTest = false;

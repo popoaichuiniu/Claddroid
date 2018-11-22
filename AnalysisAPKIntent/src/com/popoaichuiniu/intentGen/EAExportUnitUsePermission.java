@@ -16,7 +16,7 @@ public class EAExportUnitUsePermission {
 
     private static String appDir = Config.xiaomiApp;
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/EAExportUnitUsePermission","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/EAExportUnitUsePermission","exceptionLogger").getLogger();
 
 
     public static void main(String[] args) {

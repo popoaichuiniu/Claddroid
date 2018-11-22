@@ -7,15 +7,15 @@ import java.util.Set;
 
 public class UnionFindForest<T>{
 
-    public Map<T, UnionFindNode> unionFindNodeMap =null;
+    public Map<T, unionFindNode> unionFindNodeMap =null;
 
-    public static class UnionFindNode<T> {
+    public static class unionFindNode<T> {
         int rank;
         T value;
-        UnionFindNode parent;
-        Set<UnionFindNode> children = new HashSet<>();
+        unionFindNode parent;
+        Set<unionFindNode> children = new HashSet<>();
 
-        public UnionFindNode(int rank, T value) {
+        public unionFindNode(int rank, T value) {
             this.rank = rank;
             this.value = value;
         }
@@ -28,10 +28,10 @@ public class UnionFindForest<T>{
 
     }
 
-    private Map<T, UnionFindNode> make_set(Set<T> valueSet) {
-        Map<T, UnionFindNode> map = new HashMap<>();
+    private Map<T, unionFindNode> make_set(Set<T> valueSet) {
+        Map<T, unionFindNode> map = new HashMap<>();
         for (T value : valueSet) {
-            UnionFindNode unionFindNode = new UnionFindNode(0, value);
+            unionFindNode unionFindNode = new unionFindNode(0, value);
             unionFindNode.parent = unionFindNode;
             map.put(value, unionFindNode);
         }
@@ -39,9 +39,9 @@ public class UnionFindForest<T>{
         return map;
     }
 
-    public static void UnionTwoNode(UnionFindNode a, UnionFindNode b) {
-        UnionFindNode x = find_set(a);
-        UnionFindNode y = find_set(b);
+    public static void unionTwoNode(unionFindNode a, unionFindNode b) {
+        unionFindNode x = find_set(a);
+        unionFindNode y = find_set(b);
         if (x == y) {
             return;
         }
@@ -50,11 +50,11 @@ public class UnionFindForest<T>{
 
     }
 
-    public static UnionFindNode find_set(UnionFindNode x) {
+    public static unionFindNode find_set(unionFindNode x) {
 
         if (x != x.parent) {
 
-            UnionFindNode root = find_set(x.parent);
+            unionFindNode root = find_set(x.parent);
             x.parent.children.remove(x);
             x.parent = root;
             root.children.add(x);
@@ -63,7 +63,7 @@ public class UnionFindForest<T>{
         return x.parent;
     }
 
-    public static void link(UnionFindNode x, UnionFindNode y) {
+    public static void link(unionFindNode x, unionFindNode y) {
         if (x.rank > y.rank) {
             y.parent = x;
             x.children.add(y);

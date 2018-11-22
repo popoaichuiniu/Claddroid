@@ -45,7 +45,7 @@ SOFTWARE.
  * may be extended to any arbitrary number of segments. If the navigation
  * is successful, the matched item is returned. A matched item may be a
  * JSONObject, a JSONArray, or a JSON value. If the JSONPointer string building 
- * fails, an appropriate exception is thrown. If the navigation fails to find
+ * fails, an appropriate exceptionLogger is thrown. If the navigation fails to find
  * a match, a JSONPointerException is thrown. 
  * 
  * @author JSON.org

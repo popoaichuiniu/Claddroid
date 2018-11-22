@@ -3,6 +3,7 @@ package com.popoaichuiniu.intentGen;
 import com.popoaichuiniu.jacy.CGExporter;
 import com.popoaichuiniu.util.MyLogger;
 import com.popoaichuiniu.util.WriteFile;
+import soot.Kind;
 import soot.MethodOrMethodContext;
 import soot.SootMethod;
 import soot.Unit;
@@ -24,7 +25,7 @@ public class MyCallGraph extends CallGraph {
 
     Map<SootMethod, Set<MyPairUnitToEdge>> targetUnitInSootMethod = new HashMap<SootMethod, Set<MyPairUnitToEdge>>();
 
-    Map<UnitToSootMethod, Set<MyPairUnitToEdge>> targetUnitInCallUnit = new HashMap<UnitToSootMethod, Set<MyPairUnitToEdge>>();
+    Map<EdgeToSootMethod, Set<MyPairUnitToEdge>> targetUnitInSootMethodOfThisEdgeCall = new HashMap<EdgeToSootMethod, Set<MyPairUnitToEdge>>();
 
     Map<SootMethod, Set<List<IntentConditionTransformSymbolicExcutation.TargetUnitInMethodInfo>>> identicalMyUnitGraphSetOfMethodMap = new HashMap<>();
 
@@ -42,6 +43,8 @@ public class MyCallGraph extends CallGraph {
     SootMethod dummyMainMethod = null;
 
     Unit dummyMainMethodUnit = null;
+
+    Edge dummyMainMethodUnitOfEdge =null;
 
 
     static {
@@ -85,17 +88,20 @@ public class MyCallGraph extends CallGraph {
 
         constructMyCallGraph(allMethodsInPathOfTarget, cg, targetSootMethod, new HashSet<>());
 
-        constructTargetUnitInCallUnit();
+
 
         validateTargetUnitInSootMethod(targetUnitInSootMethod);
         validateCallGraph(targetSootMethod);
 
 
+        long startTime=System.nanoTime();
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("开始数据流分析");
 
-        OverallIntentFlowAnalysis overallIntentFlowAnalysis = new OverallIntentFlowAnalysis(this, false);
+        OverallIntentFlowAnalysis overallIntentFlowAnalysis = new OverallIntentFlowAnalysis(intentConditionTransformSymbolicExcutation.appPath,this, false);
 
-        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("数据流分析结束！");
+        long endTime=System.nanoTime();
+
+        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("数据流分析结束！"+(((double) (endTime - startTime)) / 1E9));
 
 
         analyseEverySootMethodToGetMyUnitGraph(intentConditionTransformSymbolicExcutation, overallIntentFlowAnalysis);
@@ -103,21 +109,21 @@ public class MyCallGraph extends CallGraph {
 
     }
 
-    private void constructTargetUnitInCallUnit() {
+    protected void constructTargetUnitInCallEdge() {
 
 
-        SootMethod rootSootMethod = dummyMainMethod;
 
-        Queue<UnitToSootMethod> queue = new LinkedList<>();
 
-        Unit rootUnit = dummyMainMethodUnit;
+        Queue<EdgeToSootMethod> queue = new LinkedList<>();
 
-        queue.add(new UnitToSootMethod(rootUnit, rootSootMethod));
+        dummyMainMethodUnitOfEdge =new Edge(null,dummyMainMethodUnit,dummyMainMethod, Kind.ZMS_Set);
 
-        HashSet<UnitToSootMethod> visited = new HashSet<>();
+        queue.add(new EdgeToSootMethod(dummyMainMethodUnitOfEdge, dummyMainMethod));
+
+        HashSet<EdgeToSootMethod> visited = new HashSet<>();
 
         while (!queue.isEmpty()) {
-            UnitToSootMethod first = queue.poll();
+            EdgeToSootMethod first = queue.poll();
 
             visited.add(first);
 
@@ -128,15 +134,14 @@ public class MyCallGraph extends CallGraph {
             if (myPairUnitToEdgeSet == null) {
                 throw new RuntimeException("targetUnitInSootMethod构建出错" + intentConditionTransformSymbolicExcutation.appPath);
             }
-            targetUnitInCallUnit.put(first, myPairUnitToEdgeSet);
+            targetUnitInSootMethodOfThisEdgeCall.put(first, myPairUnitToEdgeSet);
 
 
             for (Edge oneEdge : outEdgesOfThisMethod.get(first.sootMethod)) {
                 SootMethod oneSootMethod = oneEdge.tgt();
-                Unit oneUnit = oneEdge.srcUnit();
-                UnitToSootMethod oneUnitToSootMethod = new UnitToSootMethod(oneUnit, oneSootMethod);
-                if (!visited.contains(oneUnitToSootMethod)) {
-                    queue.add(oneUnitToSootMethod);
+                EdgeToSootMethod oneEdgeToSootMethod = new EdgeToSootMethod(oneEdge, oneSootMethod);
+                if (!visited.contains(oneEdgeToSootMethod)) {
+                    queue.add(oneEdgeToSootMethod);
                 }
 
             }
@@ -206,12 +211,10 @@ public class MyCallGraph extends CallGraph {
     private void analyseEverySootMethodToGetMyUnitGraph(IntentConditionTransformSymbolicExcutation intentConditionTransformSymbolicExcutation, OverallIntentFlowAnalysis overallIntentFlowAnalysis) {
 
 
-        for (Map.Entry<UnitToSootMethod, Set<MyPairUnitToEdge>> oneEntry : this.targetUnitInCallUnit.entrySet()) {
+        for (Map.Entry<SootMethod, Set<MyPairUnitToEdge>> oneEntry : targetUnitInSootMethod.entrySet()) {
 
 
-            UnitToSootMethod oneUnitToSootMethod = oneEntry.getKey();
-
-            SootMethod oneSootMethod = oneUnitToSootMethod.sootMethod;
+            SootMethod oneSootMethod = oneEntry.getKey();//
 
 
             Set<MyPairUnitToEdge> oneMyPairUnitToEdgeSet = oneEntry.getValue();
@@ -221,7 +224,7 @@ public class MyCallGraph extends CallGraph {
 
                 if (onePair.srcUnit == null)//如果有的边的srcUnit就不分析它.
                 {
-                    WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/sootmethodEdgeNoSrcUnit.txt", true, intentConditionTransformSymbolicExcutation.logger);
+                    WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/sootmethodEdgeNoSrcUnit.txt", true, intentConditionTransformSymbolicExcutation.exceptionLogger);
                     writeFile.writeStr(oneSootMethod + "&&" + new File(intentConditionTransformSymbolicExcutation.appPath).getName() + "\n");
                     writeFile.close();
                     continue;
@@ -231,21 +234,21 @@ public class MyCallGraph extends CallGraph {
                 boolean hasInfo = false;
                 Map<Unit, IntentConditionTransformSymbolicExcutation.TargetUnitInMethodInfo> map = intentConditionTransformSymbolicExcutation.allSootMethodsAllUnitsTargetUnitInMethodInfo.get(oneSootMethod);
                 if (map != null) {
-                    IntentConditionTransformSymbolicExcutation.TargetUnitInMethodInfo targetUnitInMethodInfo = map.get(onePair.srcUnit);//已经分析过了，有信息了就不用再分析了。
+                    IntentConditionTransformSymbolicExcutation.TargetUnitInMethodInfo targetUnitInMethodInfo = map.get(onePair.srcUnit);
                     if (targetUnitInMethodInfo != null) {
-                        hasInfo = true;
+                        hasInfo = true;//已经分析过了，有信息了就不用再分析了。
                     }
                 }
 
                 if (!hasInfo) {
 
-                    SingleSootMethodIntentFlowAnalysis singleSootMethodIntentFlowAnalysis = OverallIntentFlowAnalysis.unitSingleSootMethodIntentFlowAnalysisMap.get(oneUnitToSootMethod.unit);//oneSootMethod的Unit
+                    SingleSootMethodIntentFlowAnalysis singleSootMethodIntentFlowAnalysis = OverallIntentFlowAnalysis.localSingleSootMethodIntentFlowAnalysisMap.get(oneSootMethod);
                     if (singleSootMethodIntentFlowAnalysis == null) {
-                        throw new RuntimeException("OverallIntentFlowAnalysis存在不完整！");
+                        throw new RuntimeException("OverallIntentFlowAnalysis分析不完整！");
                     }
                     BriefUnitGraph ug = OverallIntentFlowAnalysis.sootMethodBriefUnitGraphMap.get(oneSootMethod);
                     if (ug == null) {
-                        throw new RuntimeException("sootMethodBriefUnitGraphMap不完整！");
+                        throw new RuntimeException("sootMethodBriefUnitGraphMap分析不完整！");
                     }
                     SimpleLocalDefs defs = intentConditionTransformSymbolicExcutation.sootMethodSimpleLocalDefsMap.get(oneSootMethod);
 
@@ -346,7 +349,7 @@ public class MyCallGraph extends CallGraph {
         allMethods.add(tgt);
 
         if (!flag) {
-            intentConditionTransformSymbolicExcutation.logger.error("存在相同边！");
+            intentConditionTransformSymbolicExcutation.exceptionLogger.error("存在相同边！");
         }
 
 

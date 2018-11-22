@@ -19,7 +19,7 @@ public class SelectAPP {
 
     private static String appDir = Config.xiaomiApp;
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/SelectAPP","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/SelectAPP","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
         ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream("AnalysisAPKIntent/unitNeedAnalysisGenerate/dangerousPermission.txt",logger);

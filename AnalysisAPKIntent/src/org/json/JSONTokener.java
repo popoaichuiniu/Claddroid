@@ -477,7 +477,7 @@ public class JSONTokener {
             do {
                 c = this.next();
                 if (c == 0) {
-                    // in some readers, reset() may throw an exception if
+                    // in some readers, reset() may throw an exceptionLogger if
                     // the remaining portion of the input is greater than
                     // the mark size (1,000,000 above).
                     this.reader.reset();

@@ -1,11 +1,7 @@
 package com.popoaichuiniu.jacy;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -66,9 +62,22 @@ public class MyProcessManifest extends ProcessManifest {
 		}
 	}
 
-	private boolean judgeEA(AXmlNode node) {
-		// TODO Auto-generated method stub
-		return false;
+
+
+	public Map<String,AXmlNode> getSelfDefinePermissions()
+	{
+		List<AXmlNode> usesPerms = this.manifest.getChildrenWithTag("permission");
+		Map<String,AXmlNode> permissions=new HashMap<>();
+		for (AXmlNode perm : usesPerms) {
+			AXmlAttribute<?> name = perm.getAttribute("name");
+			if (name != null)
+			{
+				permissions.put(((String) name.getValue()).trim(),perm);
+			}
+
+
+		}
+		return permissions;
 	}
 
 }

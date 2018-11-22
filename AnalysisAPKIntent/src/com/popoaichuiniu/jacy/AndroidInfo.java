@@ -26,6 +26,8 @@ public class AndroidInfo {
     //private static String jellybean_allmappings="jellybean_allmappings.txt";//API=16,这个太老
 
     private static String permission_25 = "./AnalysisAPKIntent/permissions_25.json";//API=25 androguard提供
+    private static String all_permissions_25 = "./AnalysisAPKIntent/all_permissions_25.json";//API=25 androguard提供
+
     private static String dangerousOrSpecailPermissionFilePath = "./AnalysisAPKIntent/dangerousOrSpecialPermission_lose.txt";//存在API>=26
 
 
@@ -43,7 +45,7 @@ public class AndroidInfo {
     private Map<String, List<String>> EAProtctedPermission = null;//EA的permission
 
 
-    private Logger logger=null;
+    private Logger logger = null;
 
 
     private BufferedWriter androidAPKException = null;
@@ -62,6 +64,7 @@ public class AndroidInfo {
     private Map<String, Map<AXmlNode, String>> permissionProtectedComponents = null;
 
     static {
+        getAllPermissions();
         processJsonPermissionmapping();
 
     }
@@ -117,12 +120,11 @@ public class AndroidInfo {
     }
 
 
-
-
-    public AndroidInfo(String appPath,Logger logger) {
+    public AndroidInfo(String appPath, Logger logger) {
         super();
         this.appPath = appPath;
-        this.logger=logger;
+        this.logger = logger;
+        caculateSelfDefinePermission();
         calcaulateEAs();
         caculatePermissionProtectedEAs();
         caculatePermissionProtectedComponents();
@@ -139,6 +141,30 @@ public class AndroidInfo {
             e.printStackTrace();
         }
         return null;
+
+    }
+
+
+    private Map<String,AXmlNode> selfDefinePermissionsMap=null;
+
+    public Map<String, AXmlNode> getSelfDefinePermissionsMap() {
+        return selfDefinePermissionsMap;
+    }
+
+    private void caculateSelfDefinePermission() {
+        try {
+            MyProcessManifest processMan = new MyProcessManifest(appPath);
+            selfDefinePermissionsMap=processMan.getSelfDefinePermissions();
+
+
+        } catch (IOException e) {
+            String message = appPath + "&&" + "IOException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
+            logger.error(message);
+
+        } catch (XmlPullParserException e) {
+            String message = appPath + "&&" + "XmlPullParserException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
+            logger.error(message);
+        }
 
     }
 
@@ -184,13 +210,13 @@ public class AndroidInfo {
 
         } catch (IOException e) {
 
-            String message=appPath + "&&" + "IOException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
+            String message = appPath + "&&" + "IOException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
 
             logger.error(message);
 
 
         } catch (XmlPullParserException e) {
-            String message=appPath + "&&" + "XmlPullParserException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
+            String message = appPath + "&&" + "XmlPullParserException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e);
 
             logger.error(message);
         }
@@ -236,6 +262,15 @@ public class AndroidInfo {
 
             }
 
+        }else
+        {
+            //对于content provider 默认为true
+
+            if(node.getTag().equals("provider"))
+            {
+                return true;
+            }
+
         }
 
         if (node.getChildrenWithTag("intent-filter").size() > 0) {
@@ -263,7 +298,29 @@ public class AndroidInfo {
 
     }
 
+    private static Set<String> allPermissions = null;
+
+    public static Set<String> getAllPermissions() {
+
+
+        try {
+            allPermissions = new HashSet<>();
+            File jsonFile = new File(all_permissions_25);
+            String content = FileUtils.readFileToString(jsonFile, "UTF-8");
+            JSONObject jsonObject = new JSONObject(content);
+            allPermissions.addAll(jsonObject.keySet());
+
+        } catch (IOException e) {
+            Logger.getLogger(AndroidInfo.class).error(e.getMessage() + "##" + ExceptionStackMessageUtil.getStackTrace(e));
+        }
+
+        return allPermissions;
+
+
+    }
+
     public static void processJsonPermissionmapping() {
+
         permissionAndroguardMethods = new HashMap<>();
         permissionDangerousAndSpecialMethodsUltimulateString = new HashMap<String, List<String>>();
         System.out.println(new File(".").getAbsolutePath());
@@ -315,7 +372,7 @@ public class AndroidInfo {
 
 
         } catch (IOException e) {
-           Logger.getLogger(AndroidInfo.class).error(e.getMessage()+"##"+ExceptionStackMessageUtil.getStackTrace(e));
+            Logger.getLogger(AndroidInfo.class).error(e.getMessage() + "##" + ExceptionStackMessageUtil.getStackTrace(e));
         }
 
 
@@ -336,7 +393,7 @@ public class AndroidInfo {
         try {
             bufferedReader = new BufferedReader(new FileReader(dangerousOrSpecailPermissionFilePath));
         } catch (FileNotFoundException e) {
-            Logger.getLogger(AndroidInfo.class).error(e.getMessage()+"##"+ExceptionStackMessageUtil.getStackTrace(e));
+            Logger.getLogger(AndroidInfo.class).error(e.getMessage() + "##" + ExceptionStackMessageUtil.getStackTrace(e));
 
 
         }
@@ -352,7 +409,7 @@ public class AndroidInfo {
 
             }
         } catch (IOException e) {
-            Logger.getLogger(AndroidInfo.class).error(e.getMessage()+"##"+ExceptionStackMessageUtil.getStackTrace(e));
+            Logger.getLogger(AndroidInfo.class).error(e.getMessage() + "##" + ExceptionStackMessageUtil.getStackTrace(e));
         }
 
         return dangerousOrSpecialPermissions;
@@ -372,19 +429,25 @@ public class AndroidInfo {
             String componentName = eaNode.getKey();
 
             AXmlNode eaNodeAXMlValue = eaNode.getValue();
-            // System.out.println(eaNode.getAttribute("permission"));
-            AXmlAttribute<?> permissionAttribute = eaNodeAXMlValue.getAttribute("permission");//android:permission只会有一个
-            if (permissionAttribute != null) {
-                String value = (String) permissionAttribute.getValue();
-                System.out.println(value);
-                Map<AXmlNode, String> temp = new HashMap<AXmlNode, String>();
-                temp.put(eaNodeAXMlValue, value);
-                permissionProtectedEAs.put(componentName, temp);
+            //android:permission只会有一个
+            Map<String, AXmlAttribute<?>> attributeMap=eaNodeAXMlValue.getAttributes();
+            for(Map.Entry<String, AXmlAttribute<?>> entry:attributeMap.entrySet())
+            {
+                String attrName=entry.getKey().trim();
+                if(attrName.equals("permission")||attrName.equals("readPermission")||attrName.equals("writePermission"))
+                {
+                    String value = (String) entry.getValue().getValue();
+                    System.out.println(value);
+                    Map<AXmlNode, String> temp = new HashMap<AXmlNode, String>();
+                    temp.put(eaNodeAXMlValue, value);
+                    permissionProtectedEAs.put(componentName, temp);
 
-                List<String> permissionList = new ArrayList<>();
-                permissionList.add(value);
-                EAProtctedPermission.put(componentName, permissionList);//保护EA的权限
+                    List<String> permissionList = new ArrayList<>();
+                    permissionList.add(value);
+                    EAProtctedPermission.put(componentName, permissionList);//保护EA的权限
+                }
             }
+
 
         }
 

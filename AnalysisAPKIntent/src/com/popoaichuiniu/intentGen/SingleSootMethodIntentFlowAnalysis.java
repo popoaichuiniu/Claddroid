@@ -15,21 +15,28 @@ import java.util.*;
 public class SingleSootMethodIntentFlowAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Value>> {//终极ok
 
 
-
-
-
-
-
     private Set<Value> parameterDataSet = null;
 
-    private Map<Unit, Set<Value>> unitCallMethodIntentRelativeMap = new HashMap<>();
+    private Map<Unit, Set<Value>> unitCallMethodIntentRelativeMap = null;
 
-    public SingleSootMethodIntentFlowAnalysis(DirectedGraph<Unit> graph, Set<Value> parameterDataSet) {
+    private boolean isOveralIntentFlowAnalysis = false;
+
+    public SingleSootMethodIntentFlowAnalysis(SootMethod sootMethod, DirectedGraph<Unit> graph, Set<Value> parameterDataSet, boolean isOveralIntentFlowAnalysis) {
 
 
         super(graph);
 
+        this.isOveralIntentFlowAnalysis = isOveralIntentFlowAnalysis;
+
         this.parameterDataSet = parameterDataSet;
+
+        if (isOveralIntentFlowAnalysis) {
+
+            unitCallMethodIntentRelativeMap = new HashMap<>();
+        } else {
+            this.parameterDataSet = null;
+        }
+
 
         doAnalysis();
 
@@ -49,34 +56,35 @@ public class SingleSootMethodIntentFlowAnalysis extends ForwardFlowAnalysis<Unit
         //3.intent属性数据从类属性中取。（未考虑，考虑了intent来自field）
 
 
-        System.out.println(d);
-
         in.copy(out);
 
-        System.out.println("%%%%%%%"+d);
+        System.out.println("%%%%%%%" + d);
 
-        Stmt stmt= (Stmt) d;
+        Stmt stmt = (Stmt) d;
 
-        if(stmt.containsInvokeExpr())
-        {
-            InvokeExpr invokeExpr=stmt.getInvokeExpr();
 
-            HashSet<Value> intentDataValueSet=new HashSet<>();
+        if (isOveralIntentFlowAnalysis) {
 
-            for(int i=0;i<invokeExpr.getArgCount();i++)
-            {
+            HashSet<Value> intentDataValueSet = new HashSet<>();
+            if (stmt.containsInvokeExpr()) {
+                InvokeExpr invokeExpr = stmt.getInvokeExpr();
 
-                if(in.contains(invokeExpr.getArg(i)))
-                {
-                    intentDataValueSet.add(invokeExpr.getArg(i));
+
+                for (int i = 0; i < invokeExpr.getArgCount(); i++) {
+
+                    if (in.contains(invokeExpr.getArg(i))) {
+                        intentDataValueSet.add(invokeExpr.getArg(i));
+                    }
+
+
                 }
 
 
-
             }
+            unitCallMethodIntentRelativeMap.put(d, intentDataValueSet);//参数和intentdata有关，存储起来
 
-            unitCallMethodIntentRelativeMap.put(d,intentDataValueSet);//参数和intentdata有关，存储起来
         }
+
 
         if (d instanceof DefinitionStmt) {
             DefinitionStmt definitionStmt = (DefinitionStmt) d;
@@ -92,14 +100,11 @@ public class SingleSootMethodIntentFlowAnalysis extends ForwardFlowAnalysis<Unit
                     out.add(definitionStmt.getLeftOp());
 
 
-
-
                 } else if (definitionStmt.getRightOp() instanceof JVirtualInvokeExpr) {
                     JVirtualInvokeExpr jVirtualInvokeExpr = (JVirtualInvokeExpr) definitionStmt.getRightOp();
                     if (jVirtualInvokeExpr.getMethod().getName().equals("getIntent")) {//intent从getIntent方法中来
 
                         out.add(definitionStmt.getLeftOp());
-
 
 
                     }
@@ -115,15 +120,11 @@ public class SingleSootMethodIntentFlowAnalysis extends ForwardFlowAnalysis<Unit
                     if (invokeExpr.getBase().getType().toString().equals("android.content.Intent")) {
 
 
-
                         if (in.contains(invokeExpr.getBase()))//intent from in
                         {
                             out.add(definitionStmt.getLeftOp());
 
                         }
-
-
-
 
 
                     }
@@ -214,11 +215,14 @@ public class SingleSootMethodIntentFlowAnalysis extends ForwardFlowAnalysis<Unit
     @Override
     protected FlowSet<Value> entryInitialFlow() {
 
-        MyArraySparseSet myArraySparseSet=new MyArraySparseSet<>();
-        for(Value value:parameterDataSet)
-        {
-            myArraySparseSet.add(value);
+        MyArraySparseSet myArraySparseSet = new MyArraySparseSet<>();
+
+        if (isOveralIntentFlowAnalysis && parameterDataSet != null) {
+            for (Value value : parameterDataSet) {
+                myArraySparseSet.add(value);
+            }
         }
+
         return myArraySparseSet;
     }
 }

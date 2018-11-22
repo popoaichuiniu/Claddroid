@@ -141,7 +141,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         } catch (IOException e) {
 
 
-            logger.error(appPath + "&&" + "UnitsNeedAnalysis.txt出错");
+            exceptionLogger.error(appPath + "&&" + "UnitsNeedAnalysis.txt出错");
 
 
         }
@@ -156,7 +156,9 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     }
 
-    protected static Logger logger = new MyLogger(Config.writeFileAppExceptionPathSymboliExecution, "exception").getLogger();
+    protected static Logger exceptionLogger = new MyLogger(Config.writeFileAppExceptionPathSymboliExecution, "exceptionLogger").getLogger();
+
+    protected static Logger infoLogger = new MyLogger(Config.writeFileAppExceptionPathSymboliExecution, "info").getLogger();
 
     @Override
     protected void internalTransform(String phaseName, Map<String, String> options) {
@@ -164,8 +166,8 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             return;
         }
 
-        AndroidCallGraph androidCallGraph = new AndroidCallGraphProxy(appPath, Config.androidJar, logger).androidCallGraph;
-        AndroidInfo androidInfo = new AndroidInfo(appPath, logger);
+        AndroidCallGraph androidCallGraph = new AndroidCallGraphProxy(appPath, Config.androidJar, exceptionLogger).androidCallGraph;
+        AndroidInfo androidInfo = new AndroidInfo(appPath, exceptionLogger);
         packageName = androidInfo.getPackageName(appPath);
         eas = androidInfo.getEAs();
         List<SootMethod> ea_entryPoints = Util.getEA_EntryPoints(androidCallGraph, androidInfo);
@@ -173,7 +175,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         roMethods.add(androidCallGraph.getEntryPoint());
 
 
-        //testInitial(ea_entryPoints, roMethods, Scene.v().getApplicationClasses(), appPath,logger);//ok
+        //testInitial(ea_entryPoints, roMethods, Scene.v().getApplicationClasses(), appPath,exceptionLogger);//ok
 
 
         try {
@@ -187,15 +189,17 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
             }
 
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
 
-            logger.error(appPath + "&&" + "RunTimeException" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e));
+            exceptionLogger.error(appPath + "&&" + "exception" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e));
 
 
         }
 
-        WriteFile writeFile_intent_ulti = new WriteFile("AnalysisAPKIntent/intent_ulti/" + new File(appPath).getName() + ".txt", false, logger);
+        saveIntent(allIntentConditionOfOneApp, appPath);//所有intent结果（startPoint到tgtAPI）
 
+        //最终intent结果
+        WriteFile writeFile_intent_ulti = new WriteFile("AnalysisAPKIntent/intent_ulti/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
 
         ultiIntentSet = preProcess(ultiIntentSet);//将intent的num值和string处理
 
@@ -213,10 +217,12 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         }
 
-        IntentInfoFileGenerate.generateIntentInfoFile(appPath, intentInfoList);
-
-
         writeFile_intent_ulti.close();
+
+        IntentInfoFileGenerate.generateIntentInfoFile(appPath, intentInfoList);//产生test-app读取的测试用例文件
+
+
+
 
 
     }
@@ -224,8 +230,6 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     public static Set<IntentUnit> preProcess(Set<IntentUnit> ultiIntentSet) {
         Set<IntentUnit> newIntentUnitSet = new HashSet<>();
         for (IntentUnit intentUnit : ultiIntentSet) {
-
-
             //extra
             Set<IntentExtraKey> intentExtraKeySet = intentUnit.intent.myExtras;
             List<Set<IntentExtraKey>> intentExtraList = new ArrayList<>();
@@ -589,109 +593,114 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         //获得冲突intent//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        Map<String, Set<IntentUnitSootMethod>> actionMap = new HashMap<>();//action=null 表示action没有要求
-
-        Map<String, Set<IntentUnitSootMethod>> categoryMap = new HashMap<>();
-
-        Map<IntentExtraKey, Set<IntentUnitSootMethod>> extraMap = new HashMap<>();
-
-
-        for (IntentUnitSootMethod intentUnitSootMethod : intentUnitSootMethodHashSet) {
-
-            Set<IntentUnitSootMethod> actionSet = actionMap.get(intentUnitSootMethod.intent.action);
-            if (actionSet == null) {
-                actionSet = new HashSet<>();
-
-            }
-            actionSet.add(intentUnitSootMethod);
-
-            actionMap.put(intentUnitSootMethod.intent.action, actionSet);
-
-
-            for (String cate : intentUnitSootMethod.intent.categories) {
-
-                Set<IntentUnitSootMethod> categorySet = categoryMap.get(cate.replace("ZMS!", ""));
-
-                if (categorySet == null) {
-                    categorySet = new HashSet<>();
-                }
-                categorySet.add(intentUnitSootMethod);
-
-                categoryMap.put(cate.replace("ZMS!", ""), categorySet);
-            }
-
-
-            for (IntentExtraKey intentExtraKey : intentUnitSootMethod.intent.myExtras) {
-
-                Set<IntentUnitSootMethod> extraSet = extraMap.get(intentExtraKey);
-
-                if (extraSet == null) {
-                    extraSet = new HashSet<>();
-                }
-
-                extraSet.add(intentUnitSootMethod);
-
-                extraMap.put(intentExtraKey, extraSet);
-            }
-
-        }
-
-        Set<IntentUnitSootMethod> actionConflictIntentSet = new HashSet<>();
-
-        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : actionMap.entrySet()) {
-
-            if (entry.getKey() != null) {
-                actionConflictIntentSet.addAll(entry.getValue());
-            }
-        }
-
-
-        Map<String, Set<IntentUnitSootMethod>> categoryConflictIntentMap = new HashMap<>();
-        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : categoryMap.entrySet())//如果存在一个intent含有"ZMS！entry.getKey()",则存在冲突
-        {
-            Set<IntentUnitSootMethod> categoryConflictIntentSet = new HashSet<>();
-            for (IntentUnitSootMethod intentUnitSootMethod : entry.getValue()) {
-                for (String cate : intentUnitSootMethod.intent.categories) {
-                    if (cate.contains(entry.getKey()) && cate.startsWith("ZMS!")) {
-                        categoryConflictIntentSet.addAll(entry.getValue());
-                        categoryConflictIntentMap.put(entry.getKey(), categoryConflictIntentSet);
-                    }
-                }
-            }
-        }
-
-
-        Map<IntentExtraKey, Set<IntentUnitSootMethod>> extraConflictIntentMap = new HashMap<>();
-
-
-        for (Map.Entry<IntentExtraKey, Set<IntentUnitSootMethod>> entry : extraMap.entrySet()) {
-            Set<IntentUnitSootMethod> extraConflictIntentSet = new HashSet<>();
-            if (entry.getValue().size() >= 2) {
-                if (isNumberType(entry.getKey())) {
-                    continue;//都是直接合并，不会产生冲突
-                }
-
-                extraConflictIntentMap.put(entry.getKey(), entry.getValue());
-
-            }
-        }
-
-
-        methodsActionConflict = getAllIntentUnitSootMethodReachSet(actionConflictIntentSet, myCallGraph);
-
-        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : categoryConflictIntentMap.entrySet()) {
-            methodsCategoryConflict.put(entry.getKey(), getAllIntentUnitSootMethodReachSet(entry.getValue(), myCallGraph));
-        }
-
-        for (Map.Entry<IntentExtraKey, Set<IntentUnitSootMethod>> entry : extraConflictIntentMap.entrySet()) {
-            methodsExtraConflict.put(entry.getKey(), getAllIntentUnitSootMethodReachSet(entry.getValue(), myCallGraph));
-        }
+//        long startTime=System.nanoTime();
+//        Map<String, Set<IntentUnitSootMethod>> actionMap = new HashMap<>();//action=null 表示action没有要求
+//
+//        Map<String, Set<IntentUnitSootMethod>> categoryMap = new HashMap<>();
+//
+//        Map<IntentExtraKey, Set<IntentUnitSootMethod>> extraMap = new HashMap<>();
+//
+//
+//        for (IntentUnitSootMethod intentUnitSootMethod : intentUnitSootMethodHashSet) {
+//
+//            Set<IntentUnitSootMethod> actionSet = actionMap.get(intentUnitSootMethod.intent.action);
+//            if (actionSet == null) {
+//                actionSet = new HashSet<>();
+//
+//            }
+//            actionSet.add(intentUnitSootMethod);
+//
+//            actionMap.put(intentUnitSootMethod.intent.action, actionSet);
+//
+//
+//            for (String cate : intentUnitSootMethod.intent.categories) {
+//
+//                Set<IntentUnitSootMethod> categorySet = categoryMap.get(cate.replace("ZMS!", ""));
+//
+//                if (categorySet == null) {
+//                    categorySet = new HashSet<>();
+//                }
+//                categorySet.add(intentUnitSootMethod);
+//
+//                categoryMap.put(cate.replace("ZMS!", ""), categorySet);
+//            }
+//
+//
+//            for (IntentExtraKey intentExtraKey : intentUnitSootMethod.intent.myExtras) {
+//
+//                Set<IntentUnitSootMethod> extraSet = extraMap.get(intentExtraKey);
+//
+//                if (extraSet == null) {
+//                    extraSet = new HashSet<>();
+//                }
+//
+//                extraSet.add(intentUnitSootMethod);
+//
+//                extraMap.put(intentExtraKey, extraSet);
+//            }
+//
+//        }
+//
+//        Set<IntentUnitSootMethod> actionConflictIntentSet = new HashSet<>();
+//
+//        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : actionMap.entrySet()) {
+//
+//            if (entry.getKey() != null) {
+//                actionConflictIntentSet.addAll(entry.getValue());
+//            }
+//        }
+//
+//
+//        Map<String, Set<IntentUnitSootMethod>> categoryConflictIntentMap = new HashMap<>();
+//        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : categoryMap.entrySet())//如果存在一个intent含有"ZMS！entry.getKey()",则存在冲突
+//        {
+//            Set<IntentUnitSootMethod> categoryConflictIntentSet = new HashSet<>();
+//            for (IntentUnitSootMethod intentUnitSootMethod : entry.getValue()) {
+//                for (String cate : intentUnitSootMethod.intent.categories) {
+//                    if (cate.contains(entry.getKey()) && cate.startsWith("ZMS!")) {
+//                        categoryConflictIntentSet.addAll(entry.getValue());
+//                        categoryConflictIntentMap.put(entry.getKey(), categoryConflictIntentSet);
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//        Map<IntentExtraKey, Set<IntentUnitSootMethod>> extraConflictIntentMap = new HashMap<>();
+//
+//
+//        for (Map.Entry<IntentExtraKey, Set<IntentUnitSootMethod>> entry : extraMap.entrySet()) {
+//
+//            if (entry.getValue().size() >= 2) {
+//                if (isNumberType(entry.getKey())) {
+//                    continue;//都是直接合并，不会产生冲突
+//                }
+//
+//                extraConflictIntentMap.put(entry.getKey(), entry.getValue());
+//
+//            }
+//        }
+//
+//
+//        methodsActionConflict = getAllIntentUnitSootMethodReachSet(actionConflictIntentSet, myCallGraph);
+//
+//        for (Map.Entry<String, Set<IntentUnitSootMethod>> entry : categoryConflictIntentMap.entrySet()) {
+//            methodsCategoryConflict.put(entry.getKey(), getAllIntentUnitSootMethodReachSet(entry.getValue(), myCallGraph));
+//        }
+//
+//        for (Map.Entry<IntentExtraKey, Set<IntentUnitSootMethod>> entry : extraConflictIntentMap.entrySet()) {
+//            methodsExtraConflict.put(entry.getKey(), getAllIntentUnitSootMethodReachSet(entry.getValue(), myCallGraph));
+//        }
+//
+//        long endTime=System.nanoTime();
+//
+//        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info((((double)(endTime-startTime))/1E9)+"##"+"查找冲突路径"+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit);
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        Map<SootMethod, Set<Intent>> sootMethodIntentConditionSummary = new HashMap<>();//这是结果
+        Map<SootMethod, Set<Intent>> sootMethodIntentConditionSummary = new HashMap<>();//这是结果！！！
         Set<List<SootMethod>> sootMethodCallFinalPaths = new HashSet<>();
         //正向路径
 
@@ -700,24 +709,34 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         }
 
         hasReachCallGraphBranchLimit = false;
+        long startTime=System.nanoTime();
         getCallPathSootMethod(myCallGraph.dummyMainMethod, new ArrayList<SootMethod>(), myCallGraph, null, new HashSet<Edge>(), sootMethodCallFinalPaths, sootMethodSetIntentCondition, sootMethodIntentConditionSummary, 1);
+        long endTime=System.nanoTime();
+        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info((((double)(endTime-startTime))/1E9)+"##"+"DFS融合Intent"+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit);
         if (hasReachCallGraphBranchLimit) {
+            infoLogger.warn(appPath);
 
             File callgraphLimitFile = new File("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt");
             if (callgraphLimitFile.exists()) {
 
-                ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", logger);
+                ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", exceptionLogger);
                 Set<String> contentSet = readFileOrInputStream.getAllContentLinSet();
                 if (!contentSet.contains(appPath)) {
-                    WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, logger);
+                    WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, exceptionLogger);
                     writeFileCallGraphReachLimit.writeStr(appPath + "\n");
                     writeFileCallGraphReachLimit.close();
                 }
             } else {
-                WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, logger);
+                WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, exceptionLogger);
                 writeFileCallGraphReachLimit.writeStr(appPath + "\n");
                 writeFileCallGraphReachLimit.close();
             }
+
+
+            WriteFile writeFileCallGraphReachLimitRepeat = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimitRepeat.txt", true, exceptionLogger);
+            writeFileCallGraphReachLimitRepeat.writeStr(appPath+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit+"##"+"callgraphLimit" + "\n");
+            writeFileCallGraphReachLimitRepeat.close();
+            MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).warn(appPath+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit+"##"+"callgraphLimit");
 
 
             return;
@@ -798,7 +817,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     }
 
 
-    class IntentUnitSootMethod {
+    class IntentUnitSootMethod {//sootMethod中的unit到sootMethod起始点的Intent condition
         Intent intent;//key
         Unit unit;
         SootMethod sootMethod;
@@ -920,7 +939,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("开始约简unitgraph" + sootMethod.getBytecodeSignature() + "#" + myPairUnitToEdge.srcUnit);
 
-        MyUnitGraph myUnitGraph = new MyUnitGraph(sootMethod.getActiveBody(), myPairUnitToEdge.srcUnit, appPath, logger);
+        MyUnitGraph myUnitGraph = new MyUnitGraph(sootMethod.getActiveBody(), myPairUnitToEdge.srcUnit, appPath, exceptionLogger);
 
         myUnitGraph.reducedCFG(ug, intentFlowAnalysis, defs);
 
@@ -977,7 +996,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("分析所有路径完成");
 
         if (intentSetBetweenTwoPoints.getValue0()) {
-            allIntentConditionOfOneApp.addAll(intentSetBetweenTwoPoints.getValue1());
+            allIntentConditionOfOneApp.addAll(intentSetBetweenTwoPoints.getValue1());//targetUnit到方法起始点的Intent condition
         }
 
 
@@ -1149,7 +1168,10 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         }
 
         //将不冲突的intent合并,减少intent数量
-        hashSetParentSummary = joinIntentSet(hashSetParentSummary, sootMethod);
+        int preSize=hashSetParentSummary.size();
+        //hashSetParentSummary = joinIntentSet(hashSetParentSummary, sootMethod);
+        int afterSize=hashSetParentSummary.size();
+        infoLogger.info("单个方法Intent数量："+"pre:"+preSize+" ^^ "+"after:"+afterSize+"##"+appPath);
         sootMethodIntentConditionSummary.put(sootMethod, hashSetParentSummary);
 
         return hashSetParentSummary;
@@ -1175,17 +1197,14 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         for (Map.Entry<String, Set<Intent>> entryActionIntentSet : similarActionKeyMap.entrySet()) {
 
-            Set<Intent> returnIntentSet = new HashSet<>();
 
             Map<IntentExtraKey, Set<IntentExtraValue>> similarExtraKeyTypeMap = new HashMap<>();//根据intentExtra归类
             Map<String, Set<String>> categoryHashMap = new HashMap<>();//根据category归类
-            String action = entryActionIntentSet.getKey();
 
             Set<Intent> similarActionSet = entryActionIntentSet.getValue();
 
             for (Intent oneIntent : similarActionSet) {
                 for (IntentExtraKey intentExtraKey : oneIntent.myExtras) {
-
 
                     Set<IntentExtraValue> similarIntentExtraKeyTypeSet = similarExtraKeyTypeMap.get(intentExtraKey);
                     if (similarIntentExtraKeyTypeSet == null) {
@@ -1203,7 +1222,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                     if (similarCategorySet == null) {
                         similarCategorySet = new HashSet<>();
                     }
-                    similarCategorySet.add(cate);
+                    similarCategorySet.add(cate);//包含ZMS！A  和A
                     categoryHashMap.put(cate.replaceFirst("ZMS!", ""), similarCategorySet);
 
 
@@ -1214,12 +1233,10 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
             Set<IntentExtraKey> commonExtra = new HashSet<>();
 
-            Map<IntentExtraKey, Set<IntentExtraValue>> extraSetDifferentHashMap = new HashMap<>();
-
 
             Set<String> commonCategory = new HashSet<>();
 
-            Map<String, Set<String>> categoryDifferentHashMap = new HashMap<>();
+
 
 
             for (Map.Entry<IntentExtraKey, Set<IntentExtraValue>> entryExtra : similarExtraKeyTypeMap.entrySet()) {
@@ -1228,53 +1245,71 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                     Set<SootMethod> sootMethodSet = methodsExtraConflict.get(entryExtra.getKey());
                     if (sootMethodSet != null && sootMethodSet.contains(curSootMethod)) {
                         //之后会有冲突。
+                        //这个IntentExtraValue 会和之后的Intent冲突，如果其和其他融合（设为B）会生成一个新的Intent,则这个新的Intent之后会被丢弃掉。但是之后的条件和B可能是可满足的
                     } else {
                         commonExtra.add(new IntentExtraKey(entryExtra.getValue().iterator().next()));
                     }
 
 
-                } else {
-                    extraSetDifferentHashMap.put(entryExtra.getKey(), entryExtra.getValue());
                 }
             }
 
 
             for (Map.Entry<String, Set<String>> entryCategory : categoryHashMap.entrySet()) {
-                if (entryCategory.getValue().size() <= 1) {
-                    commonCategory.add(entryCategory.getValue().iterator().next());
-                } else {
-                    categoryDifferentHashMap.put(entryCategory.getKey(), entryCategory.getValue());
+                if (entryCategory.getValue().size() <= 1) {//entryCategory.getValue()大于1 说明这个entryCategory.getKey（）（设为A）, 存在ZMS！A
+                    Set<SootMethod> sootMethodSet = methodsCategoryConflict.get(entryCategory.getKey());
+                    if(sootMethodSet!=null&&sootMethodSet.contains(curSootMethod))
+                    {
+
+                    }
+                    else
+                    {
+                        commonCategory.add(entryCategory.getValue().iterator().next());
+                    }
+
                 }
             }
 
-            for (Intent intent : similarActionSet)//将一些公共的加到每一个相同action的intent上，这样，如果加完之后，如果存在相同intent会去重复。
+            for (Intent intent : similarActionSet)//将一些公共的加到每一个相同action的intent上.
             {
                 intent.categories.addAll(commonCategory);
 
                 intent.myExtras.addAll(commonExtra);
             }
 
-            List<Intent> intentList = new ArrayList<>(similarActionSet);
 
-            Set<Intent> newIntentSet = new HashSet<>(similarActionSet);
 
+            Set<Intent> newIntentSet = new HashSet<>(similarActionSet);//去除相等intent
+
+
+            //**********************如果一个intent包含一个intent去除子Intent****************
+
+            List<Intent> intentList = new ArrayList<>(newIntentSet);
             Set<Intent> removeIntentSet = new HashSet<>();
             for (int i = 0; i < intentList.size(); i++) {
 
-                    for (int j = i + 1; j < intentList.size(); j++) {
-                        if (intentList.get(i).contains(intentList.get(j))) {
-                            removeIntentSet.add(intentList.get(j));
-                        }
-                        else if(intentList.get(j).contains(intentList.get(i)))
-                        {
-                            removeIntentSet.add(intentList.get(i));
-                        }
+                for (int j = i + 1; j < intentList.size(); j++) {
+                    if (intentList.get(i).contains(intentList.get(j))) {//1
+                        removeIntentSet.add(intentList.get(j));
+                    }
+                    else if(intentList.get(j).contains(intentList.get(i)))//2
+                    {
+                        removeIntentSet.add(intentList.get(i));
+                    }
+
+                    //1,2 总是将较小的intent加入removeIntentSet
 
 
                 }
             }
 
             newIntentSet.removeAll(removeIntentSet);
+
+            //*************************************************
+
+
+
+
 
             allReturnIntentSet.addAll(newIntentSet);
 
@@ -1571,11 +1606,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             Map<String, String> model = ret.getValue0();
             Boolean isSat = ret.getValue1();
             if (!isSat) {
-                //logger.debug("path is infeasible");
+                //exceptionLogger.debug("path is infeasible");
                 isPathFeasible = false;
 
             } else {
-                //logger.debug("path is feasible---here is a solution");
+                //exceptionLogger.debug("path is feasible---here is a solution");
                 isPathFeasible = true;
 
                 Map<String, String> intentActionSymbols = new LinkedHashMap<String, String>();
@@ -1584,10 +1619,10 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                     Matcher m = p.matcher(expr);
                     while (m.find()) {
                         String intentSymbol = m.group(1);
-                        //logger.info("intent symbol for action: " + intentSymbol);
+                        //exceptionLogger.info("intent symbol for action: " + intentSymbol);
 
                         String actionStrSymbol = m.group(2);
-                        //logger.info("action symbol: " + actionStrSymbol);
+                        //exceptionLogger.info("action symbol: " + actionStrSymbol);
 
                         intentActionSymbols.put(intentSymbol, actionStrSymbol);//
                     }
@@ -1719,11 +1754,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 //                for (Map.Entry<String, String> entry : model.entrySet()) {//model里的是一个变量和一个值 变量=值
 //                    String symbol = entry.getKey();
 //                    String generatedValue = entry.getValue();
-//                    //logger.debug(symbol + ": " + generatedValue);
+//                    //exceptionLogger.debug(symbol + ": " + generatedValue);
 //
 //                    Quartet<String, String, String, String> genDatum = generateDatum(symbol, generatedValue, extraLocalKeys);//获取extra的值
 //					/*if (genDatum == null) {
-//						logger.warn("Skipping generation of extra datum for " + symbol);
+//						exceptionLogger.warn("Skipping generation of extra datum for " + symbol);
 //						continue;
 //					}*/
 //
@@ -1744,7 +1779,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                     Matcher m = p.matcher(expr);
                     while (m.find()) {
                         String category = m.group(1);
-                        //logger.info("Found category: " + category);
+                        //exceptionLogger.info("Found category: " + category);
                         categories.add(category);
                     }
                 }
@@ -1755,12 +1790,12 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 					Matcher m = p.matcher(expr);
 					while (m.find()) {
 						String key = m.group(1);
-						logger.info(("Found extra key: " + key));
+						exceptionLogger.info(("Found extra key: " + key));
 						Triplet<String,String,String> extraDatum = new Triplet(null,key,null);
 						extraData.add(extraDatum);
 					}
 				}*/
-                //logger.debug("");
+                //exceptionLogger.debug("");
             }
         } catch (Z3Exception e) {
             e.printStackTrace();
@@ -1849,8 +1884,8 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
             outSpec += "(check-sat-using (then qe smt))\n";
             outSpec += "(get-model)\n";
-            //logger.debug("z3 specification sent to solver:");
-            //logger.debug(outSpec);
+            //exceptionLogger.debug("z3 specification sent to solver:");
+            //exceptionLogger.debug(outSpec);
             System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&finalSolve&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
             System.out.println(outSpec);
 
@@ -1878,7 +1913,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             if (errCode != 0) {
                 String errorOut = convertStreamToString(p.getErrorStream());
                 System.out.println("errCode:" + errCode + "*" + errorOut + "*");
-                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "errorSymbolicExcuation.txt", true, logger);
+                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "errorSymbolicExcuation.txt", true, exceptionLogger);
                 writeFile.writeStr(outSpec + "\n" + "errCode:" + errCode + "*" + returnedOutput + "*" + "\n");
                 writeFile.close();
             }
@@ -1913,7 +1948,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                 isSat = true;
         }
         if (!isSat) {
-            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "ifeasiblePath.txt", true, logger);
+            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "ifeasiblePath.txt", true, exceptionLogger);
             writeFile.writeStr("11111111111111111111111111111111111111111111111111111" + new File(appPath).getName() + "\n");
             writeFile.writeStr(outSpec + "\n");
             writeFile.writeStr("22222222222222222222222222222222222222222222222222222\n");
@@ -1984,7 +2019,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                         if (strVar2.contains("\"")) {
                             hasStringConstantSet.add(strVar1);
                         } else {
-                            unionFindForest.UnionTwoNode(unionFindForest.unionFindNodeMap.get(strVar1), unionFindForest.unionFindNodeMap.get(strVar2));
+                            unionFindForest.unionTwoNode(unionFindForest.unionFindNodeMap.get(strVar1), unionFindForest.unionFindNodeMap.get(strVar2));
                         }
 
                     }
@@ -1995,7 +2030,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                         if (strVar1.contains("\"")) {
                             hasStringConstantSet.add(strVar2);
                         } else {
-                            unionFindForest.UnionTwoNode(unionFindForest.unionFindNodeMap.get(strVar1), unionFindForest.unionFindNodeMap.get(strVar2));
+                            unionFindForest.unionTwoNode(unionFindForest.unionFindNodeMap.get(strVar1), unionFindForest.unionFindNodeMap.get(strVar2));
                         }
                     }
 
@@ -2005,18 +2040,18 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         }
 
-        HashSet<UnionFindForest.UnionFindNode> rootSet = new HashSet<>();
+        HashSet<UnionFindForest.unionFindNode> rootSet = new HashSet<>();
 
-        for (Map.Entry<String, UnionFindForest.UnionFindNode> entry : unionFindForest.unionFindNodeMap.entrySet()) {
-            UnionFindForest.UnionFindNode unionFindNode = entry.getValue();
+        for (Map.Entry<String, UnionFindForest.unionFindNode> entry : unionFindForest.unionFindNodeMap.entrySet()) {
+            UnionFindForest.unionFindNode unionFindNode = entry.getValue();
             if (unionFindNode.parent == unionFindNode) {
                 rootSet.add(unionFindNode);
             }
         }
 
         for (String hasValueStrVar : hasStringConstantSet) {
-            UnionFindForest.UnionFindNode unionFindNode = unionFindForest.unionFindNodeMap.get(hasValueStrVar);
-            UnionFindForest.UnionFindNode hasValueRootNode = unionFindForest.find_set(unionFindNode);
+            UnionFindForest.unionFindNode unionFindNode = unionFindForest.unionFindNodeMap.get(hasValueStrVar);
+            UnionFindForest.unionFindNode hasValueRootNode = unionFindForest.find_set(unionFindNode);
             if (hasValueRootNode == null) {
                 throw new RuntimeException("算法错误！");
             } else {
@@ -2024,7 +2059,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             }
         }
 
-        for (UnionFindForest.UnionFindNode unionFindNode : rootSet) {
+        for (UnionFindForest.unionFindNode unionFindNode : rootSet) {
             addAssertSet.add("(assert (= " + unionFindNode.value + " " + "\"!0!\"" + "))");
         }
 
@@ -2510,7 +2545,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     private boolean isDefInPathAndLatest(List<Unit> path, Unit inDef, Local usedLocal, Unit usedUnit, SimpleLocalDefs defs) {//---------------------------------------
         if (!myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
-            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "Error.txt", true, logger);
+            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "Error.txt", true, exceptionLogger);
             writeFile.writeStr(usedUnit + " " + appPath + "\n");
             writeFile.close();
         }
@@ -2528,7 +2563,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                 if (inDefPos > argDef2Pos) { // if inDef's position in the path is earlier then otherDef's position, then inDef is not the latest definition in the path, so return false
 
                     //-------------是可能的，可能的for循环中的i
-                    WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isDefInPathAndLatest.txt", true, logger);
+                    WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isDefInPathAndLatest.txt", true, exceptionLogger);
                     writeFile.writeStr(usedLocal + " " + inDef + " " + otherDef + " #" + usedUnit + "# " + appPath + "\n");
                     writeFile.close();
                     return false;
@@ -2537,7 +2572,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             return true; // inDef is in the path and is the latest definition along that path
         } else { // inDef is not in the path, so return false
             if ((!myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(inDef)) && myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
-                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isDefInPathAndLatest.txt", true, logger);
+                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isDefInPathAndLatest.txt", true, exceptionLogger);
                 writeFile.writeStr(usedLocal + " " + inDef + " " + "not in path" + " #" + usedUnit + "# " + appPath + "\n");
                 writeFile.close();
             }
@@ -2611,7 +2646,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
 
         if (new File("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/if.txt").length() < 104857600) {
-            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/if.txt", true, logger);
+            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/if.txt", true, exceptionLogger);
             writeFile.writeStr(conditionLeft.getType().toString() + "***" + condition + "$$$" + conditionRight.getType().toString() + "###" + ifStmt + "\n");
             writeFile.close();
         }
@@ -2908,7 +2943,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         //生成if的表达式
         Set<String> returnExprs = new LinkedHashSet<String>();
         if (opVal1DefUnit == null && opVal2DefUnit == null && opVal1Assert == null && opVal2Assert == null) {
-            //logger.debug("No new information from this if stmt, so returning empty set of expressions");
+            //exceptionLogger.debug("No new information from this if stmt, so returning empty set of expressions");
             return returnExprs;
         }
 
@@ -2958,25 +2993,25 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             String opExpr2 = null;
             try {
                 if (opVal1 == null) {
-                    //logger.debug("Could not resolve opVal1, so setting it to true");
+                    //exceptionLogger.debug("Could not resolve opVal1, so setting it to true");
                     opExpr1 = "";
                 } else {
                     opExpr1 = createZ3Expr(opVal1, ifStmt, opVal1DefUnit, sootMethod, decls);
                 }
 
                 if (opVal2 == null) {
-                    //logger.debug("Could not resolve opVal2, so setting it to true");
+                    //exceptionLogger.debug("Could not resolve opVal2, so setting it to true");
                     opExpr2 = "";
                 } else {
                     opExpr2 = createZ3Expr(opVal2, ifStmt, opVal2DefUnit, sootMethod, decls);
                 }
             } catch (RuntimeException e) {
-                //logger.warn("caught exception: ", e);
+                //exceptionLogger.warn("caught exceptionLogger: ", e);
                 return null;
             }
 
             if (opExpr1 == opExpr2 && opExpr1 == null) {//---------------------------------
-                //logger.debug("op1 and op2 are both null, so just returning true expression");
+                //exceptionLogger.debug("op1 and op2 are both null, so just returning true expression");
                 return Collections.singleton(returnExpr);
             }
             returnExpr = buildZ3CondExpr(opExpr1, opExpr2, branchSensitiveSymbol);
@@ -3028,7 +3063,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                         continue;
                     }
                     if (potentialCmpUnit.toString().contains("cmp")) {
-                        //logger.debug("Found potential cmp* statement: " + potentialCmpUnit);
+                        //exceptionLogger.debug("Found potential cmp* statement: " + potentialCmpUnit);
                         if (potentialCmpUnit instanceof DefinitionStmt) {
                             DefinitionStmt defStmt = (DefinitionStmt) potentialCmpUnit;
                             Value rightOp = defStmt.getRightOp();
@@ -3155,12 +3190,12 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                 condExpr = "(assert (<= " + opExpr1 + " " + opExpr2 + "))";
                 break;
         }
-        //logger.debug(Utils.createTabsStr(tabs) + "z3 conditional expr: " + condExpr);
+        //exceptionLogger.debug(Utils.createTabsStr(tabs) + "z3 conditional expr: " + condExpr);
 
         if (condExpr == null) {
-            //logger.error("currExpr should not be null");
-            //logger.debug("opExpr1: " + opExpr1);
-            //logger.debug("opExpr2: " + opExpr2);
+            //exceptionLogger.error("currExpr should not be null");
+            //exceptionLogger.debug("opExpr1: " + opExpr1);
+            //exceptionLogger.debug("opExpr2: " + opExpr2);
             MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).error("currExpr should not be null");
             throw new RuntimeException("currExpr should not be null");
         }
@@ -3201,7 +3236,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             opExpr = "\"" + strConst.value + "\"";
         } else if (opVal instanceof JimpleLocal) {
             JimpleLocal opLocal = (JimpleLocal) opVal;
-            //logger.debug(Utils.createTabsStr(tabs + 1) + "opLocal type: " + opLocal.getType());
+            //exceptionLogger.debug(Utils.createTabsStr(tabs + 1) + "opLocal type: " + opLocal.getType());
 
             String symbol = null;
 
@@ -3257,7 +3292,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                     break;
                 default:
                     // object is an arbitrary type so we'll mark it as null or not null
-                    //logger.debug("Creating object with symbol: " + symbol + " for Local " + opLocal + " in " + method);
+                    //exceptionLogger.debug("Creating object with symbol: " + symbol + " for Local " + opLocal + " in " + method);
                     newDecl = "(declare-const " + symbol + " Object )";
                     opExpr = symbol;
             }
@@ -4322,9 +4357,9 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     public static void main(String[] args) {
 
 
-        writeFileCallGraphSize = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "callGraphSize.txt", false, logger);
-        appUnitGraphPathReducedReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "appUnitGraphReachLimit.txt", false, logger);
-        ifReducedWriter = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "if_reduced.txt", false, logger);
+        writeFileCallGraphSize = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "callGraphSize.txt", false, exceptionLogger);
+        appUnitGraphPathReducedReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "appUnitGraphReachLimit.txt", false, exceptionLogger);
+        ifReducedWriter = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "if_reduced.txt", false, exceptionLogger);
 
 
         String appDir = null;
@@ -4341,7 +4376,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         if (appDirFile.isDirectory()) {
 
 
-            Set<String> hasAnalysisAPP = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", logger).getAllContentLinSet();
+            Set<String> hasAnalysisAPP = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", exceptionLogger).getAllContentLinSet();
 
 
             for (File file : appDirFile.listFiles()) {
@@ -4365,15 +4400,15 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                             long endTime = System.nanoTime();
 
 
-                            WriteFile writeFileHasBeenProcessedApp = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", true, logger);
+                            WriteFile writeFileHasBeenProcessedApp = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", true, exceptionLogger);
                             writeFileHasBeenProcessedApp.writeStr(file.getAbsolutePath() + "\n");
                             writeFileHasBeenProcessedApp.close();
 
-                            WriteFile writeFileTimeUse = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "timeUse.txt", true, logger);
+                            WriteFile writeFileTimeUse = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "timeUse.txt", true, exceptionLogger);
                             writeFileTimeUse.writeStr(((((double) (endTime - startTime)) / 1E9) + "," + file.getAbsolutePath() + "\n"));
                             writeFileTimeUse.close();
 
-                            saveIntent(intentConditionTransform.allIntentConditionOfOneApp, file.getAbsolutePath());
+
                             MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info(file.getAbsolutePath() + "分析结束" + "\n");
 
 
@@ -4401,7 +4436,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
             IntentConditionTransformSymbolicExcutation intentConditionTransform = new IntentConditionTransformSymbolicExcutation(appDir);
             intentConditionTransform.run();
-            saveIntent(intentConditionTransform.allIntentConditionOfOneApp, appDir);
+
 
 
         }
@@ -4415,15 +4450,15 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     }
 
-    private static void saveIntent(HashSet<Intent> allIntentConditionOfOneApp, String appPath) {
+    private  void saveIntent(HashSet<Intent> allIntentConditionOfOneApp, String appPath) {
 
 
-        WriteFile writeFileSingleIntent = new WriteFile("AnalysisAPKIntent/intent_file/" + new File(appPath).getName() + ".txt", false, logger);
+        WriteFile writeFileSingleIntent = new WriteFile("AnalysisAPKIntent/intent_file/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
         for (Intent intent : allIntentConditionOfOneApp) {
 
-            if (Util.judgeIntentIsUseful(intent)) {
+           // if (Util.judgeIntentIsUseful(intent)) {
                 writeFileSingleIntent.writeStr(intent.toString() + "\n");
-            }
+           // }
 
 
         }

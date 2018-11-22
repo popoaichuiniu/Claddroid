@@ -32,7 +32,7 @@ public class UseIPCCheckPermssion extends SceneTransformer {
 
     private static int allPermissionEA_count = 0;
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/UseIPCCheckPermission","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/UseIPCCheckPermission","exceptionLogger").getLogger();
 
     private static WriteFile writeFile=new WriteFile("AnalysisAPKIntent/checkPermissionCount/permissionCheckSituation.txt",false,logger);
 

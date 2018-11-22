@@ -42,7 +42,7 @@ public class IntentConditionTransformPathInsensitive extends SceneTransformer {
     }
 
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/intentConTranPathInsensitive","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/intentConTranPathInsensitive","exceptionLogger").getLogger();
 
     @Override
     protected void internalTransform(String phaseName, Map<String, String> options) {

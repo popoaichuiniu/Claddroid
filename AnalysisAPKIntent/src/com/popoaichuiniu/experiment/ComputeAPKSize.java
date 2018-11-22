@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.Set;
 
 public class ComputeAPKSize {
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputeAPKSize","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputeAPKSize","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
 

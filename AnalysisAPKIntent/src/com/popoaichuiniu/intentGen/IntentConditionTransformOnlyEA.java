@@ -20,7 +20,7 @@ public class IntentConditionTransformOnlyEA
 
     private String platforms=null;
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/IntentConditionTransformOnlyEA","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/IntentConditionTransformOnlyEA","exceptionLogger").getLogger();
 
     public IntentConditionTransformOnlyEA
             (String apkFilePath,String platforms) {

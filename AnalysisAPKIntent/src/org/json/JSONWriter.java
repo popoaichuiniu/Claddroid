@@ -120,9 +120,9 @@ public class JSONWriter {
                 }
                 this.writer.append(string);
             } catch (IOException e) {
-            	// Android as of API 25 does not support this exception constructor
-            	// however we won't worry about it. If an exception is happening here
-            	// it will just throw a "Method not found" exception instead.
+            	// Android as of API 25 does not support this exceptionLogger constructor
+            	// however we won't worry about it. If an exceptionLogger is happening here
+            	// it will just throw a "Method not found" exceptionLogger instead.
                 throw new JSONException(e);
             }
             if (this.mode == 'o') {
@@ -170,9 +170,9 @@ public class JSONWriter {
         try {
             this.writer.append(c);
         } catch (IOException e) {
-        	// Android as of API 25 does not support this exception constructor
-        	// however we won't worry about it. If an exception is happening here
-        	// it will just throw a "Method not found" exception instead.
+        	// Android as of API 25 does not support this exceptionLogger constructor
+        	// however we won't worry about it. If an exceptionLogger is happening here
+        	// it will just throw a "Method not found" exceptionLogger instead.
             throw new JSONException(e);
         }
         this.comma = true;
@@ -228,9 +228,9 @@ public class JSONWriter {
                 this.mode = 'o';
                 return this;
             } catch (IOException e) {
-            	// Android as of API 25 does not support this exception constructor
-            	// however we won't worry about it. If an exception is happening here
-            	// it will just throw a "Method not found" exception instead.
+            	// Android as of API 25 does not support this exceptionLogger constructor
+            	// however we won't worry about it. If an exceptionLogger is happening here
+            	// it will just throw a "Method not found" exceptionLogger instead.
                 throw new JSONException(e);
             }
         }

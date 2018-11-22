@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ComputeSETimeUse {
 
-    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputeSETimeUse","exception").getLogger();
+    private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputeSETimeUse","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
 

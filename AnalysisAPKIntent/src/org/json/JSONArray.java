@@ -51,8 +51,8 @@ import java.util.Map;
  * <code>toString</code> method converts to JSON text.
  * <p>
  * A <code>get</code> method returns a value if one can be found, and throws an
- * exception if one cannot be found. An <code>opt</code> method returns a
- * default value instead of throwing an exception, and so is useful for
+ * exceptionLogger if one cannot be found. An <code>opt</code> method returns a
+ * default value instead of throwing an exceptionLogger, and so is useful for
  * obtaining optional values.
  * <p>
  * The generic <code>get()</code> and <code>opt()</code> methods return an
@@ -326,7 +326,7 @@ public class JSONArray implements Iterable<Object> {
         if(val==null) {
             // JSONException should really take a throwable argument.
             // If it did, I would re-implement this with the Enum.valueOf
-            // method and place any thrown exception in the JSONException
+            // method and place any thrown exceptionLogger in the JSONException
             throw new JSONException("JSONArray[" + index + "] is not an enum of type "
                     + JSONObject.quote(clazz.getSimpleName()) + ".");
         }

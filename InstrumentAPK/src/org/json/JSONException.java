@@ -14,7 +14,7 @@ public class JSONException extends RuntimeException {
      * Constructs a JSONException with an explanatory message.
      *
      * @param message
-     *            Detail about the reason for the exception.
+     *            Detail about the reason for the exceptionLogger.
      */
     public JSONException(final String message) {
         super(message);
@@ -24,7 +24,7 @@ public class JSONException extends RuntimeException {
      * Constructs a JSONException with an explanatory message and cause.
      * 
      * @param message
-     *            Detail about the reason for the exception.
+     *            Detail about the reason for the exceptionLogger.
      * @param cause
      *            The cause.
      */

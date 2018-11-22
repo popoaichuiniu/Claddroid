@@ -33,7 +33,7 @@ public class AndroidCallGraph {
 
         this.appPath = appPath;
         appLogger = org.apache.log4j.Logger.getLogger(appPath);
-        String logfilePath = "app-exception/androidCallgraph/" + appPath.replaceAll("/|\\.", "_") + "_callgraph.txt";
+        String logfilePath = "app-exceptionLogger/androidCallgraph/" + appPath.replaceAll("/|\\.", "_") + "_callgraph.txt";
 
         File temp = new File(logfilePath);
         if (temp.exists()) {
