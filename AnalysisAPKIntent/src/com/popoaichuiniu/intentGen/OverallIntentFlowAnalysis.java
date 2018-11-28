@@ -52,7 +52,7 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
         this.isOverallAnalysis = isOverallAnalysis;
 
         if(isOverallAnalysis)
-        {
+        {   //没有使用,
             myCallGraph.constructTargetUnitInCallEdge();
             process();
         }

@@ -1,6 +1,7 @@
 package com.popoaichuiniu.intentGen;
 
 import com.popoaichuiniu.jacy.statistic.CGExporter;
+import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.MyLogger;
 import com.popoaichuiniu.util.WriteFile;
 import soot.Kind;
@@ -49,7 +50,7 @@ public class MyCallGraph extends CallGraph {
 
     static {
 
-        File file = new File("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "RepeatEdgeSituation.txt");
+        File file = new File(Config.intentConditionSymbolicExcutationResults+"/" + "RepeatEdgeSituation.txt");
         if (file.exists()) {
             file.delete();
         }
@@ -224,7 +225,7 @@ public class MyCallGraph extends CallGraph {
 
                 if (onePair.srcUnit == null)//如果有的边的srcUnit就不分析它.
                 {
-                    WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/sootmethodEdgeNoSrcUnit.txt", true, intentConditionTransformSymbolicExcutation.exceptionLogger);
+                    WriteFile writeFile = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/"+"sootmethodEdgeNoSrcUnit.txt", true, intentConditionTransformSymbolicExcutation.exceptionLogger);
                     writeFile.writeStr(oneSootMethod + "&&" + new File(intentConditionTransformSymbolicExcutation.appPath).getName() + "\n");
                     writeFile.close();
                     continue;
@@ -429,7 +430,7 @@ public class MyCallGraph extends CallGraph {
 
         }
 
-        cgExporter.exportMIG(fileName, "AnalysisAPKIntent/intentConditionSymbolicExcutationResults/");
+        cgExporter.exportMIG(fileName, Config.intentConditionSymbolicExcutationResults);
     }
 
 }

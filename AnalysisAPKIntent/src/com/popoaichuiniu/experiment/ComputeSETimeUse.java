@@ -1,5 +1,6 @@
 package com.popoaichuiniu.experiment;
 
+import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.MyLogger;
 import com.popoaichuiniu.util.ReadFileOrInputStream;
 import org.apache.log4j.Logger;
@@ -20,7 +21,7 @@ public class ComputeSETimeUse {
 
     public static void main(String[] args) {
 
-        ReadFileOrInputStream readFileOrInputStream=new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/timeUse.txt",logger);
+        ReadFileOrInputStream readFileOrInputStream=new ReadFileOrInputStream(Config.intentConditionSymbolicExcutationResults +"/"+"timeUse.txt",logger);
         List<String> listTime=readFileOrInputStream.getAllContentList();
         double sum=0;
         double min=Integer.MAX_VALUE;
@@ -69,7 +70,7 @@ public class ComputeSETimeUse {
         }
 
         try {
-            FileOutputStream outputStream = new FileOutputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/timeUse.xlsx");
+            FileOutputStream outputStream = new FileOutputStream(Config.intentConditionSymbolicExcutationResults+"/" +"timeUse.xlsx");
             workbook.write(outputStream);
             workbook.close();
         } catch (FileNotFoundException e) {

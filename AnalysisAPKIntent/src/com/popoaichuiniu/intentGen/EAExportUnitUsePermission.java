@@ -26,7 +26,7 @@ public class EAExportUnitUsePermission {
         Map<String, Set<String>> permissionAPIMap = Util.getPermissionAPIMap(sootMethodPermissionMap);
         Set<String> allPermissionsSet = new HashSet<>();
 
-        File xmlFile = new File("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + new File(appDir).getName() + "_DIR_permissionUse.xml");
+        File xmlFile = new File(Config.unitNeedAnalysisGenerate+"/"+ new File(appDir).getName() + "_DIR_permissionUse.xml");
 
         Document document = null;
         Element rootElement = null;
@@ -74,7 +74,7 @@ public class EAExportUnitUsePermission {
 
         try {
 
-            XMLWriter xmlWriter = new XMLWriter(new FileWriter("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + new File(appDir).getName() + "_DIR_permissionUse.xml"));
+            XMLWriter xmlWriter = new XMLWriter(new FileWriter(Config.unitNeedAnalysisGenerate+"/"+ new File(appDir).getName() + "_DIR_permissionUse.xml"));
             xmlWriter.write(document);
             xmlWriter.close();
 
@@ -83,7 +83,7 @@ public class EAExportUnitUsePermission {
         }
 
 
-        WriteFile writeFileAllPermission = new WriteFile("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + new File(appDir).getName() + "_DIR_AllPermission.txt", false,logger);
+        WriteFile writeFileAllPermission = new WriteFile(Config.unitNeedAnalysisGenerate+"/"+ new File(appDir).getName() + "_DIR_AllPermission.txt", false,logger);
         for (String permissionString : allPermissionsSet) {
 
             writeFileAllPermission.writeStr(permissionString + "\n");//all permission

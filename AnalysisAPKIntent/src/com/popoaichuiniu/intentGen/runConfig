@@ -1,0 +1,1 @@
+-Xmx16384m -Xms8192m  -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=/home/zms/logger_file

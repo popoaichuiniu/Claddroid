@@ -20,7 +20,7 @@ public class GenerateUnitNeedToAnalysis {
 
     private static boolean isJustThinkDangerous = false;//是否只考虑危险API
 
-    private static Logger logger=new MyLogger(Config.writeFileAppExceptionPathGenerateUnitNeedToAnalysis,"generateUnitNeedToAnalysisAppException").getLogger();
+    private static Logger logger=new MyLogger(Config.unitNeedAnalysisGenerate,"generateUnitNeedToAnalysisAppException").getLogger();
 
 
     static Set<String> dangerousPermissions = null;
@@ -101,7 +101,7 @@ public class GenerateUnitNeedToAnalysis {
     public static void main(String[] args) {
 
         //dangerousPermissions是考虑的自己设定的需要考虑的权限提升
-        dangerousPermissions = new ReadFileOrInputStream("AnalysisAPKIntent/unitNeedAnalysisGenerate/dangerousPermission.txt",logger).getAllContentLinSet();
+        dangerousPermissions = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+"dangerousPermission.txt",logger).getAllContentLinSet();
         for (Iterator<String> dangerousPermissionsIterator = dangerousPermissions.iterator(); ((Iterator) dangerousPermissionsIterator).hasNext(); ) {
             String dangerousPermission = dangerousPermissionsIterator.next();
             if (dangerousPermission.startsWith("#")) {
@@ -129,7 +129,7 @@ public class GenerateUnitNeedToAnalysis {
         if (appDir.isDirectory()) {
 
 
-            File hasGeneratedAPPFile = new File("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + appDir.getName() + "_hasGeneratedAPP.txt");
+            File hasGeneratedAPPFile = new File(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt");
             if (!hasGeneratedAPPFile.exists()) {
                 try {
                     hasGeneratedAPPFile.createNewFile();
@@ -139,8 +139,8 @@ public class GenerateUnitNeedToAnalysis {
             }
 
 
-            Set<String> hasGenerateAppSet = new ReadFileOrInputStream("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + appDir.getName() + "_hasGeneratedAPP.txt",logger).getAllContentLinSet();
-            WriteFile writeFileHasGenerateUnitNeedAnalysis = new WriteFile("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + appDir.getName() + "_hasGeneratedAPP.txt", true,logger);//分析一个目录中途断掉，可以继续重新分析
+            Set<String> hasGenerateAppSet = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt",logger).getAllContentLinSet();
+            WriteFile writeFileHasGenerateUnitNeedAnalysis = new WriteFile(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt", true,logger);//分析一个目录中途断掉，可以继续重新分析
 
 
 

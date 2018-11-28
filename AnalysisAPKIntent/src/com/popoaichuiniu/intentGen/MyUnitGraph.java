@@ -3,6 +3,7 @@ package com.popoaichuiniu.intentGen;
 import com.popoaichuiniu.base.ExitJStmt;
 import com.popoaichuiniu.base.Graph;
 import com.popoaichuiniu.base.Node;
+import com.popoaichuiniu.util.Config;
 import com.popoaichuiniu.util.WriteFile;
 import org.apache.log4j.Logger;
 import soot.*;
@@ -21,8 +22,30 @@ public class MyUnitGraph extends BriefUnitGraph {
 
     private SootMethod sootMethod = null;
 
-
     private String appPath = null;
+
+
+    private BodyMapping bodyMapping=null;
+
+
+    public BodyMapping getBodyMapping() {
+        return bodyMapping;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyUnitGraph units = (MyUnitGraph) o;
+        return Objects.equals(targetUnit, units.targetUnit) &&
+                Objects.equals(sootMethod, units.sootMethod) &&
+                Objects.equals(appPath, units.appPath);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(targetUnit, sootMethod, appPath);
+    }
 
     public Set<Unit> allUnitFromStartToTargetUnitInpath = null;//包括Intent不相关的
 
@@ -31,7 +54,7 @@ public class MyUnitGraph extends BriefUnitGraph {
 
     private Logger logger=null;
 
-    public MyUnitGraph(Body body, Unit targetUnit, String appPath,Logger logger) {
+    public MyUnitGraph(Body body, Unit targetUnit, String appPath,Logger logger,UnitGraph ug, SingleSootMethodIntentFlowAnalysis intentFlowAnalysis, SimpleLocalDefs defs) {
         super(body);
 
         this.targetUnit = targetUnit;
@@ -48,29 +71,19 @@ public class MyUnitGraph extends BriefUnitGraph {
             }
         }
 
-//        for(Unit unit:body.getUnits())
-//        {
-//            for(Unit s:unitToSuccs.get(unit))
-//            {
-//                assert unitToPreds.get(s).contains(unit);
-//            }
-//
-//            for(Unit p:unitToPreds.get(unit))
-//            {
-//                assert  unitToSuccs.get(p).contains(unit);
-//            }
-//        }
+        reducedCFG(ug,intentFlowAnalysis,defs);
+
 
     }
 
-    public void reducedCFG(UnitGraph ug, SingleSootMethodIntentFlowAnalysis intentFlowAnalysis, SimpleLocalDefs defs) {
+    private void reducedCFG(UnitGraph ug, SingleSootMethodIntentFlowAnalysis intentFlowAnalysis, SimpleLocalDefs defs) {
 
 
         JimpleBody jimpleBody = (JimpleBody) sootMethod.getActiveBody();
 
 
-        CloneJimpleBody cloneJimpleBody=new CloneJimpleBody(jimpleBody);
-        Body modifiedBody = cloneJimpleBody.getJimpleBodyA();
+        bodyMapping=CloneJimpleBodyFactory.cloneJimpleBody(jimpleBody);
+
 
 
         Graph allUnitInPathGraphPrevious = new Graph(sootMethod, targetUnit);
@@ -104,7 +117,7 @@ public class MyUnitGraph extends BriefUnitGraph {
 
 
         for (Unit unit : needToRemove) {
-            modifiedBody.getUnits().remove(CloneJimpleBody.bodyInfoMap.get(jimpleBody).get(unit));
+            bodyMapping.jimpleBodyA.getUnits().remove(bodyMapping.bindings.get(unit));
         }
 
 
@@ -119,7 +132,7 @@ public class MyUnitGraph extends BriefUnitGraph {
         getAllBranchUnit(this, this.getAllUnit(), allUnitInPathGraphReduced);
 
 
-        WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "unitGraphSize.txt", true,logger);
+        WriteFile writeFile = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "unitGraphSize.txt", true,logger);
         writeFile.writeStr(allUnitInPathGraphPrevious.getUnits().size() + " " + this.getAllUnit().size() + "#" + new File(appPath).getName() + "#" + sootMethod.getBytecodeSignature() + "#" + targetUnit + "\n");
         writeFile.close();
 

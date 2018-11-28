@@ -22,7 +22,7 @@ public class SelectAPP {
     private static Logger logger=new MyLogger("AnalysisAPKIntent/SelectAPP","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
-        ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream("AnalysisAPKIntent/unitNeedAnalysisGenerate/dangerousPermission.txt",logger);
+        ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+"dangerousPermission.txt",logger);
         Set<String> dangerousPermissions= readFileOrInputStream.getAllContentLinSet();
         for(Iterator<String> dangerousPermissionsIterator=dangerousPermissions.iterator();((Iterator) dangerousPermissionsIterator).hasNext();)
         {
@@ -32,8 +32,8 @@ public class SelectAPP {
                 dangerousPermissionsIterator.remove();
             }
         }
-        WriteFile writeFile = new WriteFile("AnalysisAPKIntent/unitNeedAnalysisGenerate/"+new File(appDir).getName()+"_dangerousAPP.txt",false,logger);
-        File xmlFile = new File("AnalysisAPKIntent/unitNeedAnalysisGenerate/" + new File(appDir).getName() + "_DIR_permissionUse.xml");
+        WriteFile writeFile = new WriteFile(Config.unitNeedAnalysisGenerate+"/"+new File(appDir).getName()+"_dangerousAPP.txt",false,logger);
+        File xmlFile = new File(Config.unitNeedAnalysisGenerate+"/" + new File(appDir).getName() + "_DIR_permissionUse.xml");
         Set<String> apps=new HashSet<>();
 
 

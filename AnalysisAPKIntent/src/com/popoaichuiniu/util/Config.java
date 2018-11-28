@@ -11,12 +11,7 @@ import java.util.List;
 public class Config {
 
 
-    public static String androidJar = "/media/mobile/myExperiment/idea_ApkIntentAnalysis/platforms";//public  static  String androidJar="/home/zms/platforms";
-
-
-    //app path
-    //public  static  String defaultAppPath ="/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
-
+    public static String androidJar = "platforms";//public  static  String androidJar="/home/zms/platforms";
 
 
 
@@ -36,21 +31,31 @@ public class Config {
     public static String xiaomiApp = "/home/zms/xiaomiAPP";
     public static String xiaomiAppSelect = "/home/zms/xiaomiAPPSelect";
 
-    public static String repeatExperiment="/media/mobile/myExperiment/idea_ApkIntentAnalysis/repeat_experiment";
+    public static String repeatExperiment="repeat_experiment";
 
-    public static String defaultAppPath = "/media/mobile/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
+    public static String defaultAppPath = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
+
+    public static String defaultApkDir = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug";
 
     public static String defaultAppDirPath=Config.wandoijiaAPP;
 
 
     //log path
 
-    public static String writeFileAppExceptionPathSymboliExecution = "AnalysisAPKIntent/intentConditionSymbolicExcutationResults";
 
-    public static String writeFileAppExceptionPathGenerateUnitNeedToAnalysis = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
+
+
 
 
     public static String logDir = "/home/zms/logger_file";
+
+    public static String intent_file_path=logDir+"/"+"intent_file";
+
+    public static String intent_ulti_path=logDir+"/"+"intent_ulti";
+
+    public static String intentConditionSymbolicExcutationResults = logDir+"/"+"intentConditionSymbolicExcutationResults";
+
+    public static String unitNeedAnalysisGenerate = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
 
     public static boolean isTest = false;

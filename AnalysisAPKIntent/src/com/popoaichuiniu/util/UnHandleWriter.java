@@ -6,7 +6,7 @@ public class UnHandleWriter {
 
 
     private static Logger logger=new MyLogger("AnalysisAPKIntent/UnHandleWriter","exceptionLogger").getLogger();
-    private static WriteFile writeFile=new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/"+"unhandleSituation.txt",true,logger);
+    private static WriteFile writeFile=new WriteFile(Config.intentConditionSymbolicExcutationResults+"/"+"unhandleSituation.txt",true,logger);
     public static void write(String message) {
         writeFile.writeStr(message);
         writeFile.flush();

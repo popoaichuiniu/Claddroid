@@ -1,0 +1,13 @@
+<init>(Intent o)#Intent(Intent o)
+<init>(Context packageContext, Class<?> cls)#Intent(Context packageContext, Class<?> cls)
+<init>(String action, Uri uri, Context packageContext, Class<?> cls)#Intent(String action, Uri uri, Context packageContext, Class<?> cls)
+setClass(Context packageContext, Class<?> cls)
+setClassName(String packageName, String className)
+setClassName(Context packageContext, String className)
+setComponent(ComponentName component)
+<init>(String pkg, String cls)#ComponentName(String pkg, String cls)
+<init>(Context pkg, String cls)#ComponentName(Context pkg, String cls)
+<init>(Context pkg, Class<?> cls)#ComponentName(Context pkg, Class<?> cls)
+createRelative(String pkg, String cls)
+createRelative(Context pkg, String cls)
+setPackage(String packageName)#limit package

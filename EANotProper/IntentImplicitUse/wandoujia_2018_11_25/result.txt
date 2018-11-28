@@ -1,0 +1,788 @@
+138 288 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小学英语100分.apk
+130 371 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/今日头条.apk
+75 238 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷我听书.apk
+413 545 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/每日瑜伽.apk
+238 442 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WhatsApp .apk
+101 286 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/蜻蜓FM.apk
+36 92 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Prisma艺术相机.apk
+87 260 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/丁香医生.apk
+10 11 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/屏幕亮度调节.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/90后小清新动态壁纸.apk
+16 73 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Blur壁纸工具.apk
+15 62 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安卓手电筒.apk
+60 355 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/大众点评.apk
+189 330 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美食杰.apk
+52 112 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LT来电闪光.apk
+0 22 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GPS 测试仪​​​​​​.apk
+2 11 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CNTV奥运直播.apk
+58 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Runtastic Sit-Ups PRO仰卧起坐软件专业版.apk
+86 330 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/少儿趣配音.apk
+43 88 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/OSU.apk
+152 312 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/腾讯新闻.apk
+103 190 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AA小说下载阅读器.apk
+26 106 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/优酷.apk
+201 389 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷划锁屏.apk
+162 322 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/玩吧.apk
+20 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝学蔬菜.apk
+8 49 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google 地球.apk
+49 180 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/企鹅FM.apk
+164 297 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/纳米盒.apk
+38 102 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Booking.com缤客.apk
+177 316 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/乐动力.apk
+172 412 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/正点闹钟.apk
+180 296 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Nike+ Running.apk
+115 266 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虾米音乐.apk
+66 167 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/最美壁纸.apk
+204 322 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/秀壁纸.apk
+22 52 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/系统程序安全卸载器.apk
+3 56 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/模拟农场.apk
+296 488 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/古诗词典.apk
+5 64 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google Play Services.apk
+77 191 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/95美女秀.apk
+12 53 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FT中文网.apk
+132 183 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百词斩.apk
+52 106 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/结缘.apk
+276 406 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/同城夜约会.apk
+70 141 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/imo 免费视频通话和聊天.apk
+207 376 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/沪江开心词场.apk
+58 222 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/儿歌多多.apk
+348 575 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/豆果美食.apk
+421 617 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷音铃声.apk
+93 325 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度输入法.apk
+61 234 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/腾讯手机管家.apk
+167 271 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/作家助手.apk
+38 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/城市旅游指南Guides.apk
+96 190 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小蓝单车.apk
+32 123 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝巴士大全.apk
+2 17 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D视差背景.apk
+307 558 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/网易彩票.apk
+152 313 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美团众包.apk
+98 166 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快读免费小说.apk
+27 57 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/极速清理.apk
+68 113 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/优酷大屏幕for Pad.apk
+168 252 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/得到.apk
+8 63 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HD Landscape Walls.apk
+35 144 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/多看阅读.apk
+57 208 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Chrome.apk
+0 1 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/一键锁屏.apk
+245 536 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/APUS.apk
+112 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/网易公开课.apk
+237 327 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CCTV微视.apk
+45 121 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/7分钟锻炼 Seven.apk
+16 77 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Elun主题.apk
+168 265 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/葫芦侠我的世界.apk
+65 198 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/拍大师.apk
+105 212 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/风行视频.apk
+196 422 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ HD.apk
+174 273 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/丁香园.apk
+96 324 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ音乐.apk
+46 262 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/哔哩哔哩动画.apk
+19 103 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝懂礼貌.apk
+357 520 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/号簿助手.apk
+104 265 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Uber优步.apk
+31 94 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/RE文件管理器.apk
+66 152 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/91老人桌面.apk
+33 132 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/SNOW相机.apk
+0 16 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DynEd.apk
+118 247 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱奇艺PPS.apk
+62 141 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/即刻.apk
+151 264 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度音乐.apk
+387 676 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快牙.apk
+163 394 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/运满满司机.apk
+146 382 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百姓网.apk
+74 205 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LINE Camera.apk
+10 38 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/i练-场馆版.apk
+188 330 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/触手直播.apk
+4 68 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/科学计算器.apk
+131 285 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/悦跑圈运动计步器.apk
+414 600 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/铃声大全.apk
+26 81 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/极速安全VPN.apk
+131 301 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/咪咕视频.apk
+167 562 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虚拟按键大师.apk
+15 55 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/超级指南针.apk
+19 31 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小米计算器.apk
+510 674 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/我查查.apk
+9 34 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FBI指纹.apk
+312 519 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/京东金融.apk
+22 126 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/链家.apk
+61 197 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/狼人杀.apk
+359 519 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/多玩我的世界盒子.apk
+26 71 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/cc来电炫图.apk
+151 394 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度文库.apk
+307 553 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/沪江网校.apk
+1 25 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/7分钟的锻炼 7 Minute Workout.apk
+52 183 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/iFANCL CN.apk
+50 163 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GG泰拉瑞亚盒子.apk
+155 403 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度视频.apk
+37 97 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/三星主题商店.apk
+12 63 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/龙卷风收音机.apk
+40 123 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/导航犬.apk
+173 296 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/芒果TV.apk
+79 187 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/有道翻译官.apk
+27 90 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/超级抢红包助手.apk
+175 261 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/穷游.apk
+34 141 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Boss直聘.apk
+203 346 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HIGO.apk
+30 77 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ANT桌面.apk
+362 1150 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/KakaoTalk.apk
+373 475 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/8868手游交易.apk
+111 377 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/探探.apk
+49 181 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MIX滤镜大师.apk
+311 486 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/驾校一点通.apk
+235 360 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/咕咚.apk
+77 226 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/今日头条极速版.apk
+72 177 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/BBC双语新闻.apk
+40 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Nova Launcher.apk
+78 195 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Nike+ Training Club.apk
+326 463 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/有缘网.apk
+115 389 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GO天气EX.apk
+542 625 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/亲宝宝.apk
+190 218 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/TP-LINK.apk
+50 156 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Runtastic Heart Rate PRO心率软件.apk
+50 215 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度贴吧.apk
+113 292 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/免费wifi电话.apk
+88 226 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/纹字锁屏.apk
+23 125 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/扫一扫.apk
+24 62 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DIY 动态壁纸.apk
+38 121 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/锤子桌面.apk
+56 133 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/58同城.apk
+9 76 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/SHOPBOP.apk
+45 153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/上海地铁.apk
+77 182 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fotor.apk
+42 91 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度一键root.apk
+34 219 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Moves.apk
+119 320 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/挖财宝.apk
+9 41 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/500 Firepaper动态壁纸.apk
+51 177 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CoCo桌面.apk
+46 56 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/来电拦截专家.apk
+167 271 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WiFi万能密码.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/照顾小宝宝-宝宝巴士.apk
+186 348 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/车主无忧.apk
+18 124 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MyFitnessPal减肥宝.apk
+40 151 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HiddenTag C.O.P..apk
+173 505 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微话.apk
+137 298 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快贷.apk
+2 37 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/7分钟的锻炼.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/平安金管家.apk
+134 471 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/扇贝听力.apk
+76 204 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Cortana 微软小娜.apk
+55 195 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Adobe Acrobat DC.apk
+49 157 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/空气锁屏.apk
+189 383 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Hola桌面.apk
+225 372 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/二手车之家.apk
+37 113 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/鲜柚桌面.apk
+335 792 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360安全通讯录.apk
+153 310 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Forest.apk
+41 131 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/TED演讲.apk
+165 314 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微锁屏.apk
+62 148 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天气预报.apk
+108 244 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/书旗小说.apk
+164 342 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/懒人周末.apk
+4 96 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/12306官方版.apk
+58 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Runtastic Push-Ups俯卧撑应用程序.apk
+50 148 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/100tv聚好看.apk
+104 239 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/4G电话.apk
+203 389 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/腾讯游戏助手.apk
+211 656 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1号店.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝学数字.apk
+53 145 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CNN在线新闻 v1.4.1.apk
+12 44 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D 三星Note5 桌面.apk
+106 282 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱奇艺动画屋.apk
+64 171 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/糗事百科.apk
+154 282 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/同花顺炒股票.apk
+212 374 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/E宠商城.apk
+32 157 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度贴吧极速版.apk
+242 522 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/老板锁屏.apk
+108 178 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微会.apk
+67 134 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱吾游戏宝盒.apk
+73 179 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Ginger 键盘.apk
+11 81 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GPS测试.apk
+92 174 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美柚.apk
+170 341 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ES文件浏览器.apk
+175 350 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微微电话.apk
+14 47 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/智能感应计步器.apk
+23 96 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Buzz小部件.apk
+45 93 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Movnow.apk
+36 91 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/英语流利说.apk
+288 466 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/懂球帝.apk
+82 405 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/春雨医生.apk
+100 334 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/我的世界联机平台.apk
+155 278 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/星巴克.apk
+71 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/com.aldiko.android.apk
+152 379 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安兔兔评测.apk
+0 42 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Steam.apk
+1 10 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D动态金鱼.apk
+3 39 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/34金币管理.apk
+160 295 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/狼人杀Online.apk
+100 317 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/世纪佳缘.apk
+249 400 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小月历.apk
+303 454 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/BESTKEEP.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Finger学吉他钢琴曲谱.apk
+223 593 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/点心桌面.apk
+118 352 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/声控锁屏.apk
+23 102 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/TST庭秘密（正式版）.apk
+4 12 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/iNoty苹果通知栏.apk
+652 931 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/中华万年历.apk
+142 225 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9块9包邮购.apk
+69 157 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CIBN全球购.apk
+263 360 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/浦发手机银行.apk
+204 299 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/动动.apk
+57 193 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Lifesum - The Health Movement.apk
+165 272 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/瓜子二手车.apk
+83 219 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fox News 福克斯新闻.apk
+89 288 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ音乐HD.apk
+176 300 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Gofun出行.apk
+217 312 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/通通免费电话.apk
+327 523 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度外卖.apk
+67 153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/和我信.apk
+396 616 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狗输入法.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝幼儿园.apk
+19 81 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/6周完美健身.apk
+325 474 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/唱吧.apk
+543 639 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ安全中心.apk
+174 318 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/0013网咖.apk
+133 274 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手机电视.apk
+62 363 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/用钱宝.apk
+2 6 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ 科学计算器​​​​​.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝行为认知.apk
+99 210 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/斗鱼.apk
+0 3 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/转移到 iOS.apk
+42 138 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HM官方客户端.apk
+30 117 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Messenger.apk
+351 486 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/大姨吗.apk
+249 462 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360手机桌面.apk
+23 52 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/换字体管家大师版.apk
+200 369 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/网易云音乐.apk
+58 200 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/应用锁.apk
+50 177 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Blued.apk
+176 351 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/淘票票.apk
+212 301 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/驴妈妈旅游.apk
+23 60 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/新华字典.apk
+76 145 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EMS.apk
+25 68 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/省电宝.apk
+178 357 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Funtouch桌面.apk
+227 404 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度翻译.apk
+32 113 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小睡眠.apk
+69 285 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FIFA.apk
+70 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AcFun.apk
+391 657 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/魔秀桌面.apk
+30 63 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Apex Launcher.apk
+232 334 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/掌上如家.apk
+115 260 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Next桌面.apk
+76 200 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/豆瓣FM.apk
+155 352 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CC直播.apk
+30 114 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/毒.apk
+65 179 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/点心拨号.apk
+15 64 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GuitarTuna - 吉他调音器.apk
+34 185 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HIIT间歇训练.apk
+17 23 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CBox网络电视客户端HD.apk
+131 262 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/189邮箱.apk
+30 92 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微信炫字体.apk
+489 640 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/汽车报价大全.apk
+112 214 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷我K歌.apk
+52 106 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/约爱同城交友.apk
+13 82 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Foodie美食相机.apk
+195 541 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/艺龙旅行.apk
+195 403 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/乐视体育.apk
+210 408 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/崔玉涛育学园.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MX Player 解码包 (ARMv7 NEON).apk
+425 578 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/面包猎人.apk
+44 146 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FIFA Online 3D.apk
+26 57 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/2017驾考宝典科目一.apk
+232 448 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/咪咕音乐.apk
+1 6 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Catty GPS.apk
+44 86 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/二维码扫描.apk
+69 178 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/过日子.apk
+41 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Lazada - Shopping & Deals.apk
+14 20 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D变形金刚手机解锁.apk
+25 55 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Unova智能体温计.apk
+126 278 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷狗手机铃声.apk
+372 634 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/暴风影音.apk
+134 232 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/奇思壁纸.apk
+247 442 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/内涵段子.apk
+30 94 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GAOVISON.apk
+311 651 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/91桌面.apk
+28 125 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DigitalClock数码时钟.apk
+26 100 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/铃声剪辑.apk
+12 32 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/D客商城.apk
+59 242 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Buzz桌面.apk
+203 387 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/驾考宝典.apk
+62 150 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/分身大师 .apk
+90 280 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/陌陌.apk
+268 372 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/布卡漫画.apk
+7 57 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天天动听HD.apk
+378 553 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虎扑体育.apk
+9 90 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/电鼓垫24Electro Drum Pads 24.apk
+662 881 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/懒人听书.apk
+25 102 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LOL动态壁纸.apk
+78 266 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱字体.apk
+74 137 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9.9限时包邮.apk
+74 448 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WEAR.apk
+13 106 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google街景.apk
+9 50 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Gmarket Global 中文.apk
+141 242 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360影视大全.apk
+119 227 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/喵播.apk
+175 493 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/更美.apk
+232 308 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FIT瘦身学院.apk
+67 165 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/2345浏览器.apk
+131 261 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1919快喝.apk
+72 193 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360天气.apk
+362 487 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/薄荷.apk
+189 362 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/same.apk
+695 1156 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/房天下.apk
+202 335 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/链家-上海苏州.apk
+355 952 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度网盘.apk
+331 492 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/娃娃家长版.apk
+4 17 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Facebook Messenger.apk
+134 238 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/多米音乐.apk
+39 80 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/健身宝典.apk
+180 330 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/千牛.apk
+270 389 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快约爱.apk
+44 220 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/相册.apk
+76 190 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/途牛旅游.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝美食街.apk
+205 328 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/一直播.apk
+496 708 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ZOL中关村在线.apk
+1 12 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/指南针.apk
+310 538 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/她社区.apk
+254 398 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/起点读书.apk
+103 317 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HeHa.apk
+98 404 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/达达.apk
+250 379 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FRESH.apk
+298 414 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/智慧树.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Angelababy主题锁屏.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EXO朴灿烈主题锁屏.apk
+110 220 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/最右.apk
+154 359 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/护眼宝.apk
+295 511 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狗号码通.apk
+188 350 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/兜兜公交.apk
+417 596 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ同步助手.apk
+215 423 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/悦动圈.apk
+16 71 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/+HOME 免费美化主题桌面壁纸图标.apk
+209 441 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安卓壁纸.apk
+106 317 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/飞猪（原阿里旅行）.apk
+75 207 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/行者.apk
+144 242 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Faceu激萌.apk
+187 360 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天气通.apk
+274 478 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狐新闻.apk
+383 594 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/聚力视频.apk
+165 235 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/懒财网理财.apk
+5 57 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/69书吧.apk
+96 278 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/好豆.apk
+63 115 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/路路通.apk
+113 190 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Agoda安可达.apk
+232 463 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/eBay.apk
+43 134 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DJ多多.apk
+3 7 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Baby Kick Count Card.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝医院.apk
+34 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Aviary.apk
+22 39 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/饥饿鲨进化破解(来电秀).apk
+89 223 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/YY.apk
+20 127 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DD373游戏交易平台.apk
+275 406 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/课程格子.apk
+163 593 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/有看头.apk
+110 252 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1元云购.apk
+126 235 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/音乐播放器.apk
+263 427 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/bong Classic.apk
+45 171 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Backdrops壁纸.apk
+35 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷我音乐HD.apk
+175 268 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/滴滴司机.apk
+229 367 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Anyview阅读.apk
+37 136 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WiFi 连网神器.apk
+276 566 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/最美天气.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/轻加减肥.apk
+107 176 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狗壁纸.apk
+377 538 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/香哈菜谱.apk
+240 451 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/猫眼电影.apk
+149 302 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/糖豆广场舞.apk
+180 355 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美团外卖.apk
+0 4 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/啪啪啪.apk
+103 225 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/腾讯视频.apk
+8 34 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Blur模糊壁纸.apk
+26 195 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/叮咚免费电话.apk
+605 943 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/旅图.apk
+401 680 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/咪咕阅读.apk
+11 50 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AVI播放器.apk
+68 146 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/A直播.apk
+160 255 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/蚂蜂窝自由行.apk
+53 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/电视家2.0.apk
+19 107 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝爱整理.apk
+19 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Flipkart 在线商城.apk
+104 194 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/刷机精灵.apk
+36 154 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LINE whoscall- 來電辨識與封鎖.apk
+60 161 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DS video.apk
+0 3 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google Now Launcher.apk
+36 251 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fabulous 美妙激励.apk
+32 215 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/B612.apk
+127 324 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/支付宝.apk
+53 102 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/开眼 Eyepetizer.apk
+218 395 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/暴走漫画.apk
+43 85 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/转转.apk
+208 339 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/JU53.apk
+157 374 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LBE安全大师.apk
+106 220 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/家长帮.apk
+275 524 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/91锁屏.apk
+136 320 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ.apk
+242 361 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/考研帮.apk
+386 587 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/金山词霸.apk
+141 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷狗音乐.apk
+12 101 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Twitter.apk
+0 5 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Adobe Flash Player.apk
+39 134 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/火辣健身.apk
+217 329 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手机百度.apk
+21 52 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DicePlayer播放器.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝爱吃饭.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小猿搜题.apk
+220 320 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/信用钱包.apk
+42 137 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/UC浏览器HD.apk
+80 155 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Cheetah Launcher（主题桌面）.apk
+32 69 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AR涂涂乐.apk
+17 33 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/终极指南针.apk
+11 73 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Car Wallpapers!.apk
+28 84 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/fooView.apk
+312 457 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱听4G.apk
+160 290 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/周末去哪儿.apk
+12 30 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虚拟来电.apk
+24 98 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Tin'secret.apk
+200 352 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/猎豹浏览器.apk
+105 196 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/凤凰视频.apk
+68 294 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/nice.apk
+73 280 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝知道.apk
+17 77 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/iHerb.apk
+11 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/８分音符.apk
+86 249 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WiFi万能钥匙.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/掌上生活.apk
+862 1182 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/漫画岛.apk
+0 2 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Nova启动器升级器.apk
+54 187 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Runtastic Six Pack 六块腹肌私人教练.apk
+39 97 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D蓝桌面.apk
+326 476 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手机营业厅.apk
+355 495 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/贝聊.apk
+84 195 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/KingRoot.apk
+225 379 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fit.apk
+267 422 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/熊猫看书.apk
+11 34 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小伴龙魔法世界.apk
+144 368 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱壁纸HD.apk
+167 233 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/eSpace UC.apk
+23 77 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Flow桌面.apk
+254 451 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微家园-家长版.apk
+172 351 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快手.apk
+119 336 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安居客.apk
+337 707 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/触宝电话.apk
+4 20 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手电筒.apk
+466 816 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/网信理财.apk
+60 177 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝巴士.apk
+25 142 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Feedly.apk
+152 223 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/现金巴士.apk
+446 631 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/华住酒店.apk
+249 496 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/优酷（X86版）.apk
+178 440 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D宝软桌面.apk
+7 41 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EBookDroid阅读器.apk
+15 51 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/flippr.apk
+83 302 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/skype网络电话.apk
+73 219 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Yahoo Weather.apk
+161 209 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/114社区.apk
+38 164 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/简拼.apk
+149 478 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微博.apk
+100 217 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/趣头条.apk
+1 13 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/3D旋转星球动态壁纸.apk
+75 149 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手机号定位.apk
+74 186 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/导学号.apk
+156 279 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/铃声多多.apk
+258 387 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/超级课程表.apk
+20 101 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/星座城.apk
+48 117 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Keep.apk
+69 209 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/学霸君.apk
+128 254 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/迅雷.apk
+95 316 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小伴龙.apk
+20 136 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/passport.apk
+100 207 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/最美锁屏.apk
+108 246 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/一键ROOT大师.apk
+12 65 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google Maps.apk
+118 274 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/万年历.apk
+117 280 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/完美钢琴.apk
+61 187 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/万花筒之旅一宝宝巴士.apk
+83 141 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/免费小说书城.apk
+52 110 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小妖精美化.apk
+42 89 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/猫咪.apk
+160 339 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1905电影网.apk
+247 429 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/我的世界联机盒子.apk
+7 32 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/地图指南针.apk
+13 47 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Canon Camera Connect.apk
+156 302 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/免费电话.apk
+3 17 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/定位跟踪.apk
+130 359 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱阅读小说.apk
+50 92 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/牵手.apk
+305 486 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/孕育管家.apk
+146 312 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狗浏览器.apk
+220 317 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/免费小说大全.apk
+108 293 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/36氪.apk
+4 16 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Facebook.apk
+46 209 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小伴龙儿歌.apk
+105 366 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度浏览器.apk
+247 519 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/新氧美容.apk
+133 251 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快看漫画.apk
+80 224 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/土豆视频.apk
+82 246 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Arrow 桌面.apk
+74 146 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9.9特价包邮.apk
+27 81 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天行加速器.apk
+59 173 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/王者荣耀掌游宝.apk
+12 79 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/YouTube.apk
+372 611 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360儿童卫士.apk
+491 638 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/5sing原创音乐.apk
+193 263 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FitTime.apk
+176 285 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/前程无忧51Job.apk
+45 159 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Autodesk Pixlr.apk
+209 418 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/字体管家.apk
+28 120 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Airbnb.apk
+3 17 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Flash播放.apk
+234 453 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ阅读.apk
+17 65 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/BeFunky图片编辑器.apk
+259 439 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狗阅读.apk
+20 58 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/adidas NEO.apk
+207 441 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百度手机卫士.apk
+353 485 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/米聊交友.apk
+109 259 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ空间.apk
+45 153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/广州地铁.apk
+25 123 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MX Player.apk
+219 440 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/风水罗盘指南针.apk
+14 54 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ANT+ Plugins Service.apk
+39 71 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/114挂号.apk
+544 776 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/11选5专业版.apk
+113 377 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Flipboard新闻.apk
+152 252 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ输入法.apk
+231 528 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GO桌面.apk
+118 218 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/柚宝宝孕育.apk
+207 313 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/钱站.apk
+178 281 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天天快报.apk
+157 308 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/学生赚.apk
+300 439 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱音乐.apk
+141 390 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/17K小说.apk
+6 18 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/联系人.apk
+393 675 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/旺信.apk
+118 169 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/邮储银行.apk
+5 58 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Hello Kitty 手电筒.apk
+40 145 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/知乎日报.apk
+4 6 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微信读书.apk
+200 493 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Q拍乐.apk
+49 111 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/名为梦梦奈的Servant.apk
+88 125 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/17搜车.apk
+293 574 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GO短信.apk
+785 1043 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/学习通.apk
+53 150 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Launcher Lab.apk
+48 157 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ Instagram.apk
+68 153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/骑呗单车.apk
+16 34 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/彩云小译.apk
+571 884 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安徽移动手机营业厅.apk
+361 593 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/江苏移动掌上营业厅.apk
+40 65 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/IKEA宜家.apk
+73 138 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/bong.apk
+294 374 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/豆瓣.apk
+4 66 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Coach.me - Achieve Any Goal.apk
+541 731 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Feel.apk
+121 216 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/顺风车.apk
+153 329 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1006视频for英雄联盟.apk
+407 600 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/手机铃声.apk
+44 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/装扮小公主.apk
+48 106 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DOTA视频站.apk
+116 296 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/头条视频.apk
+236 396 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/有道词典.apk
+80 215 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CLauncher.apk
+0 7 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ ES经典主题.apk
+323 506 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/荣耀王者开黑组队.apk
+57 122 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CAD快速看图.apk
+205 398 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/王者荣耀助手.apk
+74 146 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9.9包邮货到付款.apk
+30 87 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Cover锁屏.apk
+107 295 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/网易新闻.apk
+120 224 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/今日十大新闻.apk
+369 584 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微信.apk
+61 153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/速算盒子学生端.apk
+228 342 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/SLine.apk
+26 95 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ezPDF Reader.apk
+8 67 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ASOS中国.apk
+118 247 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/爱奇艺.apk
+186 391 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/阿里小号.apk
+19 142 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/怪物闹钟.apk
+120 300 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ 360清理大师.apk
+204 315 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小蚁摄像机.apk
+129 313 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/2345影视大全.apk
+13 38 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/dotdotexpress.apk
+5 20 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/SimpleMind Free mind mapping.apk
+418 551 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/蓝墨云班课.apk
+220 328 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/人人视频.apk
+131 321 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美妆相机.apk
+319 482 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/K歌达人.apk
+1 5 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/迷你世界-我的方块世界动态壁纸.apk
+91 220 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/考拉FM电台.apk
+66 325 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/广东移动手机营业厅.apk
+147 328 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/同程旅游.apk
+30 148 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虚拟架子鼓.apk
+33 200 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/bodivis.apk
+299 830 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/和通讯录.apk
+117 235 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360锁屏.apk
+105 347 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AfreecaTV在线视频.apk
+71 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/讯飞输入法.apk
+25 314 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fitbit.apk
+28 74 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/夸克浏览器.apk
+325 451 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/派派.apk
+848 980 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/好大夫智慧互联网医院.apk
+56 726 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Hi运动.apk
+146 283 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/TripAdvisor猫途鹰.apk
+17 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝甜品店.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Angelababy壁纸主题锁屏.apk
+90 192 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/优拜单车.apk
+47 127 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝学习涂颜色.apk
+7 22 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GO锁屏主题Changeful.apk
+278 583 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/卡牛信用卡管家.apk
+147 401 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Runtastic公路自行车 专业版.apk
+18 43 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Google 翻译.apk
+276 390 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/墨迹天气.apk
+62 176 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/UC浏览器.apk
+12 58 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MyCity.apk
+161 239 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CCTV手机电视.apk
+18 102 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝游乐园.apk
+88 237 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/乐视视频.apk
+17 25 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/双开助手(多开分身).apk
+280 385 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/C-Life睡眠.apk
+167 450 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/追书神器.apk
+190 373 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GPS工具箱.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝学分类.apk
+10 109 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Retrica 复古相机.apk
+16 32 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/指纹解锁.apk
+120 233 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Mori手帐.apk
+122 295 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Eye Care Plus 护眼卫士.apk
+198 301 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/家长通.apk
+16 86 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝巴士乐园.apk
+160 363 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/老黄历日历万年历农历.apk
+257 439 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/有信电话.apk
+75 287 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/春雨计步器.apk
+365 478 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/一起作业学生端.apk
+41 149 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/贷款王.apk
+224 334 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小米运动.apk
+197 331 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MoboPlayer.apk
+124 219 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/映客直播.apk
+16 79 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Durgon图标包.apk
+908 1153 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/随手记.apk
+73 212 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/WiFi电话.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EXO吴世勋主题锁屏.apk
+21 119 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/hello短信.apk
+18 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝生�15 33 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/北京实时公交.apk
+135 254 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/DU Launcher - 提升手机性能.apk
+73 178 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/亚马逊Kindle阅读.apk
+37 56 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/21健康.apk
+48 160 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/落网.apk
+76 125 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/finalCam.apk
+29 118 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小米锁屏画报.apk
+44 182 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/PicsArt Photo Studio.apk
+92 185 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360新闻.apk
+295 533 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/华为穿戴.apk
+57 130 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/MimikkoUI开发版.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝认知大全.apk
+159 291 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/随身乐队.apk
+60 198 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/智力岛一宝宝巴士.apk
+15 56 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Snapseed.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝超市.apk
+77 187 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9158美女直播.apk
+58 138 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/春秋旅游.apk
+70 173 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ehshig.apk
+150 500 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/扇贝单词.apk
+20 369 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美团.apk
+45 142 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/37度手环.apk
+248 367 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/掌上TGP.apk
+27 96 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/乐教乐学.apk
+39 143 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/粉笔公考.apk
+121 402 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/360手机卫士.apk
+165 330 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/掌上英雄联盟.apk
+51 134 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Now正念冥想.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Angelababy高清壁纸桌面.apk
+11 53 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/天天练.apk
+118 268 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/2345天气王.apk
+44 105 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Gmax.apk
+419 567 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/来电通.apk
+167 272 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/虎牙直播.apk
+103 381 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/快看免费小说.apk
+211 327 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/呼应电话.apk
+51 127 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CAJ云阅读.apk
+213 389 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/壁纸多多.apk
+123 332 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微桌面.apk
+190 398 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/闲鱼.apk
+46 107 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/凌步海风羽速.apk
+191 379 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝贝听听.apk
+15 158 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Viber.apk
+26 128 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/全民K歌.apk
+394 659 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/微信电话本.apk
+38 243 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/56视频.apk
+9 148 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/BBC News.apk
+335 569 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝树孕育.apk
+205 413 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/阿里通电话.apk
+176 301 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/东方财富网.apk
+226 536 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/黄历天气.apk
+101 272 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/酷我音乐.apk
+97 210 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/1元乐购.apk
+139 236 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/熊猫直播.apk
+77 170 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/dulife.apk
+112 344 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/用药助手.apk
+6 52 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/AcDisplay 锁屏信息.apk
+27 298 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/LINE（连我）.apk
+73 445 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/荔枝FM直播.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/中国银行手机银行.apk
+19 103 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝服装秀.apk
+78 133 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/8684地铁.apk
+12 88 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/绿色守护 (Greenify).apk
+196 440 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/安卓动态壁纸锁屏.apk
+268 408 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/瘦瘦.apk
+82 281 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/斗图神器.apk
+11 25 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Photoshop手机版.apk
+69 372 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/搜狐视频.apk
+406 661 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/蚂蚁短租.apk
+136 297 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/肯德基.apk
+429 682 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/脉脉.apk
+247 383 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/电话手表.apk
+280 473 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/凤凰新闻.apk
+283 465 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/赶集网.apk
+79 222 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/QQ浏览器.apk
+1 60 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/北斗导航.apk
+160 325 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/腾讯动漫.apk
+8 66 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Cuto.apk
+90 318 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ENJOY.apk
+42 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/迷你飞信.apk
+308 444 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/易信.apk
+35 111 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/影音先锋.apk
+130 222 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/莱秤.apk
+62 141 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/字体大师.apk
+5 16 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/FC2 Live.apk
+159 321 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/红包锁屏.apk
+88 215 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/POCO相机.apk
+99 170 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CCTV5.apk
+106 181 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/ofo共享单车.apk
+13 111 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Sleep Better优质睡眠应用程序.apk
+17 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宝宝小厨房.apk
+63 152 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/bilibili直播姬.apk
+64 217 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/HTC Sense Home.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/CHINA DAILY.apk
+170 311 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/多听FM.apk
+0 0 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/招商银行.apk
+29 216 /media/mobile/myExperiment/apps/0 8 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/4G信号增强器.apk
+34 68 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Fuji Xerox Print Utility.apk
+148 273 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/免费电子书.apk
+41 123 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/美丽修行.apk
+60 154 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Ami桌面.apk
+43 104 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/儿歌点点.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EXO动态壁纸主题锁屏.apk
+0 7 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/Ali Safdar.apk
+31 97 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/知乎.apk
+195 345 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/影视大全.apk
+149 569 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/e乐活.apk
+50 120 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/9块9包邮.apk
+23 119 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/糖果工厂.apk
+19 65 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/TSF Launcher.apk
+201 324 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/小豆苗疫苗助手.apk
+429 648 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/途家.apk
+45 121 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/宜人贷借款.apk
+37 163 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/GO 开关+.apk
+188 364 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/91通讯录.apk
+37 81 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/百分网.apk
+93 172 /media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/EXO边伯贤主题锁屏.apk
+result**********************************************************
+99940 202913

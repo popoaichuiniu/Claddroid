@@ -68,7 +68,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     private HashSet<Intent> allIntentConditionOfOneApp = new HashSet<>();
 
-    private MyUnitGraph myUnitGraphReduced = null;
+
 
 
     private Set<IntentUnit> ultiIntentSet = new HashSet<>();
@@ -156,9 +156,9 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     }
 
-    protected static Logger exceptionLogger = new MyLogger(Config.writeFileAppExceptionPathSymboliExecution, "exceptionLogger").getLogger();
+    protected static Logger exceptionLogger = new MyLogger(Config.intentConditionSymbolicExcutationResults, "exceptionLogger").getLogger();
 
-    protected static Logger infoLogger = new MyLogger(Config.writeFileAppExceptionPathSymboliExecution, "info").getLogger();
+    protected static Logger infoLogger = new MyLogger(Config.intentConditionSymbolicExcutationResults, "info").getLogger();
 
     @Override
     protected void internalTransform(String phaseName, Map<String, String> options) {
@@ -199,7 +199,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         saveIntent(allIntentConditionOfOneApp, appPath);//所有intent结果（startPoint到tgtAPI）
 
         //最终intent结果
-        WriteFile writeFile_intent_ulti = new WriteFile("AnalysisAPKIntent/intent_ulti/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
+        WriteFile writeFile_intent_ulti = new WriteFile(Config.intent_ulti_path+"/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
 
         ultiIntentSet = preProcess(ultiIntentSet);//将intent的num值和string处理
 
@@ -716,24 +716,24 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         if (hasReachCallGraphBranchLimit) {
             infoLogger.warn(appPath);
 
-            File callgraphLimitFile = new File("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt");
+            File callgraphLimitFile = new File(Config.intentConditionSymbolicExcutationResults+"/" +"callgraphLimit.txt");
             if (callgraphLimitFile.exists()) {
 
-                ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", exceptionLogger);
+                ReadFileOrInputStream readFileOrInputStream = new ReadFileOrInputStream(Config.intentConditionSymbolicExcutationResults+"/" +"callgraphLimit.txt", exceptionLogger);
                 Set<String> contentSet = readFileOrInputStream.getAllContentLinSet();
                 if (!contentSet.contains(appPath)) {
-                    WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, exceptionLogger);
+                    WriteFile writeFileCallGraphReachLimit = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" +"callgraphLimit.txt", true, exceptionLogger);
                     writeFileCallGraphReachLimit.writeStr(appPath + "\n");
                     writeFileCallGraphReachLimit.close();
                 }
             } else {
-                WriteFile writeFileCallGraphReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimit.txt", true, exceptionLogger);
+                WriteFile writeFileCallGraphReachLimit = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" +"callgraphLimit.txt", true, exceptionLogger);
                 writeFileCallGraphReachLimit.writeStr(appPath + "\n");
                 writeFileCallGraphReachLimit.close();
             }
 
 
-            WriteFile writeFileCallGraphReachLimitRepeat = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/callgraphLimitRepeat.txt", true, exceptionLogger);
+            WriteFile writeFileCallGraphReachLimitRepeat = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" +"callgraphLimitRepeat.txt", true, exceptionLogger);
             writeFileCallGraphReachLimitRepeat.writeStr(appPath+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit+"##"+"callgraphLimit" + "\n");
             writeFileCallGraphReachLimitRepeat.close();
             MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).warn(appPath+"##"+myCallGraph.targetSootMethod+"##"+myCallGraph.targetUnit+"##"+"callgraphLimit");
@@ -939,11 +939,9 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("开始约简unitgraph" + sootMethod.getBytecodeSignature() + "#" + myPairUnitToEdge.srcUnit);
 
-        MyUnitGraph myUnitGraph = new MyUnitGraph(sootMethod.getActiveBody(), myPairUnitToEdge.srcUnit, appPath, exceptionLogger);
+        MyUnitGraph myUnitGraph = MyUnitGraphFactory.getMyUnitGraph(appPath,sootMethod.getActiveBody(), myPairUnitToEdge.srcUnit, exceptionLogger,ug, intentFlowAnalysis, defs);
 
-        myUnitGraph.reducedCFG(ug, intentFlowAnalysis, defs);
 
-        myUnitGraphReduced = myUnitGraph;
 
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("约简结束！");
 
@@ -1913,7 +1911,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             if (errCode != 0) {
                 String errorOut = convertStreamToString(p.getErrorStream());
                 System.out.println("errCode:" + errCode + "*" + errorOut + "*");
-                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "errorSymbolicExcuation.txt", true, exceptionLogger);
+                WriteFile writeFile = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "errorSymbolicExcuation.txt", true, exceptionLogger);
                 writeFile.writeStr(outSpec + "\n" + "errCode:" + errCode + "*" + returnedOutput + "*" + "\n");
                 writeFile.close();
             }
@@ -1948,7 +1946,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                 isSat = true;
         }
         if (!isSat) {
-            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "ifeasiblePath.txt", true, exceptionLogger);
+            WriteFile writeFile = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "ifeasiblePath.txt", true, exceptionLogger);
             writeFile.writeStr("11111111111111111111111111111111111111111111111111111" + new File(appPath).getName() + "\n");
             writeFile.writeStr(outSpec + "\n");
             writeFile.writeStr("22222222222222222222222222222222222222222222222222222\n");
@@ -2544,10 +2542,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     }
 
     private boolean isDefInPathAndLatest(List<Unit> path, Unit inDef, Local usedLocal, Unit usedUnit, SimpleLocalDefs defs) {//---------------------------------------
-        if (!myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
+        if (!MyUnitGraphFactory.getCurMyUnitGraph().allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
             WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "Error.txt", true, exceptionLogger);
-            writeFile.writeStr(usedUnit + " " + appPath + "\n");
+            writeFile.writeStr("allIntentUnitFromStartToTargetUnitInpath don't contains "+usedUnit + "&&" + appPath + "\n");
             writeFile.close();
+            exceptionLogger.error("allIntentUnitFromStartToTargetUnitInpath don't contains "+usedUnit + "&&" + appPath + "\n");
         }
         if (path.contains(inDef)) { // does the path contain the definition
             for (Unit otherDef : defs.getDefsOfAt(usedLocal, usedUnit)) { // check other defs of usedLocal at usedUnit to determine if inDef is the latestDef in path
@@ -2571,10 +2570,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             }
             return true; // inDef is in the path and is the latest definition along that path
         } else { // inDef is not in the path, so return false
-            if ((!myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(inDef)) && myUnitGraphReduced.allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
+            if ((!MyUnitGraphFactory.getCurMyUnitGraph().allIntentUnitFromStartToTargetUnitInpath.contains(inDef)) && MyUnitGraphFactory.getCurMyUnitGraph().allIntentUnitFromStartToTargetUnitInpath.contains(usedUnit)) {
                 WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isDefInPathAndLatest.txt", true, exceptionLogger);
                 writeFile.writeStr(usedLocal + " " + inDef + " " + "not in path" + " #" + usedUnit + "# " + appPath + "\n");
                 writeFile.close();
+                //exceptionLogger.error(usedLocal + " " + inDef + " " + "not in path" + " #" + usedUnit + "# " + appPath + "\n");
             }
 
             return false;
@@ -2645,8 +2645,8 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         Value opVal2 = conditionRight;
 
 
-        if (new File("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/if.txt").length() < 104857600) {
-            WriteFile writeFile = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/if.txt", true, exceptionLogger);
+        if (new File(Config.intentConditionSymbolicExcutationResults+"/"+"if.txt").length() < 104857600) {
+            WriteFile writeFile = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/"+"if.txt", true, exceptionLogger);
             writeFile.writeStr(conditionLeft.getType().toString() + "***" + condition + "$$$" + conditionRight.getType().toString() + "###" + ifStmt + "\n");
             writeFile.close();
         }
@@ -3795,11 +3795,14 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                 return false;
             }
 
-            Body modifiedBody = CloneJimpleBody.bodyMap.get(body);
 
-            Unit succMapping = (Unit) CloneJimpleBody.bodyInfoMap.get(body).get(succ);
+            MyUnitGraph curMyUnitGraph=MyUnitGraphFactory.getCurMyUnitGraph();
 
-            Unit inUnitMapping = (Unit) CloneJimpleBody.bodyInfoMap.get(body).get(inUnit);
+            Body modifiedBody = curMyUnitGraph.getBodyMapping().jimpleBodyA;
+
+            Unit succMapping = (Unit) curMyUnitGraph.getBodyMapping().bindings.get(succ);
+
+            Unit inUnitMapping = (Unit) curMyUnitGraph.getBodyMapping().bindings.get(inUnit);
 
 //            if (modifiedBody.getUnits().getSuccOf(inUnitMap) != succMap) {
 //                WriteFile writeFile = new WriteFile("AnalysisAPKIntent/testFunctions/" + "isFallThrough.txt", true);
@@ -4357,9 +4360,9 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     public static void main(String[] args) {
 
 
-        writeFileCallGraphSize = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "callGraphSize.txt", false, exceptionLogger);
-        appUnitGraphPathReducedReachLimit = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "appUnitGraphReachLimit.txt", false, exceptionLogger);
-        ifReducedWriter = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "if_reduced.txt", false, exceptionLogger);
+        writeFileCallGraphSize = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "callGraphSize.txt", false, exceptionLogger);
+        appUnitGraphPathReducedReachLimit = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "appUnitGraphReachLimit.txt", false, exceptionLogger);
+        ifReducedWriter = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "if_reduced.txt", false, exceptionLogger);
 
 
         String appDir = null;
@@ -4376,7 +4379,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         if (appDirFile.isDirectory()) {
 
 
-            Set<String> hasAnalysisAPP = new ReadFileOrInputStream("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", exceptionLogger).getAllContentLinSet();
+            Set<String> hasAnalysisAPP = new ReadFileOrInputStream(Config.intentConditionSymbolicExcutationResults+"/" + "hasSatisticIfReducedAndPreviousIF.txt", exceptionLogger).getAllContentLinSet();
 
 
             for (File file : appDirFile.listFiles()) {
@@ -4400,11 +4403,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
                             long endTime = System.nanoTime();
 
 
-                            WriteFile writeFileHasBeenProcessedApp = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "hasSatisticIfReducedAndPreviousIF.txt", true, exceptionLogger);
+                            WriteFile writeFileHasBeenProcessedApp = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "hasSatisticIfReducedAndPreviousIF.txt", true, exceptionLogger);
                             writeFileHasBeenProcessedApp.writeStr(file.getAbsolutePath() + "\n");
                             writeFileHasBeenProcessedApp.close();
 
-                            WriteFile writeFileTimeUse = new WriteFile("AnalysisAPKIntent/intentConditionSymbolicExcutationResults/" + "timeUse.txt", true, exceptionLogger);
+                            WriteFile writeFileTimeUse = new WriteFile(Config.intentConditionSymbolicExcutationResults+"/" + "timeUse.txt", true, exceptionLogger);
                             writeFileTimeUse.writeStr(((((double) (endTime - startTime)) / 1E9) + "," + file.getAbsolutePath() + "\n"));
                             writeFileTimeUse.close();
 
@@ -4453,7 +4456,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     private  void saveIntent(HashSet<Intent> allIntentConditionOfOneApp, String appPath) {
 
 
-        WriteFile writeFileSingleIntent = new WriteFile("AnalysisAPKIntent/intent_file/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
+        WriteFile writeFileSingleIntent = new WriteFile(Config.intent_file_path+"/" + new File(appPath).getName() + ".txt", false, exceptionLogger);
         for (Intent intent : allIntentConditionOfOneApp) {
 
            // if (Util.judgeIntentIsUseful(intent)) {
