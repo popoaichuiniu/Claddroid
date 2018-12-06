@@ -4,20 +4,20 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 import java.util.logging.Logger;
 
+import com.popoaichuiniu.util.Util;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.PatternLayout;
 import org.xmlpull.v1.XmlPullParserException;
 
-import soot.PackManager;
-import soot.Scene;
-import soot.SootMethod;
+import soot.*;
+import soot.jimple.InvokeExpr;
+import soot.jimple.Stmt;
 import soot.jimple.infoflow.android.SetupApplication;
 import soot.jimple.toolkits.callgraph.CallGraph;
+import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
 public class AndroidCallGraph {
@@ -26,7 +26,7 @@ public class AndroidCallGraph {
     private org.apache.log4j.Logger appLogger = null;// 应用日志
 
 
-    public AndroidCallGraph(String appPath, String androidPlatformPath){
+    public AndroidCallGraph(String appPath, String androidPlatformPath) {
 
         this.appPath = appPath;
         appLogger = org.apache.log4j.Logger.getLogger(appPath);
@@ -79,7 +79,7 @@ public class AndroidCallGraph {
             return;
 
 
-            // 计算source,sink和入口点
+        // 计算source,sink和入口点
         app.calculateMyEntrypoints("SourcesAndSinks.txt");
 
 
@@ -95,22 +95,18 @@ public class AndroidCallGraph {
 
     private void constructCallgraph() {
 
-        long beforecreateDummyMain = System.nanoTime();
-        entryPoint = app.getEntryPointCreator().createDummyMain();
 
-        System.out.println("tttttttttt创建DummyMain时间:" + (System.nanoTime() - beforecreateDummyMain) / 1E9 + "seconds");
+        if (Scene.v().getEntryPoints().size() == 1) {
+            entryPoint = Scene.v().getEntryPoints().get(0);
+            cg = Scene.v().getCallGraph();
 
-        // 获得APK的函数入口点
+        } else {
+            throw new RuntimeException("call graph 构建出现问题！");
+        }
 
-        Options.v().set_main_class(entryPoint.getSignature());// 设置整个程序分析的main class
 
-        Scene.v().setEntryPoints(Collections.singletonList(entryPoint));// 设置方法的入口点去构建call graph
+        //addICCMethods();
 
-        System.out.println(entryPoint.getActiveBody());
-
-        PackManager.v().runPacks();
-
-        cg = Scene.v().getCallGraph();
 
         // 可视化函数调用图
         //visit();
@@ -122,6 +118,36 @@ public class AndroidCallGraph {
 //		System.out.println("导出函数调用图为:" + appPath.replaceAll("/|\\.", "_") + ".gexf");
 
 
+    }
+
+    private void addICCMethods() {
+
+
+
+
+        Queue<SootMethod> sootMethodQueue = new LinkedList<>();
+
+        sootMethodQueue.offer(entryPoint);
+
+        Set<SootMethod> visited = new HashSet<>();
+
+        while (!sootMethodQueue.isEmpty()) {
+
+            SootMethod sootMethod = sootMethodQueue.poll();
+
+            if (Util.isApplicationMethod(sootMethod)) {
+                Body body = sootMethod.getActiveBody();
+                if (body != null) {
+                    for (Unit unit : body.getUnits()) {
+
+
+
+
+                    }
+                }
+            }
+
+        }
     }
 
 //	private void initializeSoot() {

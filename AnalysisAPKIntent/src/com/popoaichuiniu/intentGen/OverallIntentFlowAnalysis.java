@@ -32,15 +32,15 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
     public OverallIntentFlowAnalysis(String appPath,MyCallGraph myCallGraph, boolean isOverallAnalysis) {
 
-        if(this.appPath==null)
+        if(OverallIntentFlowAnalysis.appPath==null)
         {
-            this.appPath=appPath;
+            OverallIntentFlowAnalysis.appPath=appPath;
         }
         else
         {
-            if(!this.appPath.equals(appPath))//开始新的apk分析
+            if(!OverallIntentFlowAnalysis.appPath.equals(appPath))//开始新的apk分析
             {
-                this.appPath=appPath;
+                OverallIntentFlowAnalysis.appPath=appPath;
                 edgeSingleSootMethodIntentFlowAnalysisMap.clear();
                 localSingleSootMethodIntentFlowAnalysisMap.clear();
                 sootMethodBriefUnitGraphMap.clear();
@@ -67,7 +67,7 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
                     sootMethodBriefUnitGraphMap.put(entry.getKey(), briefUnitGraph);
                 }
-                SingleSootMethodIntentFlowAnalysis singleSootMethodIntentFlowAnalysis=new SingleSootMethodIntentFlowAnalysis(entry.getKey(),briefUnitGraph,new HashSet<>(),isOverallAnalysis);
+                SingleSootMethodIntentFlowAnalysis singleSootMethodIntentFlowAnalysis=new SingleSootMethodIntentFlowAnalysis(entry.getKey(),briefUnitGraph,null,isOverallAnalysis);
 
                 localSingleSootMethodIntentFlowAnalysisMap.put(entry.getKey(),singleSootMethodIntentFlowAnalysis);
 
@@ -168,8 +168,8 @@ class EdgeToSootMethod {//edge 中的srcUnit调用了sootmethod
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         EdgeToSootMethod that = (EdgeToSootMethod) o;
         return Objects.equals(edge, that.edge);
     }

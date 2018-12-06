@@ -58,7 +58,7 @@ public class Config {
     public static String unitNeedAnalysisGenerate = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
 
-    public static boolean isTest = false;
+    public static boolean isTest =true;
 
     // public  static  String defaultAppPath="/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/AnalysisAPKIntent/万花筒之旅一宝宝巴士.apk";
     public static void setSootOptions(String appPath) {
@@ -181,6 +181,8 @@ public class Config {
         Options.v().set_coffi(true);
 
         Options.v().set_keep_offset(true);
+
+
 
 
         //Options.v().set_soot_classpath(apkFileLocation+ File.pathSeparator+"/home/zms/platforms/android-27/android.jar");

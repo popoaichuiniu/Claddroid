@@ -44,8 +44,9 @@ public class MyUnitGraphFactory {
             myUnitGraph=new MyUnitGraph(body,targetUnit,appPath,logger,ug,intentFlowAnalysis,defs);
             myUnitMap.put(targetUnit,myUnitGraph);
         }
+
         curMyUnitGraph=myUnitGraph;
-        //myBodyUnitMap.put(body,myUnitMap);
+        //myBodyUnitMap.put(body,myUnitMap);//保存太多容易outofMemmory
 
         return myUnitGraph;
 

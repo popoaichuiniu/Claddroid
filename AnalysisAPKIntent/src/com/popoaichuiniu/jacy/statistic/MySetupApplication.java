@@ -1,20 +1,18 @@
 package com.popoaichuiniu.jacy.statistic;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.Iterator;
 
 import javax.activation.UnsupportedDataTypeException;
 
 import com.popoaichuiniu.util.Config;
-import com.popoaichuiniu.util.Util;
 import org.xml.sax.SAXException;
 import org.xmlpull.v1.XmlPullParserException;
 
-import soot.JastAddJ.Opt;
-import soot.Main;
 import soot.PackManager;
 import soot.Scene;
+import soot.SootMethod;
 import soot.jimple.infoflow.android.SetupApplication;
 import soot.jimple.infoflow.android.callbacks.AbstractCallbackAnalyzer;
 import soot.jimple.infoflow.android.data.parsers.PermissionMethodParser;
@@ -24,6 +22,7 @@ import soot.jimple.infoflow.android.resources.LayoutFileParser;
 import soot.jimple.infoflow.android.source.parsers.xml.XMLSourceSinkParser;
 import soot.jimple.infoflow.rifl.RIFLSourceSinkDefinitionProvider;
 import soot.jimple.infoflow.source.data.ISourceSinkDefinitionProvider;
+import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
 public class MySetupApplication extends SetupApplication {
@@ -61,56 +60,36 @@ public class MySetupApplication extends SetupApplication {
         // TODO Auto-generated constructor stub
     }
 
-    private void calculateCallbackMethods(ARSCFileParser resParser, LayoutFileParser lfp) throws IOException {
-        AbstractCallbackAnalyzer jimpleClass = null;
+    private void calculateICCMethods(ARSCFileParser resParser, LayoutFileParser lfp) throws IOException {
 
-        boolean hasChanged = true;
-        while (hasChanged) {
-            hasChanged = false;
 
-            // Create the new iteration of the main method
 
-            initializeSoot();
-            //createMainMethod();// 这些callback基于这个方法，如果不调用否则会丢失回调中的方法
 
-//			if (jimpleClass == null) {
-//				// Collect the callback interfaces implemented in the app's
-//				// source code
-//				jimpleClass = callbackClasses == null ? new DefaultCallbackAnalyzer(config, entrypoints, callbackFile)
-//						: new DefaultCallbackAnalyzer(config, entrypoints, callbackClasses);
-//				jimpleClass.collectCallbackMethods();
-//
-//				// Find the user-defined sources in the layout XML files. This
-//				// only needs to be done once, but is a Soot phase.
-//				lfp.parseLayoutFile(apkFileLocation);
-//			} else
-//				jimpleClass.collectCallbackMethodsIncremental();
 
-            // Run the soot-based operations
-            //run pack
-            PackManager.v().getPack("wjpp").apply();//Whole-Jimple Pre-processing Pack
-            PackManager.v().getPack("cg").apply();
-            PackManager.v().getPack("wjtp").apply();
+        initializeSoot();
 
-            // Collect the results of the soot-based phases 回调函数的收集
-//			for (Entry<String, Set<SootMethodAndClass>> entry : jimpleClass.getCallbackMethods().entrySet()) {
-//				Set<SootMethodAndClass> curCallbacks = this.callbackMethods.get(entry.getKey());
-//				if (curCallbacks != null) {
-//					if (curCallbacks.addAll(entry.getValue()))
-//						hasChanged = true;
-//				} else {
-//					this.callbackMethods.put(entry.getKey(), new HashSet<>(entry.getValue()));
-//					hasChanged = true;
-//				}
-//			}
 
-//			if (entrypoints.addAll(jimpleClass.getDynamicManifestComponents()))
-//				hasChanged = true;
-        }
+        entryPointCreator = createEntryPointCreator();
+        long beforecreateDummyMain = System.nanoTime();
+        //创建虚拟Dummymain class dummy main 方法
+        SootMethod entryPoint = entryPointCreator.createDummyMain();
+        System.out.println("tttttttttt创建DummyMain时间:" + (System.nanoTime() - beforecreateDummyMain) / 1E9 + "seconds");
 
-        // Collect the XML-based callback methods
 
-        //collectXmlBasedCallbackMethods(resParser, lfp, jimpleClass);
+
+
+        Options.v().set_main_class(entryPoint.getSignature());// 设置整个程序分析的main class
+        Scene.v().setEntryPoints(Collections.singletonList(entryPoint));// 设置方法的入口点去构建call graph
+
+        PackManager.v().runPacks();
+
+
+
+
+
+
+
+
     }
 
     public void calculateSourcesSinksEntrypoints(String sourceSinkFile) throws IOException, XmlPullParserException {
@@ -186,7 +165,7 @@ public class MySetupApplication extends SetupApplication {
                         calculateCallbackMethodsFast(null, null);
                         break;
                     case Default:
-                        calculateCallbackMethods(null, null);//config.getCallbackAnalyzer()==“Defalut”
+                        calculateICCMethods(null, null);//config.getCallbackAnalyzer()==“Defalut”
                         break;
                     default:
                         throw new RuntimeException("Unknown callback analyzer");
@@ -219,7 +198,7 @@ public class MySetupApplication extends SetupApplication {
 //			sourceSinkManager.setEnableCallbackSources(this.config.getEnableCallbackSources());
 //		}
 
-        entryPointCreator = createEntryPointCreator();
+
     }
 
 
