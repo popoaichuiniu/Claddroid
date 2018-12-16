@@ -17,24 +17,66 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent=new Intent();
 
-        if(x==2)
-            {
-                intent=new Intent("action");
+        x=2;
+        //switch (x)
+        {
+//            case 0:
+//                inThisMethod();
+//                break;
+//            case 1:
+                Parent p=new Children();
+                Intent intent=p.getMyIntent();
+                intent.setClassName(this,"tttttttttttt");
+                fromPara(intent);
 
-                intent.setAction("zzz");
-
-            }
-            intent.setClassName("zzzzz","tttttt");
-
-            startActivity(intent);
+            SmsManager.getDefault().sendTextMessage("18010823840", null, "ttttt", null, null);
+//                break;
+//            case 2:
+//                fromReturn();
+//                break;
+        }
 
 
 
 
 
     }
+
+//    private void fromReturn() {
+//
+//        Intent intent=getMyIntent();
+//        bindService(intent,null,-1);
+//
+//    }
+
+//    private Intent getMyIntent() {
+//        Intent intent=getMyIntent2();
+//        intent.setClassName("xxx","yyy");
+//        return intent;
+//    }
+
+//    private Intent getMyIntent2() {
+//
+//        Intent intent=new Intent("zzz");
+//        return intent;
+//    }
+
+    private void fromPara(Intent intent) {
+
+        intent.setClassName(this,"xxxxxxxxxxxx");
+        sendBroadcast(intent);
+
+
+
+    }
+
+//    private void inThisMethod() {
+//
+//        Intent intent=new Intent("action");
+//
+//        sendBroadcast(intent);
+//    }
 
     @Override
     protected void onResume() {

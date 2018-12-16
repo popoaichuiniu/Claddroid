@@ -582,6 +582,42 @@ public class Util {
 
     }
 
+    public static List<SootMethod> cgOutOfSootMethods(SootMethod sootMethod)
+    {
+        CallGraph callGraph=Scene.v().getCallGraph();
+        List<SootMethod> outOfMethods=new ArrayList<>();
+        for(Iterator<Edge> iterator=callGraph.edgesOutOf(sootMethod);iterator.hasNext();)
+        {
+            Edge edge=iterator.next();
+            outOfMethods.add(edge.tgt());
+        }
+        return outOfMethods;
+    }
+
+    public static List<SootMethod> cgInSootMethods(SootMethod sootMethod)
+    {
+        CallGraph callGraph=Scene.v().getCallGraph();
+        List<SootMethod> inMethods=new ArrayList<>();
+        for(Iterator<Edge> iterator=callGraph.edgesInto(sootMethod);iterator.hasNext();)
+        {
+            Edge edge=iterator.next();
+            inMethods.add(edge.src());
+        }
+        return inMethods;
+    }
+
+    public static String getPrintCollectionStr(Collection collection)
+    {
+        String str="{\n";
+        for(Object object:collection)
+        {
+            str=str+object+"\n";
+        }
+        str=str+"}\n";
+        return str;
+    }
+
+
     public static boolean isPermissionProtectedAPIMethodName(String methodName, String param) {
         Set<String> sootMethodsStringSet = AndroidInfo.getPermissionAndroguardMethods().keySet();
 
