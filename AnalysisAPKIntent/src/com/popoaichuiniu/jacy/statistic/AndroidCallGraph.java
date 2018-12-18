@@ -7,18 +7,17 @@ import java.io.IOException;
 import java.util.*;
 import java.util.logging.Logger;
 
+import com.popoaichuiniu.intentGen.ICCEntryPointCreator;
 import com.popoaichuiniu.util.Util;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.PatternLayout;
 import org.xmlpull.v1.XmlPullParserException;
 
 import soot.*;
-import soot.jimple.InvokeExpr;
-import soot.jimple.Stmt;
+import soot.jimple.*;
 import soot.jimple.infoflow.android.SetupApplication;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
-import soot.options.Options;
 
 public class AndroidCallGraph {
 
@@ -104,8 +103,11 @@ public class AndroidCallGraph {
             throw new RuntimeException("call graph 构建出现问题！");
         }
 
+        addICCMethods();
 
-        //addICCMethods();
+        PackManager.v().runPacks();//添加了边，需要重新构建cg
+
+        cg = Scene.v().getCallGraph();//需要重新赋值
 
 
         // 可视化函数调用图
@@ -120,34 +122,197 @@ public class AndroidCallGraph {
 
     }
 
+    class UnitPair{
+        Unit point;
+        Unit insertUnit;
+
+        public UnitPair(Unit point, Unit insertUnit) {
+            this.point = point;
+            this.insertUnit = insertUnit;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            UnitPair unitPair = (UnitPair) o;
+            return Objects.equals(point, unitPair.point) &&
+                    Objects.equals(insertUnit, unitPair.insertUnit);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(point, insertUnit);
+        }
+    }
+
     private void addICCMethods() {
 
 
-
-
+        IntentImplicitUse intentImplicitUse = new IntentImplicitUse(appPath);
         Queue<SootMethod> sootMethodQueue = new LinkedList<>();
-
         sootMethodQueue.offer(entryPoint);
 
         Set<SootMethod> visited = new HashSet<>();
 
         while (!sootMethodQueue.isEmpty()) {
 
-            SootMethod sootMethod = sootMethodQueue.poll();
+            SootMethod firstSootMethod = sootMethodQueue.poll();
+            visited.add(firstSootMethod);
 
-            if (Util.isApplicationMethod(sootMethod)) {
-                Body body = sootMethod.getActiveBody();
+            if (Util.isApplicationMethod(firstSootMethod)&&(!firstSootMethod.getDeclaringClass().getName().startsWith("android."))) {//不分析android开头的
+                Body body = firstSootMethod.getActiveBody();
                 if (body != null) {
-                    for (Unit unit : body.getUnits()) {
+                    List<UnitPair> insertUnitList=new ArrayList<>();
+                    for (Unit eachUnit : body.getUnits()) {
+                        Stmt iccStmt = (Stmt) eachUnit;
+                        SootMethod calleeSootMethod = Util.getCalleeSootMethodAt(eachUnit);
+                        if (calleeSootMethod != null) {
+                            if (IntentImplicitUse.iccMethods.contains(calleeSootMethod.getName())) {
+                                InvokeExpr invokeExpr = iccStmt.getInvokeExpr();
+                                for (Value valueIntentArg : invokeExpr.getArgs()) {
+                                    if (valueIntentArg.getType().toString().equals("android.content.Intent")) {
 
+                                        TargetComponent targetComponent = intentImplicitUse.doAnalysisIntentGetTargetComponent(valueIntentArg, iccStmt, iccStmt, firstSootMethod);
+                                        if (targetComponent!=null&&targetComponent.isHasInfo()) {
 
+                                            if(Util.cgOutOfSootMethods(firstSootMethod).contains(calleeSootMethod))
+                                            {
+                                                addTargetComponent( insertUnitList,firstSootMethod,iccStmt,calleeSootMethod,targetComponent);
+                                            }
+                                            else
+                                            {
+                                                appLogger.error("startComponent method 不在cg中！");
+                                            }
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
 
 
                     }
+
+                    for(UnitPair unitPair:insertUnitList)
+                    {
+                        body.getUnits().insertAfter(unitPair.insertUnit,unitPair.point);
+                        body.validate();
+                    }
                 }
+            }
+            for (Iterator<Edge> edgeIterator = cg.edgesOutOf(firstSootMethod); edgeIterator.hasNext(); ) {
+                Edge outEdge = edgeIterator.next();
+                SootMethod outSootMethod = outEdge.tgt();
+                if (!visited.contains(outSootMethod)) {
+                    sootMethodQueue.offer(outSootMethod);
+                }
+
             }
 
         }
+    }
+
+    private void addTargetComponent(List<UnitPair> insertUnitList, SootMethod callerMethod, Unit iccUnit, SootMethod startComponentMethod, TargetComponent targetComponent) {
+        if(targetComponent.type==TargetComponent.HYBIRD)
+        {
+
+            if (addTargetFromComponentName( insertUnitList,callerMethod, iccUnit, startComponentMethod, targetComponent.hybirdValues[TargetComponent.COMPONENT_NAME]))
+                return;
+
+
+            addTargetFromAction(insertUnitList,callerMethod, iccUnit, startComponentMethod, targetComponent.hybirdValues[TargetComponent.ACTION]);
+
+        }
+
+
+        if(targetComponent.type==TargetComponent.COMPONENT_NAME)
+        {
+            if (addTargetFromComponentName(insertUnitList,callerMethod, iccUnit, startComponentMethod, targetComponent.hybirdValues[TargetComponent.COMPONENT_NAME]))
+                return;
+        }
+
+        if(targetComponent.type==TargetComponent.ACTION)
+        {
+            addTargetFromAction(insertUnitList,callerMethod, iccUnit, startComponentMethod, targetComponent.hybirdValues[TargetComponent.ACTION]);
+        }
+    }
+
+    private void addTargetFromAction(List<UnitPair> insertUnitList,SootMethod callerMethod, Unit iccUnit, SootMethod startComponentMethod, String hybirdValue) {
+    }
+
+    private boolean addTargetFromComponentName(List<UnitPair> insertUnitList, SootMethod callerMethod, Unit iccUnit, SootMethod startComponentMethod, String componentNameStr) {
+
+        if(componentNameStr!=null)
+        {
+            String [] componentName=componentNameStr.split("#");
+            Set<String> componentNameSet=new HashSet<>();
+            for(String one:componentName)
+            {
+                componentNameSet.add(one.replaceAll("/","."));
+            }
+
+            if(componentNameSet.size()>0)
+            {
+                if(componentNameSet.size()>1)
+                {
+                    appLogger.warn("多个targetComponent");
+                }
+                for(String className:componentNameSet)
+                {
+                    boolean flag=addMethodEdge( insertUnitList,callerMethod,iccUnit,startComponentMethod,className);
+                    if(flag)
+                    {
+                        return true;
+                    }
+                }
+
+
+            }
+
+
+        }
+        return false;
+    }
+
+    private boolean addMethodEdge( List<UnitPair> insertUnitList,SootMethod callerMethod,Unit iccUnit,SootMethod startComponentMethod, String className) {
+
+        SootClass sootClass=SootResolver.v().resolveClass(className, SootClass.BODIES);
+        if(sootClass==null)
+        {
+            appLogger.error("加载组件类出错！");
+        }
+        else
+        {
+            //添加边
+            List<SootMethod> outSootMethods=Util.cgOutOfSootMethods(startComponentMethod);
+            if(outSootMethods.size()==0&&(!startComponentMethod.hasActiveBody()))
+            {
+
+                ICCEntryPointCreator iccEntryPointCreator=new ICCEntryPointCreator(Collections.singletonList(className));
+                SootMethod iccDummyMethod=iccEntryPointCreator.createDummyMain();
+                List<Value> args=new ArrayList<>();
+                args.add(NullConstant.v());
+                InvokeExpr staticInvokeExpr=Jimple.v().newStaticInvokeExpr(iccDummyMethod.makeRef(),args);
+                Stmt staticInvokeStmt=Jimple.v().newInvokeStmt(staticInvokeExpr);
+                UnitPair insertUnitPair=new UnitPair(iccUnit,staticInvokeStmt);
+                insertUnitList.add(insertUnitPair);
+                appLogger.info(callerMethod+"的"+iccUnit+"解析成功！");
+                return true;
+
+
+
+            }
+            else
+            {
+                appLogger.error("startComponentMethod状态出错！");
+            }
+
+
+        }
+
+        return false;
     }
 
 //	private void initializeSoot() {

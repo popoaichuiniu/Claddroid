@@ -173,6 +173,13 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         List<SootMethod> ea_entryPoints = Util.getEA_EntryPoints(androidCallGraph, androidInfo);
         List<SootMethod> roMethods = Util.getMethodsInReverseTopologicalOrder(ea_entryPoints, androidCallGraph.getCg());
         roMethods.add(androidCallGraph.getEntryPoint());
+        for(SootMethod sootMethod:roMethods)
+        {
+            if(sootMethod.getBytecodeSignature().contains("zms250"))
+            {
+                System.out.println(sootMethod);
+            }
+        }
 
 
         //testInitial(ea_entryPoints, roMethods, Scene.v().getApplicationClasses(), appPath,exceptionLogger);//ok

@@ -147,7 +147,7 @@ public class IntentPropagateAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<V
         {
             if(in.contains(valueBox.getValue()))
             {
-                useIntentUnitSet.add(d);
+                useIntentUnitSet.add(d);//将使用intent相关变量的语句保存
                 break;
             }
         }

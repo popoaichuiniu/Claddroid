@@ -81,8 +81,8 @@ public class MySetupApplication extends SetupApplication {
         Options.v().set_main_class(entryPoint.getSignature());// 设置整个程序分析的main class
         Scene.v().setEntryPoints(Collections.singletonList(entryPoint));// 设置方法的入口点去构建call graph
 
-        PackManager.v().runPacks();
 
+        PackManager.v().runPacks();
 
 
 
