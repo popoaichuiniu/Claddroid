@@ -83,32 +83,34 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
         SootMethod rootSootMethod = myCallGraph.dummyMainMethod;
         Edge rootEdge = myCallGraph.dummyMainMethodUnitOfEdge;
+        EdgeToSootMethod rootEdgeToSootMethod=new EdgeToSootMethod(rootEdge, rootSootMethod);
 
         Queue<EdgeToSootMethod> queue = new LinkedList<>();
+        Map<EdgeToSootMethod,String> nodeColor=new HashMap<>();
+
+
+        nodeColor.put(rootEdgeToSootMethod,"gray");
+        queue.add(rootEdgeToSootMethod);
 
 
         BriefUnitGraph rootBriefUnitGraph = sootMethodBriefUnitGraphMap.get(rootSootMethod);
         if (rootBriefUnitGraph == null) {
             rootBriefUnitGraph = new BriefUnitGraph(rootSootMethod.getActiveBody());
-
             sootMethodBriefUnitGraphMap.put(rootSootMethod, rootBriefUnitGraph);
         }
 
 
+
         Set<Value> rootParameterDataSet = new HashSet<>();
-
-
-        queue.add(new EdgeToSootMethod(rootEdge, rootSootMethod));
-
-
         edgeSingleSootMethodIntentFlowAnalysisMap.put(rootEdge, new SingleSootMethodIntentFlowAnalysis(rootSootMethod,rootBriefUnitGraph, rootParameterDataSet,isOverallAnalysis));
 
 
-        Set<EdgeToSootMethod> visited = new HashSet<>();
+
+
         while (!queue.isEmpty()) {
             EdgeToSootMethod first = queue.poll();
 
-            visited.add(first);
+
 
             Map<Unit, Set<Value>> singleSootMethodIntentFlowAnalysis = edgeSingleSootMethodIntentFlowAnalysisMap.get(first.edge).getUnitCallMethodIntentRelativeMap();
 
@@ -144,12 +146,15 @@ public class OverallIntentFlowAnalysis {//一个targetAPI就有一个MyCallgraph
 
                 EdgeToSootMethod edgeToSootMethod = new EdgeToSootMethod(oneEdge, oneSootMethod);
 
-                if (!visited.contains(edgeToSootMethod)) {
+                if (nodeColor.get(edgeToSootMethod)==null) {
+                    nodeColor.put(edgeToSootMethod,"gray");
                     queue.add(edgeToSootMethod);
                 }
 
 
             }
+
+            nodeColor.put(first ,"black");
         }
 
     }

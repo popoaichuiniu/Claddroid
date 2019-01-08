@@ -101,7 +101,7 @@ public class GenerateUnitNeedToAnalysis {
     public static void main(String[] args) {
 
         //dangerousPermissions是考虑的自己设定的需要考虑的权限提升
-        dangerousPermissions = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+"dangerousPermission.txt",logger).getAllContentLinSet();
+        dangerousPermissions = new ReadFileOrInputStream("AnalysisAPKIntent"+"/"+"think_dangerousPermission.txt",logger).getAllContentLinSet();
         for (Iterator<String> dangerousPermissionsIterator = dangerousPermissions.iterator(); ((Iterator) dangerousPermissionsIterator).hasNext(); ) {
             String dangerousPermission = dangerousPermissionsIterator.next();
             if (dangerousPermission.startsWith("#")) {
@@ -113,7 +113,7 @@ public class GenerateUnitNeedToAnalysis {
         //String appDirPath=Config.wandoijiaAPP;
         String appDirPath = null;
         if (isTest) {
-            appDirPath = Config.defaultAppPath;
+            appDirPath = Config.testAppPath;
         } else {
 
             appDirPath = Config.defaultAppDirPath;

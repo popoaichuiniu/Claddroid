@@ -271,7 +271,7 @@ public class IntentConditionTransformPathInsensitive extends SceneTransformer {
 
         String appDir=Config.wandoijiaAPP;
         //String appDir = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/AnalysisAPKIntent/src/com/popoaichuiniu/intentGen/15B08211CDC4FD079F3B1297CD279347958C7F53FEE51EC204B217FE01D0472F_signed_zipalign.apk";
-        // String appDir=Config.defaultAppPath;
+        // String appDir=Config.testAppPath;
         File appDirFile = new File(appDir);
 
 

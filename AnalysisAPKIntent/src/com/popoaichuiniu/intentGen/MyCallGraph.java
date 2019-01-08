@@ -117,16 +117,24 @@ public class MyCallGraph extends CallGraph {
 
         Queue<EdgeToSootMethod> queue = new LinkedList<>();
 
+        Map<EdgeToSootMethod,String> nodeColor=new HashMap<>();
+
+
         dummyMainMethodUnitOfEdge =new Edge(null,dummyMainMethodUnit,dummyMainMethod, Kind.ZMS_Set);
 
-        queue.add(new EdgeToSootMethod(dummyMainMethodUnitOfEdge, dummyMainMethod));
+        EdgeToSootMethod rootEdgeToSootMethod=new EdgeToSootMethod(dummyMainMethodUnitOfEdge, dummyMainMethod);
 
-        HashSet<EdgeToSootMethod> visited = new HashSet<>();
+
+        nodeColor.put(rootEdgeToSootMethod,"gray");
+
+        queue.add(rootEdgeToSootMethod);
+
+
 
         while (!queue.isEmpty()) {
+
             EdgeToSootMethod first = queue.poll();
 
-            visited.add(first);
 
             SootMethod firstSootMethod = first.sootMethod;
 
@@ -141,11 +149,17 @@ public class MyCallGraph extends CallGraph {
             for (Edge oneEdge : outEdgesOfThisMethod.get(first.sootMethod)) {
                 SootMethod oneSootMethod = oneEdge.tgt();
                 EdgeToSootMethod oneEdgeToSootMethod = new EdgeToSootMethod(oneEdge, oneSootMethod);
-                if (!visited.contains(oneEdgeToSootMethod)) {
-                    queue.add(oneEdgeToSootMethod);
+
+                if(nodeColor.get(oneEdgeToSootMethod)==null)
+                {
+                    nodeColor.put(oneEdgeToSootMethod,"gray");
+                    queue.offer(oneEdgeToSootMethod);
                 }
 
             }
+
+
+            nodeColor.put(first,"black");
 
 
         }

@@ -34,7 +34,7 @@ public class IntentConditionTransformOnlyEA
     protected void internalTransform(String phaseName, Map<String, String> options) {
 
 
-        //AndroidCallGraph androidCallGraphHelper = new AndroidCallGraph(defaultAppPath,platforms);
+        //AndroidCallGraph androidCallGraphHelper = new AndroidCallGraph(testAppPath,platforms);
         AndroidInfo androidInfo = new AndroidInfo(appPath,logger);
         String packageName= androidInfo.getPackageName(appPath);
 

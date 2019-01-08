@@ -4,6 +4,7 @@ import soot.Main;
 import soot.Scene;
 import soot.options.Options;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Config {
 
 
 
-    public static String fDroidAPPDir = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/sootOutput";
+    public static String fDroidAPPDir = "/media/mobile/myExperiment/apps/f-droid-app";
 
     public static String wandoijiaAPP = "/media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app";
     public static String selectAPP = "/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/selectAPP";
@@ -33,11 +34,22 @@ public class Config {
 
     public static String repeatExperiment="repeat_experiment";
 
-    public static String defaultAppPath = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
+    public static String testAppPath = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug/app-debug.apk";
 
-    public static String defaultApkDir = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug";
+    public static String testApkDir = "android_project/Camera/TestWebView2/app/build/outputs/apk/debug";
 
-    public static String defaultAppDirPath=Config.wandoijiaAPP;
+
+    public static String redmiApkDir_liantong="/media/mobile/myExperiment/apps/shouji/redmi_liantong";
+
+    public static String K860i422="/media/mobile/myExperiment/apps/shouji/k860i_4_2_2";
+
+    public static String K860i40="/media/mobile/myExperiment/apps/shouji/k860i_4_0/merge";
+
+    public static String droidBench="/media/mobile/myExperiment/apps/DroidBench/apk/InterComponentCommunication";
+
+    public static String experimentDataDir="/media/mobile/myExperiment/apps/0_5_25_45_65_";
+
+    public static String defaultAppDirPath=Config.experimentDataDir;
 
 
     //log path
@@ -57,10 +69,12 @@ public class Config {
 
     public static String unitNeedAnalysisGenerate = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
+    public static String unitNeedInstrument = "AnalysisAPKIntent/unitNeedInstrument";
 
-    public static boolean isTest =true;
 
-    // public  static  String defaultAppPath="/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/AnalysisAPKIntent/万花筒之旅一宝宝巴士.apk";
+    public static boolean isTest =false;
+
+    // public  static  String testAppPath="/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/AnalysisAPKIntent/万花筒之旅一宝宝巴士.apk";
     public static void setSootOptions(String appPath) {
         soot.G.reset();// 标准的soot操作，清空soot之前所有操作遗留下的缓存值
 
@@ -186,7 +200,9 @@ public class Config {
 
 
         //Options.v().set_soot_classpath(apkFileLocation+ File.pathSeparator+"/home/zms/platforms/android-27/android.jar");
-        Options.v().set_soot_classpath(Scene.v().getAndroidJarPath(androidJar, appPath));//+":/media/softdata/AndroidSDKdirectory/extras/android/support"
+        String classPath=Scene.v().getAndroidJarPath(androidJar, appPath);
+        //
+        Options.v().set_soot_classpath(classPath);//+":/media/softdata/AndroidSDKdirectory/extras/android/support"
 
         Main.v().autoSetOptions();
 

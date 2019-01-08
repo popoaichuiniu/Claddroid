@@ -2,7 +2,6 @@ package com.popoaichuiniu.jacy.statistic;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.Iterator;
 
 import javax.activation.UnsupportedDataTypeException;
 
@@ -14,7 +13,6 @@ import soot.PackManager;
 import soot.Scene;
 import soot.SootMethod;
 import soot.jimple.infoflow.android.SetupApplication;
-import soot.jimple.infoflow.android.callbacks.AbstractCallbackAnalyzer;
 import soot.jimple.infoflow.android.data.parsers.PermissionMethodParser;
 import soot.jimple.infoflow.android.manifest.ProcessManifest;
 import soot.jimple.infoflow.android.resources.ARSCFileParser;
@@ -22,7 +20,6 @@ import soot.jimple.infoflow.android.resources.LayoutFileParser;
 import soot.jimple.infoflow.android.source.parsers.xml.XMLSourceSinkParser;
 import soot.jimple.infoflow.rifl.RIFLSourceSinkDefinitionProvider;
 import soot.jimple.infoflow.source.data.ISourceSinkDefinitionProvider;
-import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
 public class MySetupApplication extends SetupApplication {
@@ -60,7 +57,7 @@ public class MySetupApplication extends SetupApplication {
         // TODO Auto-generated constructor stub
     }
 
-    private void calculateICCMethods(ARSCFileParser resParser, LayoutFileParser lfp) throws IOException {
+    private void calculateMain(ARSCFileParser resParser, LayoutFileParser lfp) throws IOException {
 
 
 
@@ -82,11 +79,9 @@ public class MySetupApplication extends SetupApplication {
         Scene.v().setEntryPoints(Collections.singletonList(entryPoint));// 设置方法的入口点去构建call graph
 
 
-        PackManager.v().runPacks();
-
-
-
-
+        // Run the soot-based operations
+        PackManager.v().getPack("wjpp").apply();
+        PackManager.v().getPack("cg").apply();
 
 
 
@@ -165,7 +160,7 @@ public class MySetupApplication extends SetupApplication {
                         calculateCallbackMethodsFast(null, null);
                         break;
                     case Default:
-                        calculateICCMethods(null, null);//config.getCallbackAnalyzer()==“Defalut”
+                        calculateMain(null, null);//config.getCallbackAnalyzer()==“Defalut”
                         break;
                     default:
                         throw new RuntimeException("Unknown callback analyzer");

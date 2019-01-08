@@ -1,6 +1,5 @@
 package com.popoaichuiniu.experiment;
 
-import com.popoaichuiniu.intentGen.FindAPPCategory;
 import com.popoaichuiniu.util.ExcelWrite;
 import com.popoaichuiniu.util.MyLogger;
 import com.popoaichuiniu.util.ReadFileOrInputStream;
@@ -12,7 +11,7 @@ import java.util.*;
 public class ComputePlPermssions {
 
 
-    private static String appDir="/home/zms/logger_file/testlog/all_app";
+    private static String appDir="/home/zms/logger_file/testlog/wandoujia_1_2_needInstrument";
     private static Logger logger=new MyLogger("AnalysisAPKIntent/ComputePlPermssions","exceptionLogger").getLogger();
 
     public static void main(String[] args) {
@@ -30,14 +29,15 @@ public class ComputePlPermssions {
             String appName=strArray[2];
 
             apps.add(appName);
-            String appType= FindAPPCategory.findAPPType(new File(appName).getName());
 
-            if(appType.equals("zms"))//adb log has problem
-            {
-                System.out.println(appName);
+           // String appType= FindAPPCategory.findAPPType(new File(appName).getName());
 
-
-            }
+//            if(appType.equals("zms"))//adb log has problem
+//            {
+//                System.out.println(appName);
+//
+//
+//            }
 
             String [] permissionArray=permissionStr.split(",");
 
@@ -76,34 +76,34 @@ public class ComputePlPermssions {
 
 
 
-                //appType permission
-
-                Set<String> permissionSet=appTypePermissionCount.get(appType);
-
-                if(permissionSet==null)
-                {
-                    permissionSet=new TreeSet<>();
-                }
-
-                permissionSet.add(permission);
-
-                appTypePermissionCount.put(appType,permissionSet);
-
-
-
-                //permission  appType
-
-                Set<String> appTypeSet=permissionAPPTypeCount.get(permission);
-                if(appTypeSet==null)
-                {
-                    appTypeSet=new TreeSet<>();
-
-                }
-
-                appTypeSet.add(appType);
-
-
-                permissionAPPTypeCount.put(permission,appTypeSet);
+//                //appType permission
+//
+//                Set<String> permissionSet=appTypePermissionCount.get(appType);
+//
+//                if(permissionSet==null)
+//                {
+//                    permissionSet=new TreeSet<>();
+//                }
+//
+//                permissionSet.add(permission);
+//
+//                appTypePermissionCount.put(appType,permissionSet);
+//
+//
+//
+//                //permission  appType
+//
+//                Set<String> appTypeSet=permissionAPPTypeCount.get(permission);
+//                if(appTypeSet==null)
+//                {
+//                    appTypeSet=new TreeSet<>();
+//
+//                }
+//
+//                appTypeSet.add(appType);
+//
+//
+//                permissionAPPTypeCount.put(permission,appTypeSet);
 
 
 

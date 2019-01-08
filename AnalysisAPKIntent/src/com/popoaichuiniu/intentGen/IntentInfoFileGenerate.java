@@ -12,7 +12,7 @@ public class IntentInfoFileGenerate {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(appPath + "_" + "intentInfo.txt"));
             for(IntentInfo intentInfo:intentInfoList)
             {
-                //            String defaultAppPath;
+                //            String testAppPath;
 //            String appPackageName;
 //            String comPonentType;
 //            String comPonentName;

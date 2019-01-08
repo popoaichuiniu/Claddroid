@@ -69,7 +69,7 @@ public class IntentPropagateAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<V
                         out.add(definitionStmt.getLeftOp());
                         isReachStartUnitFlag = true;
                     } else {
-                       throw new RuntimeException("! start instanceof DefinitionStmt");
+                       throw new RuntimeException("! start instanceof DefinitionStmt"+d);
                     }
                 }
 

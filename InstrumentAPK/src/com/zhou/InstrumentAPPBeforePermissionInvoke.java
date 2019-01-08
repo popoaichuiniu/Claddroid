@@ -2,12 +2,10 @@ package com.zhou;
 
 import java.io.*;
 import java.util.*;
+import org.apache.log4j.Logger;
 
 import com.popoaichuiniu.jacy.statistic.AndroidInfo;
-import com.popoaichuiniu.util.Config;
-import com.popoaichuiniu.util.ReadFileOrInputStream;
-import com.popoaichuiniu.util.Util;
-import com.popoaichuiniu.util.WriteFile;
+import com.popoaichuiniu.util.*;
 import org.javatuples.Pair;
 import soot.*;
 import soot.jimple.*;
@@ -36,6 +34,8 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
     private static boolean isTest = Config.isTest;
 
     private static Map<String, Set<String>> apiPermissionMap = AndroidInfo.getPermissionAndroguardMethods();
+
+    private static Logger exceptionLogger= new MyLogger("InstrumentAPK/instrument_log","exception.log").getLogger();
 
     @Override
     protected void internalTransform(Body b, String phaseName, Map<String, String> options) {
@@ -93,7 +93,7 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
      * appPath是应用的绝对路径
      * platforms是SDK中platforms的路径
      */
-    //static String defaultAppPath = "/home/lab418/AndroidStudioProjects/TestIntrument3/app/build/outputs/apk/debug/app-debug.apk";
+    //static String testAppPath = "/home/lab418/AndroidStudioProjects/TestIntrument3/app/build/outputs/apk/debug/app-debug.apk";
     private String appPath = null;
     //private String platforms = "/home/zms/platforms";//设置最低版本为android5.0，app就插桩失败  签名的jarsigner不行了？soot太老了？
 
@@ -158,9 +158,9 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
 
         String appDir = null;
         if (isTest) {
-            appDir = Config.defaultAppPath;
+            appDir = Config.testAppPath;
         } else {
-            appDir = Config.wandoijiaAPP;
+            appDir = Config.defaultAppDirPath;
         }
 
 
@@ -173,17 +173,17 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
 
             }
             if (logFileDir.exists()) {
-                writeFileAppInstrumentException = new WriteFile("InstrumentAPK/instrument_log/" + appDirFile.getName() + "/" + "appInstrumentException.log", true);
+                writeFileAppInstrumentException = new WriteFile("InstrumentAPK/instrument_log/" + appDirFile.getName() + "/" + "appInstrumentException.log", true,exceptionLogger);
 
             } else {
                 throw new RuntimeException("创建logFileDir失败！");
             }
         } else {
-            writeFileAppInstrumentException = new WriteFile("InstrumentAPK/instrument_log/" + appDirFile.getName() + "_instrumentException.log", true);
+            writeFileAppInstrumentException = new WriteFile("InstrumentAPK/instrument_log/" + appDirFile.getName() + "_instrumentException.log", true,exceptionLogger);
         }
 
 
-        Set<String> hasInstrumentAPP = new ReadFileOrInputStream("InstrumentAPK/instrument_log/app_has_Instrumented.txt").getAllContentLinSet();
+        Set<String> hasInstrumentAPP = new ReadFileOrInputStream("InstrumentAPK/instrument_log/app_has_Instrumented.txt",exceptionLogger).getAllContentLinSet();
 
         if (hasInstrumentAPP == null) {
             throw new RuntimeException("读取app_has_Instrumented.txt失败！");
@@ -261,7 +261,7 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
                 e.printStackTrace();
             }
         } else {
-            File unitedAnalysis = new File(appDirFile.getAbsolutePath() + "_UnitsNeedAnalysis.txt");
+            File unitedAnalysis = new File(appDirFile.getAbsolutePath() + "_UnitsNeedInstrument.txt");
             instrumentArgs[0] = appDirFile.getAbsolutePath();
             instrumentArgs[1] = "/home/zms/platforms";
             instrumentArgs[2] = unitedAnalysis.getAbsolutePath();

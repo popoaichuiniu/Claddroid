@@ -1,15 +1,20 @@
 import  subprocess
+import signal
 import time
 import os
 import threading
+import sys
+import psutil
 def execuateCmd(cmd):
-    status,output=subprocess.getstatusoutput(cmd);
-    return status,output
+    #status,output=subprocess.getstatusoutput(cmd);
+    proc=subprocess.Popen("exec "+cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    outs, errs = proc.communicate()
+    return proc.returncode,str(outs, encoding = "utf-8")+"##"+str(errs, encoding = "utf-8"),proc
 
 
 def isADBWorkNormal():#ok
     adb_status="adb devices"
-    status, output = execuateCmd(adb_status)
+    status, output,proc = execuateCmd(adb_status)
     print("*"+output+"*")
     if (status == 0):
         index1=output.find("emulator")
@@ -28,7 +33,7 @@ def isTestAPPAlive():#ok
         return False;
     else:
         app_status = "adb shell ps |grep jacy.popoaichuiniu.com.testpermissionleakge"
-        status, output = execuateCmd(app_status)
+        status, output,proc = execuateCmd(app_status)
         if(output.find("jacy.popoaichuiniu.com.testpermissionleakge")!=-1):
             print(output)
             return True
@@ -36,7 +41,7 @@ def isTestAPPAlive():#ok
             return False
 # def isGuakeAlive():#guake has not started completely ,but this method return true
 #         app_status = "ps -a |grep guake"
-#         status, output = execuateCmd(app_status)
+#         status, output,proc = execuateCmd(app_status)
 #         index=-1
 #         count=0
 #         isFirstIn=True
@@ -59,7 +64,7 @@ def installNewAPP(appPath):#ok
         return False;
     else:
         install_app="adb install -r"+" "+appPath
-        status,output=execuateCmd(install_app)
+        status,output,proc=execuateCmd(install_app)
         if(status==0):
             index=output.find("Failure")
             if(index!=-1):
@@ -71,12 +76,12 @@ def installNewAPP(appPath):#ok
                 print(info)
                 return True,info
         else:
-            info="安装失败"+"error:"+str(status)+","+output++"eeeeeeeeeeee"
+            info="安装失败"+"error:"+str(status)+","+output+"eeeeeeeeeeee"
             print(info)
             return False,info
 def getPackageName(appPath):#
     get_package_cmd="aapt dump badging "+appPath
-    status, output = execuateCmd(get_package_cmd)
+    status, output,proc = execuateCmd(get_package_cmd)
     if (status==0):
         #print("*"+output+"*")
         tempStr=output.split("\n")[0]
@@ -96,7 +101,7 @@ def uninstall_app_by_packageName(packageName):
         return False
     else:
         install_app = "adb uninstall " + " " + packageName
-        status, output = execuateCmd(install_app)
+        status, output,proc = execuateCmd(install_app)
         if (status == 0):  # Success
             index = output.find("Success")
             if (index != -1):
@@ -127,7 +132,7 @@ def pushTestFile(appPath_testFile):#ok
         return False
     else:
         push_testFile="adb push " + appPath_testFile + " " + "/data/data/jacy.popoaichuiniu.com.testpermissionleakge/files/intentInfo.txt"
-        status, output=execuateCmd(push_testFile)
+        status, output,proc=execuateCmd(push_testFile)
         if (status == 0):
             info=appPath_testFile + "推送测试文件成功"
             print(info)
@@ -141,7 +146,7 @@ def startTestAPP():#ok
         print("adb work abnormal!")
         return False
     start_app_cmd="adb shell am start -n jacy.popoaichuiniu.com.testpermissionleakge/jacy.popoaichuiniu.com.testpermissionleakge.MainActivity"
-    status,output=execuateCmd(start_app_cmd)
+    status,output,proc=execuateCmd(start_app_cmd)
     if(status==0):
         index=output.find("Error")
         if(index!=-1):
@@ -158,7 +163,7 @@ def killTestAPP():#ok
         print("adb work abnormal!")
         return False;
     kill_app_cmd="adb shell am force-stop jacy.popoaichuiniu.com.testpermissionleakge"
-    status, output = execuateCmd(kill_app_cmd)
+    status, output,proc = execuateCmd(kill_app_cmd)
     if (status == 0):
         return True
     else:
@@ -166,12 +171,11 @@ def killTestAPP():#ok
         return False
 
 def  analysisAPKDir(apkDir):#
-
     if(not os.path.isdir(apkDir)):
         if(apkDir.endswith("_signed_zipalign.apk")):
             parent_path = os.path.dirname(apkDir)
             apk_name=os.path.basename(apkDir)
-            intent_file=parent_path+"/"+apk_name.replace("_signed_zipalign","")+"_"+"intentInfo.txt"
+            intent_file=parent_path+"/../"+apk_name.replace("_signed_zipalign","")+"_"+"intentInfo.txt"
             if (os.path.exists(intent_file)):
                 yield apkDir, intent_file
             else:
@@ -214,14 +218,14 @@ def waitForTestStop():
         flagTestAPPLive = isTestAPPAlive()
 
 def rebootPhone():
-    status, output = execuateCmd("killall guake")
+    status, output,proc = execuateCmd("killall guake")
     if(status==0):
         print("killall guake ok!")
         cmd = "adb shell reboot -p"
-        status, output = execuateCmd(cmd)
+        status, output,proc = execuateCmd(cmd)
         if (status == 0):
             print("emulator has closed")
-            initialLogger()
+            threadList = initialLogger()
             return True
         else:
             print("关闭手机失败," + output)
@@ -260,7 +264,7 @@ def test(apkPath,intent_file):#
         oneIntentFile=open("temp_intent","w")
         oneIntentFile.write(line)
         oneIntentFile.close()
-        flag_install = installNewAPP("/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestPermissionleakge/app/build/outputs/apk/debug/app-debug.apk")
+        flag_install = installNewAPP("/media/mobile/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestPermissionleakge/app/build/outputs/apk/debug/app-debug.apk")
         if (not flag_install):
             print("install error")
             raise RuntimeError
@@ -319,8 +323,12 @@ class MyThread (threading.Thread):
 
     def run(self):
        print(self.cmd+"start...")
-       status,output=execuateCmd(self.cmd)#wait
-       print(self.cmd+"over")
+       proc = subprocess.Popen(self.cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+       self.proc = proc
+       outs, errs = proc.communicate()
+       print(self.cmd+" cmd over@@@@@@@@@@@@@@@@@@@@")
+       print("output info: "+str(outs, encoding = "utf-8")+"##"+str(errs, encoding = "utf-8"))
+
 
 
 
@@ -331,6 +339,7 @@ class MyThread (threading.Thread):
 
 
 def initialLogger():
+    threadList=[]
     log1='guake -e  "adb logcat | grep ZMSInstrument | tee -a /home/zms/logger_file/testlog/ZMSInstrument.log "'
     log2='guake -e  "adb logcat | grep ZMSStart | tee -a /home/zms/logger_file/testlog/ZMSStart.log"'
     log3='guake -e  "adb logcat *:E|tee -a /home/zms/logger_file/testlog/error.log"'
@@ -340,6 +349,7 @@ def initialLogger():
 
     threadStart = MyThread("/home/lab418/Android/Sdk/emulator/emulator -avd Nexus_5X_API_19 -wipe-data")
     threadStart.start()
+    threadList.append(threadStart)
     while(not isADBWorkNormal()):#adb devices work  normal and install app inmmediately and install successfully and app is not installed
         print("等待adb...")
         time.sleep(1)
@@ -349,16 +359,31 @@ def initialLogger():
     thread1=MyThread(log1)
     thread2=MyThread(log2)
     thread3=MyThread(log3)
+    time.sleep(10)
     thread1.start()
     thread2.start()
     thread3.start()
-    time.sleep(10)
+    threadList.append(thread1)
+    threadList.append(thread2)
+    threadList.append(thread3)
+    return threadList
+
 def getFileContent(path):
     str_file=open(path,'r')
     content=[]
     for line in str_file.readlines():
         content.append(line.rstrip('\n'))
     return content
+
+def killProcessTree(pid):
+    procs=psutil.Process(pid).children(recursive=True)
+    for proc in procs:
+        if(len(proc.children(recursive=True))==0):
+            cmd="kill -9 "+proc.pid
+            status,output,p=execuateCmd(cmd)
+        else:
+            killProcessTree(proc.pid)
+
 
 
 
@@ -391,7 +416,8 @@ if __name__ == '__main__':
     #print(uninstall_app("/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestWebView2/app/build/outputs/apk/debug/instrumented/app-debug_signed_zipalign.apk"))
 
     #test************************************************************before
-    initialLogger()
+    threadList=[]
+    threadList=initialLogger()
     fail_apk_list=open("failTest_apk_list","a+")
     success_apk_list=open("successTest_apk_list","a+")
     has_process = getFileContent("has_process_app_list")
@@ -404,7 +430,18 @@ if __name__ == '__main__':
     #apkDir='/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestWebView2/app/build/outputs/apk/debug/instrumented'
     #apkDir='/home/zms/selectAPP2/instrumented'
     #apkDir='/home/zms/huaweiAPPSelect/instrumented'
-    apkDir='/media/lab418/4579cb84-2b61-4be5-a222-bdee682af51b/myExperiment/apks_wandoujia/apks/all_app/instrumented'
+    apkDir=''
+    print(sys.argv)
+    if(len(sys.argv)<=1):
+        apkDir='/media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/instrumented'
+    else:
+        apkDir=sys.argv[1]
+    if (not os.path.isdir(apkDir)):
+        parent_path = os.path.dirname(apkDir)
+        apk_name = os.path.basename(apkDir)
+        apkDir=parent_path+"/"+"instrumented"+"/"+apk_name.replace(".apk","_signed_zipalign.apk")
+    else:
+        apkDir=apkDir+"/"+'instrumented'
     for apkPath,intent_file in analysisAPKDir(apkDir):
         if apkPath in has_process:
             continue
@@ -427,5 +464,7 @@ if __name__ == '__main__':
     success_apk_list.close()
     fail_apk_list.close()
     has_process_app_list.close()
+#execuateCmd("prctl(PR_SET_PDEATHSIG, SIGHUP)")
+killProcessTree(os.getpid())
 print("over")
 

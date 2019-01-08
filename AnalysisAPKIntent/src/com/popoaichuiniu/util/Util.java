@@ -313,56 +313,7 @@ public class Util {
     }
 
 
-    private static void getIfFlowInfo(UnitGraph ug, Unit targetUnit, Map<Unit, Set<String>> unitHasInfo, Set<Unit> startUnits, Set<Unit> allUnitOfTargetUnit, Map<Unit, Integer> unitInDegree) {
 
-
-        List<Unit> queue = new ArrayList<>(startUnits);
-
-        Set<Unit> unResolveUnitsSet = new HashSet<>(allUnitOfTargetUnit);
-
-        unResolveUnitsSet.removeAll(startUnits);
-
-        while (queue.size() != 0) {//
-            Unit oneStartUnit = queue.remove(0);//取队首
-            if (oneStartUnit == targetUnit) {
-                assert queue.size() == 0;
-                return;
-            }
-            for (int i = 0; i < ug.getSuccsOf(oneStartUnit).size(); i++)//给每个子节点传承自己的信息
-            {
-                Unit childUnit = ug.getSuccsOf(oneStartUnit).get(i);
-
-                if (allUnitOfTargetUnit.contains(childUnit)) {
-                    Set<String> childUnitUnitInfo = unitHasInfo.get(childUnit);
-                    Set<String> parentUnitInfo = unitHasInfo.get(oneStartUnit);
-                    childUnitUnitInfo.addAll(parentUnitInfo);//将自己继承的信息传承给字节点
-                    if (ug.getSuccsOf(oneStartUnit).size() >= 2)//如果自己是分支语句的话，给子节点额外加入自己的分支语句的信息。
-                    {
-                        childUnitUnitInfo.add(oneStartUnit.toString() + "b:" + i);
-                    }
-
-                    unitInDegree.put(childUnit, unitInDegree.get(childUnit) - 1);//将自己的所有子节点的入度减一
-                }
-
-
-            }
-
-            Set<Unit> newInDegreeZero = new HashSet<>();
-            for (Unit unResolveUnit : unResolveUnitsSet) {
-                int inDegree = unitInDegree.get(unResolveUnit);
-                if (inDegree == 0) {
-                    newInDegreeZero.add(unResolveUnit);
-                }
-
-            }
-
-            queue.addAll(newInDegreeZero);
-            unResolveUnitsSet.removeAll(newInDegreeZero);
-
-
-        }
-
-    }
 
 
 //    private static Pair<Boolean, Unit> analyseIFBlock(Unit unit, int branchLayer, UnitGraph ug, Map<Unit, Set<String>> unitHasInfo, Stack<Pair<Unit, List<String>>> ifStack, IntentFlowAnalysis intentFlowAnalysis, Unit targetUnit, Set<Unit> path, Set<Unit> allUnitOfTargetUnit) {

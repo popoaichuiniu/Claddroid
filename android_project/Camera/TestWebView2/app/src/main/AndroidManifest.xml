@@ -25,14 +25,15 @@
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true" />
+             />
 
         <receiver
             android:name=".ExampleReceiver"
             android:enabled="true"
-            android:exported="true" />
+            />
 
-        <activity android:name=".Main6Activity"></activity>
+        <activity android:name=".Main6Activity" />
+        <activity android:name=".Main7Activity"></activity>
     </application>
 
 </manifest>

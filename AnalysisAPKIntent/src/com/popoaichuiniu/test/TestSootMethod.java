@@ -24,7 +24,7 @@ public class TestSootMethod {
     public static void main(String[] args) {
 
 
-        AndroidCallGraph androidCallGraph = new AndroidCallGraph(Config.defaultAppPath, androidPlatformPath);
+        AndroidCallGraph androidCallGraph = new AndroidCallGraph(Config.testAppPath, androidPlatformPath);
 
         CallGraph cGraph = androidCallGraph.getCg();
         SootMethod entryPoint = androidCallGraph.getEntryPoint();

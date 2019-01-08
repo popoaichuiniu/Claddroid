@@ -27,13 +27,7 @@ public class MainActivity extends AppCompatActivity {
 //            case 1:
             Parent p = new Children();
             Intent intent = p.getMyIntent();
-            intent.setClassName(this, "tttttttttttt");
             fromPara(intent);
-
-
-
-            SmsManager smsManager=SmsManager.getDefault();
-            smsManager.sendTextMessage("18010823840", null, "ttttt", null, null);
             startActivity(intent);
 //                break;
 //            case 2:
