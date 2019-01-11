@@ -35,7 +35,9 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
 
     private static Map<String, Set<String>> apiPermissionMap = AndroidInfo.getPermissionAndroguardMethods();
 
-    private static Logger exceptionLogger= new MyLogger("InstrumentAPK/instrument_log","exception.log").getLogger();
+    private static Logger exceptionLogger= new MyLogger(Config.instrument_logDir,"exception").getLogger();
+
+    private static Logger infoLogger=new MyLogger(Config.instrument_logDir,"InstrumentInfo").getLogger();
 
     @Override
     protected void internalTransform(Body b, String phaseName, Map<String, String> options) {
@@ -275,6 +277,7 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
 
     private static void singleAPPAnalysis(String[] args) {
 
+        infoLogger.info(args[0]+" startInstrument");
         String outputDir = new File(args[0]).getParentFile().getAbsolutePath() + "/" + "instrumented";
         File outputDirFile = new File(outputDir);
 
@@ -337,6 +340,8 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
             //throw new RuntimeException("插桩数量和需要插桩的数量不匹配！");
         }
 
+        infoLogger.info(args[0]+" instrument over!");
+
     }
 
     public void addInstrumentAfterStatement(Body b, Unit point, String message) {
@@ -394,6 +399,7 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
         b.getUnits().insertBefore(invokeStmt, point);
         //check that we did not mess up the Jimple
         b.validate();
+        infoLogger.info("insert before "+point);
         inStrumentCount = inStrumentCount + 1;
         try {
             bufferedWriter_instrument_content.write(logMessage.toString() + "\n");

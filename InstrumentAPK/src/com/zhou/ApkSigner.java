@@ -10,8 +10,8 @@ import java.util.Set;
 public class ApkSigner {
 
     private static boolean isTest = Config.isTest;
-    private static Logger exceptionLogger=new MyLogger("idea_ApkIntentAnalysis/InstrumentAPK/apkSignerLog","exception").getLogger();
-
+    private static Logger exceptionLogger = new MyLogger(Config.apkSignerLog, "exception").getLogger();
+    private static Logger infoLogger = new MyLogger(Config.apkSignerLog, "info").getLogger();
 
 
     public static void main(String[] args) {
@@ -21,14 +21,11 @@ public class ApkSigner {
         if (isTest) {
             appDir = new File(Config.testAppPath).getParentFile().getAbsolutePath() + "/" + "instrumented/" + new File(Config.testAppPath).getName();
         } else {
-            File dirFile=new File(Config.defaultAppDirPath);
-            if(dirFile.isDirectory())
-            {
+            File dirFile = new File(Config.defaultAppDirPath);
+            if (dirFile.isDirectory()) {
                 appDir = Config.defaultAppDirPath + "/" + "instrumented";
-            }
-            else
-            {
-                appDir=dirFile.getParentFile().getAbsolutePath() + "/" + "instrumented/" + dirFile.getName();
+            } else {
+                appDir = dirFile.getParentFile().getAbsolutePath() + "/" + "instrumented/" + dirFile.getName();
             }
 
         }
@@ -36,9 +33,9 @@ public class ApkSigner {
         File appDirFile = new File(appDir);
         if (appDirFile.isDirectory()) {
 
-            Set<String> hasSignedApps = new ReadFileOrInputStream("InstrumentAPK/apkSignerLog/hasSignedApps.txt",exceptionLogger).getAllContentLinSet();
-            WriteFile writeFile = new WriteFile("InstrumentAPK/apkSignerLog/hasSignedApps.txt", true,exceptionLogger);
-            WriteFile writeFileException = new WriteFile("InstrumentAPK/apkSignerLog/exceptionSignedApps.txt", true,exceptionLogger);
+            Set<String> hasSignedApps = new ReadFileOrInputStream("InstrumentAPK/apkSignerLog/hasSignedApps.txt", exceptionLogger).getAllContentLinSet();
+            WriteFile writeFile = new WriteFile("InstrumentAPK/apkSignerLog/hasSignedApps.txt", true, exceptionLogger);
+            WriteFile writeFileException = new WriteFile("InstrumentAPK/apkSignerLog/exceptionSignedApps.txt", true, exceptionLogger);
             for (File apkFile : appDirFile.listFiles()) {
                 if ((apkFile.getName().endsWith(".apk")) && (!apkFile.getName().endsWith("_signed_zipalign.apk"))) {
                     if (hasSignedApps.contains(apkFile.getAbsolutePath())) {
@@ -49,7 +46,7 @@ public class ApkSigner {
                         singleAppAnalysis(apkFile);
                     } catch (Exception e) {
 
-                        writeFileException.writeStr(apkFile.getAbsolutePath() +"##" +e.getMessage()+"##"+ ExceptionStackMessageUtil.getStackTrace(e) +"\n");
+                        writeFileException.writeStr(apkFile.getAbsolutePath() + "##" + e.getMessage() + "##" + ExceptionStackMessageUtil.getStackTrace(e) + "\n");
                         writeFileException.flush();
 
 
@@ -81,6 +78,9 @@ public class ApkSigner {
     }
 
     private static void singleAppAnalysis(File appDirFile) throws InterruptedException, IOException {
+
+        infoLogger.info("start APK Sign:" + appDirFile.getAbsolutePath());
+
         ProcessBuilder processBuilder = new ProcessBuilder("InstrumentAPK/src/com/zhou/apkSigner.sh", appDirFile.getAbsolutePath());
         // ProcessBuilder processBuilder=new ProcessBuilder();
 
@@ -97,8 +97,9 @@ public class ApkSigner {
             @Override
             public void run() {
 
-                ReadFileOrInputStream readFileOrInputStreamReturnString = new ReadFileOrInputStream(process.getInputStream(),exceptionLogger);
+                ReadFileOrInputStream readFileOrInputStreamReturnString = new ReadFileOrInputStream(process.getInputStream(), exceptionLogger);
                 System.out.println(readFileOrInputStreamReturnString.getContent() + "&&&");
+                infoLogger.info(readFileOrInputStreamReturnString.getContent() + "&&&");
 
             }
         });
@@ -112,6 +113,6 @@ public class ApkSigner {
             throw new RuntimeException("sign apk failed!\n");
         }
 
-
+        infoLogger.info("apk sign over:"+appDirFile.getAbsolutePath());
     }
 }

@@ -22,7 +22,7 @@ public class GenerateUnitNeedToAnalysis {
 
     private static Logger exceptionLogger =new MyLogger(Config.unitNeedAnalysisGenerate,"generateUnitNeedToAnalysisAppException").getLogger();
 
-    private static Logger infoLogger=new MyLogger(Config.unitNeedAnalysisGenerate,"info").getLogger();
+    private static Logger infoLogger=new MyLogger(Config.unitNeedAnalysisGenerate,"GenerateUnitNeedToAnalysisInfo").getLogger();
 
     static Set<String> dangerousPermissions = null;
     static Map<String, Set<String>> apiPermissionMap = AndroidInfo.getPermissionAndroguardMethods();
@@ -58,7 +58,7 @@ public class GenerateUnitNeedToAnalysis {
                     Set<String> permissionSet = apiPermissionMap.get(calleeSootMethod.getBytecodeSignature());
                     if (permissionSet != null && isExistSimilarItem(permissionSet, dangerousPermissions)) {
                         unitsNeedToAnalysis.add(unit);
-                        infoLogger.info(appPath+"##"+unit+" need analysis!");
+                        infoLogger.info(appPath+" ##"+unit+" need analysis!");
 
                     }
 
@@ -225,6 +225,6 @@ public class GenerateUnitNeedToAnalysis {
 
         generateUnitToAnalysis(ea_entryPoints, cGraph, appPath);
 
-        infoLogger.info("Part1's analysis completed!"+appPath);
+        infoLogger.info("Part1's analysis completed! "+appPath);
     }
 }

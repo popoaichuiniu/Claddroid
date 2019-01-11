@@ -51,7 +51,7 @@ public class Config {
 
     public static String videoDemo="/home/lab418/videoDemo.apk";
     public static String videoDemoDir="/home/lab418";
-    public static String defaultAppDirPath=Config.videoDemoDir;
+    public static String defaultAppDirPath=Config.wandoijiaAPP;
 
 
     //log path
@@ -72,6 +72,13 @@ public class Config {
     public static String unitNeedAnalysisGenerate = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
     public static String unitNeedInstrument = "AnalysisAPKIntent/unitNeedInstrument";
+
+    public static String instrument_logDir="InstrumentAPK/instrument_log";
+
+    public static  String apkSignerLog="InstrumentAPK/apkSignerLog";
+
+
+    public static  String cladDroidLogDir ="CladdroidGUI/log";
 
 
 

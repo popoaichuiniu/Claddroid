@@ -160,7 +160,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     protected static Logger exceptionLogger = new MyLogger(Config.intentConditionSymbolicExcutationResults, "exceptionLogger").getLogger();
 
-    protected static Logger infoLogger = new MyLogger(Config.intentConditionSymbolicExcutationResults, "info").getLogger();
+
 
     @Override
     protected void internalTransform(String phaseName, Map<String, String> options) {
@@ -597,7 +597,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
             }
 
             sootMethodSetIntentCondition.put(oneSootMethod, singleUnitIntentSetMap);//the intent in this map is not null
-
+            //这是符号执行de结果
 
         }
 
@@ -724,7 +724,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         long endTime = System.nanoTime();
         MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info((((double) (endTime - startTime)) / 1E9) + "##" + "DFS融合Intent" + "##" + myCallGraph.targetSootMethod + "##" + myCallGraph.targetUnit);
         if (hasReachCallGraphBranchLimit) {
-            infoLogger.warn(appPath);
+
 
             File callgraphLimitFile = new File(Config.intentConditionSymbolicExcutationResults + "/" + "callgraphLimit.txt");
             if (callgraphLimitFile.exists()) {
@@ -1083,6 +1083,8 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
                 MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("路径长度：" + callSootMethodPath.size());
 
+                sootMethodIntentConditionSummary.put(sootMethod, sootMethodUnitIntentConditionMap.get(cg.targetSootMethod).get(cg.targetUnit));
+
                 return sootMethodUnitIntentConditionMap.get(cg.targetSootMethod).get(cg.targetUnit);
             } else {
                 MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).error("非targetSootMethod出度为0");
@@ -1148,10 +1150,10 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         }
 
         //将不冲突的intent合并,减少intent数量
-        int preSize = hashSetParentSummary.size();
-        //hashSetParentSummary = joinIntentSet(hashSetParentSummary, sootMethod);
-        int afterSize = hashSetParentSummary.size();
-        infoLogger.info("单个方法Intent数量：" + "pre:" + preSize + " ^^ " + "after:" + afterSize + "##" + appPath);
+//        int preSize = hashSetParentSummary.size();
+//        //hashSetParentSummary = joinIntentSet(hashSetParentSummary, sootMethod);
+//        int afterSize = hashSetParentSummary.size();
+
         sootMethodIntentConditionSummary.put(sootMethod, hashSetParentSummary);
 
         return hashSetParentSummary;
@@ -1160,7 +1162,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
     }
 
 
-    public Set<Intent> joinIntentSet(Set<Intent> hashSetParentSummary, SootMethod curSootMethod) {//这些intent是或的关系，取出这些intent中冲突的地方，其他不冲突可以全部合并，让每一个intent都拥有
+    public Set<Intent> joinIntentSet(Set<Intent> hashSetParentSummary, SootMethod curSootMethod) {//这些intent是或的关系，取出这些intent中冲突的地方，其他不冲突可以全部合并，让每一个intent都拥有,性能太差
 
 
         Set<Intent> allReturnIntentSet = new HashSet<>();

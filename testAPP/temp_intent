@@ -1,1 +1,1 @@
-/home/zms/test_cl/app-debug.apk#com.example.lab418.testwebview2#activity#com.example.lab418.testwebview2.TestUnUsedIFBlockAlgorithm#null#null#null#android.os.Bundle&bundle&[BundleKey, java.lang.String, iambundleExtra, "ZMS!iambundleExtraValue"];java.lang.String&stringExtraEqualsHaha&"ZMS!haha";float&floatExtraGreatThan7&8.0
+/home/lab418/videoDemo.apk#jacy.popoaichuiniu.com.videodemoapp#activity#jacy.popoaichuiniu.com.videodemoapp.VulnerableActivity#null#null#null#java.lang.String&content&!0!;android.os.Bundle&bundle&[BundleKey, java.lang.String, bundleKey, "bundleData"]
