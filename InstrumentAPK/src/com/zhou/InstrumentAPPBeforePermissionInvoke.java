@@ -261,7 +261,7 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
                 e.printStackTrace();
             }
         } else {
-            File unitedAnalysis = new File(appDirFile.getAbsolutePath() + "_UnitsNeedInstrument.txt");
+            File unitedAnalysis = new File(appDirFile.getAbsolutePath() + "_UnitsNeedAnalysis.txt");
             instrumentArgs[0] = appDirFile.getAbsolutePath();
             instrumentArgs[1] = "/home/zms/platforms";
             instrumentArgs[2] = unitedAnalysis.getAbsolutePath();
@@ -333,8 +333,8 @@ public class InstrumentAPPBeforePermissionInvoke extends BodyTransformer {
 
         if (targetCount != inStrumentCount) {
 
-
-            throw new RuntimeException("插桩数量和需要插桩的数量不匹配！");
+            exceptionLogger.error(args[0]+"##"+"插桩数量和需要插桩的数量不匹配！");
+            //throw new RuntimeException("插桩数量和需要插桩的数量不匹配！");
         }
 
     }

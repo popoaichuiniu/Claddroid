@@ -1,5 +1,4 @@
 import  subprocess
-import signal
 import time
 import os
 import threading
@@ -7,7 +6,7 @@ import sys
 import psutil
 def execuateCmd(cmd):
     #status,output=subprocess.getstatusoutput(cmd);
-    proc=subprocess.Popen("exec "+cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    proc=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     outs, errs = proc.communicate()
     return proc.returncode,str(outs, encoding = "utf-8")+"##"+str(errs, encoding = "utf-8"),proc
 
@@ -171,30 +170,17 @@ def killTestAPP():#ok
         return False
 
 def  analysisAPKDir(apkDir):#
-    if(not os.path.isdir(apkDir)):
-        if(apkDir.endswith("_signed_zipalign.apk")):
-            parent_path = os.path.dirname(apkDir)
-            apk_name=os.path.basename(apkDir)
-            intent_file=parent_path+"/../"+apk_name.replace("_signed_zipalign","")+"_"+"intentInfo.txt"
-            if (os.path.exists(intent_file)):
-                yield apkDir, intent_file
-            else:
-                print("没有找到指定的intent测试文件")
-
-
-    else:
+    if(os.path.isdir(apkDir)):
         failure_log = open("apk_file_no_test_info.txt", "a+")
         for file in os.listdir(apkDir):
-            #print(type(file))
-            path=apkDir+"/"+file
-            if(str(path).endswith("_signed_zipalign.apk")):
-                #intent_file=path+"_"+"intent_info.txt"#-------------------------------
-                intent_file=apkDir+"/../"+file.replace("_signed_zipalign","")+"_"+"intentInfo.txt"#---------------------------
-                if(os.path.exists(intent_file)):
-                    yield path,intent_file
+            apk_path=apkDir+"/"+file
+            if(str(apk_path).endswith("_signed_zipalign.apk")):
+                intent_file=apkDir+"/../"+file.replace("_signed_zipalign","")+"_"+"intentInfo.txt"
+                if(os.path.exists(intent_file) and os.path.exists(apk_path)):
+                    yield apk_path,intent_file
                 else:
-                    print(path+"没有找到指定的intent测试文件")
-                    failure_log.write(path+"\n")
+                    print(apk_path+"没有找到指定的intent测试文件")
+                    failure_log.write(apk_path+"\n")
                     failure_log.flush()
 
         failure_log.close()
@@ -237,7 +223,7 @@ def rebootPhone():
 
 
 intent_test_count=0
-def test(apkPath,intent_file):#
+def test(apkPath,intent_file):# intent_file and instrumented app
     global  intent_test_count
     flag_test=False;
     app_test_status=open("app_test_status",'a+')
@@ -376,18 +362,20 @@ def getFileContent(path):
     return content
 
 def killProcessTree(pid):
-    procs=psutil.Process(pid).children(recursive=True)
+    rootProc=psutil.Process(pid)
+    print("childProcess:"+str(rootProc.pid)+"  "+str(rootProc.gids()))
+    procs=rootProc.children()
     for proc in procs:
-        if(len(proc.children(recursive=True))==0):
-            cmd="kill -9 "+proc.pid
+        if(len(proc.children())==0):
+            cmd="kill -9 "+str(proc.pid)
             status,output,p=execuateCmd(cmd)
+            print("exe over  "+cmd)
         else:
             killProcessTree(proc.pid)
 
-
-
-
-
+    cmd = "kill -9 " + str(rootProc.pid)
+    status, output, p = execuateCmd(cmd)
+    print("exe over  " + cmd)
 
 if __name__ == '__main__':
 
@@ -436,35 +424,51 @@ if __name__ == '__main__':
         apkDir='/media/mobile/myExperiment/apps/apks_wandoujia/apks/all_app/instrumented'
     else:
         apkDir=sys.argv[1]
-    if (not os.path.isdir(apkDir)):
+
+    if(not os.path.isdir(apkDir)):#is apk
         parent_path = os.path.dirname(apkDir)
         apk_name = os.path.basename(apkDir)
-        apkDir=parent_path+"/"+"instrumented"+"/"+apk_name.replace(".apk","_signed_zipalign.apk")
-    else:
-        apkDir=apkDir+"/"+'instrumented'
-    for apkPath,intent_file in analysisAPKDir(apkDir):
-        if apkPath in has_process:
-            continue
-        has_process_app_list.write(apkPath + "\n")
-        has_process_app_list.flush()
-        start_time=time.time()
-        flag_test=test(apkPath,intent_file)
-        if(flag_test):
-            end_time=time.time()
-            timeUse.write(str(end_time-start_time)+"\n")
-            timeUse.flush()
-            success_apk_list.write(apkPath+"\n")
-            success_apk_list.flush()
-        else:
-            print(apkPath+"测试失败！")
-            fail_apk_list.write(apkPath+"\n")
-            fail_apk_list.flush()
+        intent_file = parent_path + "/" + apk_name+ "_" + "intentInfo.txt"
+        apkDir = parent_path + "/" + "instrumented" + "/" + apk_name.replace(".apk", "_signed_zipalign.apk")
+        if(os.path.exists(intent_file) and os.path.exists(apkDir) ):
+            start_time = time.time()
+            flag_test = test(apkDir, intent_file)
+            if (flag_test):
+                end_time = time.time()
+            else:
+                print(apkDir + "测试失败！")
 
-    timeUse.close()
-    success_apk_list.close()
-    fail_apk_list.close()
-    has_process_app_list.close()
+        else:
+            print("没有找到指定的intent测试文件或者instrumented app")
+
+    else:
+        apkDir = apkDir + "/" + 'instrumented'
+        for apkPath,intent_file in analysisAPKDir(apkDir):
+            if apkPath in has_process:
+                continue
+            has_process_app_list.write(apkPath + "\n")
+            has_process_app_list.flush()
+            start_time=time.time()
+            flag_test=test(apkPath,intent_file)
+            if(flag_test):
+                end_time=time.time()
+                timeUse.write(str(end_time-start_time)+"\n")
+                timeUse.flush()
+                success_apk_list.write(apkPath+"\n")
+                success_apk_list.flush()
+            else:
+                print(apkPath+"测试失败！")
+                fail_apk_list.write(apkPath+"\n")
+                fail_apk_list.flush()
+
+        timeUse.close()
+        success_apk_list.close()
+        fail_apk_list.close()
+        has_process_app_list.close()
 #execuateCmd("prctl(PR_SET_PDEATHSIG, SIGHUP)")
-killProcessTree(os.getpid())
+print("curProcess:"+str(os.getpid())+" "+str(os.getgid()))
+for oneThread in threadList:
+    killProcessTree(oneThread.proc.pid)
 print("over")
+sys.exit(0)
 

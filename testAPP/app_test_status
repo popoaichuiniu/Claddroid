@@ -3052,3 +3052,69 @@ adb: error: failed to get feature set: more than one device/emulatoreeeeeeeeeeee
 /home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
 0:oneIntent启动成功!
 /home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0启动APP失败WARNING: linker: libdvm.so has text relocations. This is wasting memory and is a security risk. Please fix.
+Starting: Intent { cmp=jacy.popoaichuiniu.com.testpermissionleakge/.MainActivity }
+Error type 3
+Error: Activity class {jacy.popoaichuiniu.com.testpermissionleakge/jacy.popoaichuiniu.com.testpermissionleakge.MainActivity} does not exist.
+##eeeeeeeeeeee
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0启动APP失败WARNING: linker: libdvm.so has text relocations. This is wasting memory and is a security risk. Please fix.
+Starting: Intent { cmp=jacy.popoaichuiniu.com.testpermissionleakge/.MainActivity }
+Error type 3
+Error: Activity class {jacy.popoaichuiniu.com.testpermissionleakge/jacy.popoaichuiniu.com.testpermissionleakge.MainActivity} does not exist.
+##eeeeeeeeeeee
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk11111111111111111111111111111111111
+0:oneIntent启动成功!
+/home/zms/test_cl/instrumented/app-debug_signed_zipalign.apk222222222222222222222222222222222222222
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk11111111111111111111111111111111111
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk222222222222222222222222222222222222222
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk11111111111111111111111111111111111
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk222222222222222222222222222222222222222

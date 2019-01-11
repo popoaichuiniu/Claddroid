@@ -20,8 +20,9 @@ public class GenerateUnitNeedToAnalysis {
 
     private static boolean isJustThinkDangerous = false;//是否只考虑危险API
 
-    private static Logger logger=new MyLogger(Config.unitNeedAnalysisGenerate,"generateUnitNeedToAnalysisAppException").getLogger();
+    private static Logger exceptionLogger =new MyLogger(Config.unitNeedAnalysisGenerate,"generateUnitNeedToAnalysisAppException").getLogger();
 
+    private static Logger infoLogger=new MyLogger(Config.unitNeedAnalysisGenerate,"info").getLogger();
 
     static Set<String> dangerousPermissions = null;
     static Map<String, Set<String>> apiPermissionMap = AndroidInfo.getPermissionAndroguardMethods();
@@ -57,6 +58,7 @@ public class GenerateUnitNeedToAnalysis {
                     Set<String> permissionSet = apiPermissionMap.get(calleeSootMethod.getBytecodeSignature());
                     if (permissionSet != null && isExistSimilarItem(permissionSet, dangerousPermissions)) {
                         unitsNeedToAnalysis.add(unit);
+                        infoLogger.info(appPath+"##"+unit+" need analysis!");
 
                     }
 
@@ -101,7 +103,7 @@ public class GenerateUnitNeedToAnalysis {
     public static void main(String[] args) {
 
         //dangerousPermissions是考虑的自己设定的需要考虑的权限提升
-        dangerousPermissions = new ReadFileOrInputStream("AnalysisAPKIntent"+"/"+"think_dangerousPermission.txt",logger).getAllContentLinSet();
+        dangerousPermissions = new ReadFileOrInputStream("AnalysisAPKIntent"+"/"+"think_dangerousPermission.txt", exceptionLogger).getAllContentLinSet();
         for (Iterator<String> dangerousPermissionsIterator = dangerousPermissions.iterator(); ((Iterator) dangerousPermissionsIterator).hasNext(); ) {
             String dangerousPermission = dangerousPermissionsIterator.next();
             if (dangerousPermission.startsWith("#")) {
@@ -139,8 +141,8 @@ public class GenerateUnitNeedToAnalysis {
             }
 
 
-            Set<String> hasGenerateAppSet = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt",logger).getAllContentLinSet();
-            WriteFile writeFileHasGenerateUnitNeedAnalysis = new WriteFile(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt", true,logger);//分析一个目录中途断掉，可以继续重新分析
+            Set<String> hasGenerateAppSet = new ReadFileOrInputStream(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt", exceptionLogger).getAllContentLinSet();
+            WriteFile writeFileHasGenerateUnitNeedAnalysis = new WriteFile(Config.unitNeedAnalysisGenerate+"/"+appDir.getName() + "_hasGeneratedAPP.txt", true, exceptionLogger);//分析一个目录中途断掉，可以继续重新分析
 
 
 
@@ -157,10 +159,11 @@ public class GenerateUnitNeedToAnalysis {
 
                             try {
 
+
                                 singleAPPAnalysis(apkFile.getAbsolutePath());//分析每一个app
 
                             } catch (Exception e) {
-                                  logger.error(apkFile.getAbsolutePath() + "&&" + "Exception" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e));
+                                  exceptionLogger.error(apkFile.getAbsolutePath() + "&&" + "Exception" + "###" + e.getMessage() + "###" + ExceptionStackMessageUtil.getStackTrace(e));
                             }
 
 
@@ -206,18 +209,22 @@ public class GenerateUnitNeedToAnalysis {
 
     public static void singleAPPAnalysis(String appPath) throws IOException{
 
+        infoLogger.info("start Part1's analysis "+appPath);
+        AndroidInfo androidInfo = new AndroidInfo(appPath, exceptionLogger);
 
-        AndroidInfo androidInfo = new AndroidInfo(appPath,logger);
 
-
-        AndroidCallGraph androidCallGraph = new AndroidCallGraphProxy(appPath, Config.androidJar,logger).androidCallGraph;
+        AndroidCallGraph androidCallGraph = new AndroidCallGraphProxy(appPath, Config.androidJar, exceptionLogger).androidCallGraph;
 
         CallGraph cGraph=androidCallGraph.getCg();
+
+        infoLogger.info("CG and CFG has constructed!");
 
 
         List<SootMethod> ea_entryPoints = Util.getEA_EntryPoints(androidCallGraph,androidInfo);
 
 
         generateUnitToAnalysis(ea_entryPoints, cGraph, appPath);
+
+        infoLogger.info("Part1's analysis completed!"+appPath);
     }
 }

@@ -42,7 +42,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
     private boolean pathLimitEnabled = true;
 
-    private int enterBranchLimit = 10;//default=13
+    private int enterBranchLimit = 13;//default=13
 
     private boolean hasReachBranchLimit = false;
 
@@ -886,26 +886,26 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         //experiment*******************************
 
-        List<List<Unit>> finalPaths = new ArrayList<>();
+//        List<List<Unit>> finalPaths = new ArrayList<>();
+//
+//        hasReachBranchLimit = false;
+//
+//        getAllPathInMethod(myPairUnitToEdge.srcUnit, null, ug, finalPaths, new ArrayList<Unit>(), new HashSet<UnitEdge>(),0);//欧拉路径
+//
+//
+//
+//        if (hasReachBranchLimit) {
+//
 
-        hasReachBranchLimit = false;
-
-        getAllPathInMethod(myPairUnitToEdge.srcUnit, null, ug, finalPaths, new ArrayList<Unit>(), new HashSet<UnitEdge>(),0);//欧拉路径
-
-
-
-        if (hasReachBranchLimit) {
-
-            //finalPathsPreviousCount=Integer.MAX_VALUE;
-            finalPathsPreviousCount=finalPaths.size();
-            MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("finalPaths数量达到限制");
-
-
-        }
-        else
-        {
-            finalPathsPreviousCount=finalPaths.size();
-        }
+//            finalPathsPreviousCount=finalPaths.size();
+//            MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("finalPaths数量达到限制");
+//
+//
+//        }
+//        else
+//        {
+//            finalPathsPreviousCount=finalPaths.size();
+//        }
 
         //experiment*******************************
 
@@ -933,7 +933,7 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
 
         if (hasReachBranchLimit) {
 
-            //finalPathsReducedAfterCount=Integer.MAX_VALUE;
+
             finalPathsReducedAfterCount=finalPathsReduced.size();
             MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info("化简CFG的finalPathsReduced达到限制！");
 
@@ -948,11 +948,11 @@ public class IntentConditionTransformSymbolicExcutation extends SceneTransformer
         }
 
 
-        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info(finalPaths.size() + "*******************************" + finalPathsReduced.size() + "************************" + (finalPaths.size() - finalPathsReduced.size()) + " " + myPairUnitToEdge.srcUnit);
-
-
-        ifReducedWriter.writeStr(appPath+","+sootMethod.getBytecodeSignature()+","+finalPathsPreviousCount + "," + finalPathsReducedAfterCount + "," + (finalPathsPreviousCount - finalPathsReducedAfterCount)+"\n");
-        ifReducedWriter.flush();
+//        MyLogger.getOverallLogger(IntentConditionTransformSymbolicExcutation.class).info(finalPathsPreviousCount + "*******************************" + finalPathsReducedAfterCount + "************************" + (finalPathsPreviousCount - finalPathsReducedAfterCount) + " " + myPairUnitToEdge.srcUnit);
+//
+//
+//        ifReducedWriter.writeStr(appPath+","+sootMethod.getBytecodeSignature()+","+finalPathsPreviousCount + "," + finalPathsReducedAfterCount + "," + (finalPathsPreviousCount - finalPathsReducedAfterCount)+"\n");
+//        ifReducedWriter.flush();
 
 
 

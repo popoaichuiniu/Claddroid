@@ -13,20 +13,22 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class TestUnUsedIFBlockAlgorithm extends AppCompatActivity {
-
-
-
+public class TestExampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_un_used_ifblock_algorithm);
 
-        Intent intent=new Intent(TestUnUsedIFBlockAlgorithm.this,ExampleReceiver.class);
-        intent.setAction("xxx");
-
         int choice = new Integer(5);
+
+        if (choice == 5)//
+        {
+            if (getIntent().getBundleExtra("bundle").getString("bundleKey").equals("bundleData"))
+            {
+                SmsManager.getDefault().sendTextMessage("123456789", null, getIntent().getStringExtra("content"), null, null);
+            }
+        }
 
 
 //        if (choice == 0)//ok
@@ -68,13 +70,7 @@ public class TestUnUsedIFBlockAlgorithm extends AppCompatActivity {
 //        if (choice == 8)
 //            testFloatExtra();
 //
-        if (choice == 9)//ok
-        {
-            if (!getIntent().getBundleExtra("bundle").getString("iambundleExtra").equals("iambundleExtraValue"))
-            {
-                testStringExtra();
-            }
-        }
+
 
 
 

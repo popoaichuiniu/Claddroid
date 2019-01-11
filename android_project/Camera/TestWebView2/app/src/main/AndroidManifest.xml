@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TestUnUsedIFBlockAlgorithm"
+            android:name=".TestExampleActivity"
             android:exported="true" />
 
         <service

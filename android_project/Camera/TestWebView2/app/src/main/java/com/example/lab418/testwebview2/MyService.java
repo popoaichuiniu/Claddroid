@@ -3,6 +3,7 @@ package com.example.lab418.testwebview2;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.telephony.SmsManager;
 
 public class MyService extends Service {
     public MyService() {
@@ -10,17 +11,23 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+
+        return null;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if(intent.getAction().equals("service"))
+        {
+            SmsManager.getDefault().sendTextMessage("18010823840", null, "ttttt", null, null);
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 

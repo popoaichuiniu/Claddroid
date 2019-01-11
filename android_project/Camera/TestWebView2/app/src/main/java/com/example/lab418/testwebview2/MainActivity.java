@@ -18,17 +18,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        x = 2;
+       // x = 2;
         //switch (x)
         {
 //            case 0:
 //                inThisMethod();
 //                break;
 //            case 1:
-            Parent p = new Children();
-            Intent intent = p.getMyIntent();
-            fromPara(intent);
-            startActivity(intent);
+//            Parent p = new Children();
+//            Intent intent = p.getMyIntent();
+//            fromPara(intent);
+//            startActivity(intent);
 //                break;
 //            case 2:
 //                fromReturn();

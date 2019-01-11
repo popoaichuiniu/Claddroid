@@ -49,7 +49,9 @@ public class Config {
 
     public static String experimentDataDir="/media/mobile/myExperiment/apps/0_5_25_45_65_";
 
-    public static String defaultAppDirPath=Config.experimentDataDir;
+    public static String videoDemo="/home/lab418/videoDemo.apk";
+    public static String videoDemoDir="/home/lab418";
+    public static String defaultAppDirPath=Config.videoDemoDir;
 
 
     //log path
@@ -70,6 +72,7 @@ public class Config {
     public static String unitNeedAnalysisGenerate = "AnalysisAPKIntent/unitNeedAnalysisGenerate";
 
     public static String unitNeedInstrument = "AnalysisAPKIntent/unitNeedInstrument";
+
 
 
     public static boolean isTest =false;
