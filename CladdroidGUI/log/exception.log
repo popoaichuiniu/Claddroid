@@ -1,0 +1,132 @@
+2019-01-09 00:13:13,718 INFO [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(366) | bufferedReader stop
+2019-01-09 00:13:13,718 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(378) | tail stop
+2019-01-10 20:55:28,737 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/zms/test_cl/app-debug.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 21:11:06,895 INFO [Thread-7] sample.Controller$ReadLogThreadByTail.run(385) | tail stop
+2019-01-10 21:11:06,900 INFO [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(373) | bufferedReader stop
+2019-01-10 21:11:06,902 INFO [Thread-8] sample.Controller$ReadLogThreadByTail$1.run(373) | bufferedReader stop
+2019-01-10 21:11:06,899 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(385) | tail stop
+2019-01-10 21:13:07,337 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/zms/test_cl/app-debug.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 21:15:05,263 INFO [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(381) | bufferedReader stop
+2019-01-10 21:15:05,264 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(393) | tail stop
+2019-01-10 21:16:40,803 INFO [Thread-7] sample.Controller$ReadLogThreadByTail.run(393) | tail stop
+2019-01-10 21:16:41,399 ERROR [Thread-8] sample.Controller$ReadLogThreadByTail$1.run(384) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at sample.Controller$ReadLogThreadByTail$1.run(Controller.java:376)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-10 21:16:53,876 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/zms/test_cl/app-debug.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 21:21:36,179 INFO [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(388) | bufferedReader stop
+2019-01-10 21:21:36,185 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(400) | tail stop
+2019-01-10 21:23:12,903 INFO [Thread-7] sample.Controller$ReadLogThreadByTail.run(400) | tail stop
+2019-01-10 21:23:14,533 ERROR [Thread-8] sample.Controller$ReadLogThreadByTail$1.run(391) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at sample.Controller$ReadLogThreadByTail$1.run(Controller.java:383)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-10 21:23:25,902 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/zms/test_cl/app-debug.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 22:02:55,859 ERROR [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(391) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at sample.Controller$ReadLogThreadByTail$1.run(Controller.java:383)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-10 22:02:55,867 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(400) | tail stop
+2019-01-10 22:09:17,908 ERROR [Thread-5] sample.Controller$ReadLogThreadByTail$1.run(391) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at sample.Controller$ReadLogThreadByTail$1.run(Controller.java:383)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-10 22:09:17,912 INFO [Thread-4] sample.Controller$ReadLogThreadByTail.run(400) | tail stop
+2019-01-10 22:10:47,439 INFO [Thread-7] sample.Controller$ReadLogThreadByTail.run(400) | tail stop
+2019-01-10 22:10:48,543 ERROR [Thread-8] sample.Controller$ReadLogThreadByTail$1.run(391) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at sample.Controller$ReadLogThreadByTail$1.run(Controller.java:383)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-10 22:11:01,400 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/zms/test_cl/app-debug.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 22:32:38,192 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-10 22:59:03,701 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 13:17:24,776 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 13:45:52,673 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 13:50:08,114 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 14:12:53,194 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 14:15:01,421 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:07:13,762 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:16:45,958 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:38:32,833 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:46:40,462 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:48:06,481 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:53:06,352 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 15:58:43,923 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:09:42,993 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:12:08,089 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:14:35,941 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:24:07,897 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:25:58,720 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:28:52,671 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:31:15,766 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:33:02,342 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:35:35,455 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:36:57,089 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:39:03,288 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:41:55,471 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:43:05,716 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 16:46:17,024 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 17:06:06,752 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(336) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 19:18:00,988 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(339) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 19:18:01,492 ERROR [Thread-16] com.popoaichuiniu.util.ReadFileOrInputStream.getContent(60) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedReader.ensureOpen(BufferedReader.java:122)
+	at java.io.BufferedReader.readLine(BufferedReader.java:317)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at com.popoaichuiniu.util.ReadFileOrInputStream.getContent(ReadFileOrInputStream.java:51)
+	at com.zhou.ApkSigner$1.run(ApkSigner.java:102)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-01-11 19:20:34,092 ERROR [Thread-3] com.zhou.InstrumentAPPBeforePermissionInvoke.singleAPPAnalysis(339) | /home/lab418/videoDemo.apk##插桩数量和需要插桩的数量不匹配！
+2019-01-11 19:20:34,618 ERROR [Thread-16] com.popoaichuiniu.util.ReadFileOrInputStream.getContent(60) | Stream closed##java.io.IOException: Stream closed
+	at java.io.BufferedReader.ensureOpen(BufferedReader.java:122)
+	at java.io.BufferedReader.readLine(BufferedReader.java:317)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at com.popoaichuiniu.util.ReadFileOrInputStream.getContent(ReadFileOrInputStream.java:51)
+	at com.zhou.ApkSigner$1.run(ApkSigner.java:102)
+	at java.lang.Thread.run(Thread.java:748)
+

@@ -1,0 +1,19 @@
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<HBox prefHeight="600.0" prefWidth="900.0" fx:controller="sample.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center" >
+    <HBox>
+
+    </HBox>
+    <HBox>
+        <VBox>
+        <Label> dc</Label>
+        </VBox>
+
+        <VBox>
+            <Label> dc</Label>
+        </VBox>
+    </HBox>
+</HBox>

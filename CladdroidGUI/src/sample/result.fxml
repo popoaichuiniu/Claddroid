@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefWidth="-1" prefHeight="-1" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultController" >
+   <children>
+      <ScrollPane prefWidth="-1" prefHeight="-1">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="-1" prefHeight="-1">
+               <children>
+                  <TextArea fx:id="resultTextArea" layoutX="0" prefHeight="1000" prefWidth="1000" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

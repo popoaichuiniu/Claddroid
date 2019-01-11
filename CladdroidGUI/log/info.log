@@ -1,0 +1,938 @@
+2019-01-11 19:18:00,989 INFO [Thread-3] com.zhou.ApkSigner.singleAppAnalysis(82) | start APK Sign:/home/lab418/instrumented/videoDemo.apk
+2019-01-11 19:18:01,457 INFO [Thread-3] com.zhou.ApkSigner.singleAppAnalysis(116) | apk sign over:/home/lab418/instrumented/videoDemo.apk
+2019-01-11 19:18:01,493 INFO [Thread-16] com.zhou.ApkSigner$1.run(102) | &&&
+2019-01-11 19:18:25,460 INFO [Thread-17] sample.Controller$4.run(284) | /home/lab418/Android/Sdk/emulator/emulator -avd Nexus_5X_API_19 -wipe-datastart...
+*List of devices attached
+
+##* daemon not running; starting now at tcp:5037
+* daemon started successfully
+*
+等待adb...
+*List of devices attached
+emulator-5554	offline
+
+##*
+等待adb...
+*List of devices attached
+emulator-5554	offline
+
+##*
+等待adb...
+*List of devices attached
+emulator-5554	device
+
+##*
+guake -e  "adb logcat | grep ZMSInstrument | tee -a /home/zms/logger_file/testlog/ZMSInstrument.log "start...
+guake -e  "adb logcat | grep ZMSStart | tee -a /home/zms/logger_file/testlog/ZMSStart.log"start...
+guake -e  "adb logcat *:E|tee -a /home/zms/logger_file/testlog/error.log"start...
+*List of devices attached
+emulator-5554	device
+
+##*
+['testAPP.py', '/home/lab418/videoDemo.apk']
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk11111111111111111111111111111111111
+
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+开始测试新app
+ssssssssssssssssss/home/lab418/videoDemo.apk#jacy.popoaichuiniu.com.videodemoapp#activity#jacy.popoaichuiniu.com.videodemoapp.VulnerableActivity#null#null#null#java.lang.String&content&!0!;android.os.Bundle&bundle&[BundleKey, java.lang.String, bundleKey, "bundleData"]
+
+*List of devices attached
+emulator-5554	device
+
+##*
+/media/mobile/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestPermissionleakge/app/build/outputs/apk/debug/app-debug.apk安装成功
+*List of devices attached
+emulator-5554	device
+
+##*
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk安装成功
+*List of devices attached
+emulator-5554	device
+
+##*
+./temp_intent推送测试文件成功
+*List of devices attached
+emulator-5554	device
+
+##*
+0:oneIntent启动成功!
+
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+u0_a52    2273  1178  727760 29744 ffffffff b76b1f1b S jacy.popoaichuiniu.com.testpermissionleakge
+##
+等待当前APP测试结束！0
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+jacy.popoaichuiniu.com.videodemoapp卸载成功
+
+*List of devices attached
+emulator-5554	device
+
+##*
+jacy.popoaichuiniu.com.testpermissionleakge卸载成功
+
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk222222222222222222222222222222222222222
+
+curProcess:6048 1000
+childProcess:6052  pgids(real=1000, effective=1000, saved=1000)
+childProcess:6054  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 6062
+exe over  kill -9 6054
+exe over  kill -9 6052
+childProcess:6171  pgids(real=1000, effective=1000, saved=1000)
+/home/lab418/Android/Sdk/emulator/emulator -avd Nexus_5X_API_19 -wipe-data cmd over@@@@@@@@@@@@@@@@@@@@
+output info: emulator: WARNING: encryption is off
+Your emulator is out of date, please update by launching Android Studio:
+ - Start Android Studio
+ - Select menu "Tools > Android > SDK Manager"
+ - Click "SDK Tools" tab
+ - Check "Android Emulator" checkbox
+ - Click "OK"
+
+##
+childProcess:6174  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 6219
+exe over  kill -9 6174
+exe over  kill -9 6171
+childProcess:6172  pgids(real=1000, effective=1000, saved=1000)
+guake -e  "adb logcat | grep ZMSInstrument | tee -a /home/zms/logger_file/testlog/ZMSInstrument.log " cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+
+** (guake:6174): WARNING **: 19:18:17.780: Binding 'F12' failed!
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:6174): Vte-WARNING **: 19:18:17.808: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6174): Vte-WARNING **: 19:18:17.808: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6174): Vte-WARNING **: 19:18:17.808: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6174): Vte-WARNING **: 19:18:17.808: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6174): Vte-WARNING **: 19:18:17.808: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7f80468d4cf0 (guake+terminal+GuakeTerminal at 0x22ab3f0)>
+
+childProcess:6175  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 6215
+exe over  kill -9 6175
+exe over  kill -9 6172
+childProcess:6177  pgids(real=1000, effective=1000, saved=1000)
+guake -e  "adb logcat | grep ZMSStart | tee -a /home/zms/logger_file/testlog/ZMSStart.log" cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+
+** (guake:6175): WARNING **: 19:18:17.774: Binding 'F12' failed!
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:6175): Vte-WARNING **: 19:18:17.805: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6175): Vte-WARNING **: 19:18:17.805: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6175): Vte-WARNING **: 19:18:17.805: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6175): Vte-WARNING **: 19:18:17.805: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6175): Vte-WARNING **: 19:18:17.805: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7f63dcbf7d80 (guake+terminal+GuakeTerminal at 0x212c050)>
+
+childProcess:6180  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 6202
+exe over  kill -9 6180
+exe over  kill -9 6177
+over
+guake -e  "adb logcat *:E|tee -a /home/zms/logger_file/testlog/error.log" cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:6180): Vte-WARNING **: 19:18:17.792: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6180): Vte-WARNING **: 19:18:17.792: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6180): Vte-WARNING **: 19:18:17.792: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6180): Vte-WARNING **: 19:18:17.792: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:6180): Vte-WARNING **: 19:18:17.792: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7f3b44a67d38 (guake+terminal+GuakeTerminal at 0x3013850)>
+
+&&&
+2019-01-11 19:20:34,093 INFO [Thread-3] com.zhou.ApkSigner.singleAppAnalysis(82) | start APK Sign:/home/lab418/instrumented/videoDemo.apk
+2019-01-11 19:20:34,582 INFO [Thread-3] com.zhou.ApkSigner.singleAppAnalysis(116) | apk sign over:/home/lab418/instrumented/videoDemo.apk
+2019-01-11 19:20:34,619 INFO [Thread-16] com.zhou.ApkSigner$1.run(102) | &&&
+2019-01-11 19:20:58,587 INFO [Thread-17] sample.Controller$4.run(284) | /home/lab418/Android/Sdk/emulator/emulator -avd Nexus_5X_API_19 -wipe-datastart...
+*List of devices attached
+
+##*
+等待adb...
+*List of devices attached
+
+##*
+等待adb...
+*List of devices attached
+
+##*
+等待adb...
+*List of devices attached
+
+##*
+等待adb...
+*List of devices attached
+emulator-5554	offline
+
+##*
+等待adb...
+*List of devices attached
+emulator-5554	offline
+
+##*
+等待adb...
+*List of devices attached
+emulator-5554	device
+
+##*
+guake -e  "adb logcat | grep ZMSInstrument | tee -a /home/zms/logger_file/testlog/ZMSInstrument.log "start...
+guake -e  "adb logcat | grep ZMSStart | tee -a /home/zms/logger_file/testlog/ZMSStart.log"start...
+guake -e  "adb logcat *:E|tee -a /home/zms/logger_file/testlog/error.log"start...
+*List of devices attached
+emulator-5554	device
+
+##*
+['testAPP.py', '/home/lab418/videoDemo.apk']
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk11111111111111111111111111111111111
+
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+开始测试新app
+ssssssssssssssssss/home/lab418/videoDemo.apk#jacy.popoaichuiniu.com.videodemoapp#activity#jacy.popoaichuiniu.com.videodemoapp.VulnerableActivity#null#null#null#java.lang.String&content&!0!;android.os.Bundle&bundle&[BundleKey, java.lang.String, bundleKey, "bundleData"]
+
+*List of devices attached
+emulator-5554	device
+
+##*
+/media/mobile/myExperiment/idea_ApkIntentAnalysis/android_project/Camera/TestPermissionleakge/app/build/outputs/apk/debug/app-debug.apk安装成功
+*List of devices attached
+emulator-5554	device
+
+##*
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk安装成功
+*List of devices attached
+emulator-5554	device
+
+##*
+./temp_intent推送测试文件成功
+*List of devices attached
+emulator-5554	device
+
+##*
+0:oneIntent启动成功!
+
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+u0_a52    2272  1178  725304 28328 ffffffff b7705f1b S jacy.popoaichuiniu.com.testpermissionleakge
+##
+等待当前APP测试结束！0
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+*List of devices attached
+emulator-5554	device
+
+##*
+jacy.popoaichuiniu.com.videodemoapp卸载成功
+
+*List of devices attached
+emulator-5554	device
+
+##*
+jacy.popoaichuiniu.com.testpermissionleakge卸载成功
+
+/home/lab418/instrumented/videoDemo_signed_zipalign.apk222222222222222222222222222222222222222
+
+curProcess:7672 1000
+childProcess:7675  pgids(real=1000, effective=1000, saved=1000)
+childProcess:7677  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 7681
+exe over  kill -9 7677
+exe over  kill -9 7675
+childProcess:7799  pgids(real=1000, effective=1000, saved=1000)
+/home/lab418/Android/Sdk/emulator/emulator -avd Nexus_5X_API_19 -wipe-data cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##
+childProcess:7802  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 7834
+exe over  kill -9 7802
+exe over  kill -9 7799
+childProcess:7801  pgids(real=1000, effective=1000, saved=1000)
+guake -e  "adb logcat | grep ZMSInstrument | tee -a /home/zms/logger_file/testlog/ZMSInstrument.log " cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+
+** (guake:7802): WARNING **: 19:20:50.869: Binding 'F12' failed!
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:7802): Vte-WARNING **: 19:20:50.891: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7802): Vte-WARNING **: 19:20:50.891: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7802): Vte-WARNING **: 19:20:50.891: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7802): Vte-WARNING **: 19:20:50.891: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7802): Vte-WARNING **: 19:20:50.891: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7f35b06d8d38 (guake+terminal+GuakeTerminal at 0x132cbf0)>
+
+childProcess:7803  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 7833
+exe over  kill -9 7803
+exe over  kill -9 7801
+childProcess:7798  pgids(real=1000, effective=1000, saved=1000)
+guake -e  "adb logcat | grep ZMSStart | tee -a /home/zms/logger_file/testlog/ZMSStart.log" cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+
+** (guake:7803): WARNING **: 19:20:50.868: Binding 'F12' failed!
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:7803): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7803): Vte-WARNING **: 19:20:50.890: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7803): Vte-WARNING **: 19:20:50.890: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7803): Vte-WARNING **: 19:20:50.890: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7803): Vte-WARNING **: 19:20:50.890: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7fe17645ecf0 (guake+terminal+GuakeTerminal at 0x2291850)>
+
+childProcess:7800  pgids(real=1000, effective=1000, saved=1000)
+exe over  kill -9 7832
+exe over  kill -9 7800
+exe over  kill -9 7798
+over
+guake -e  "adb logcat *:E|tee -a /home/zms/logger_file/testlog/error.log" cmd over@@@@@@@@@@@@@@@@@@@@
+output info: ##Logging configuration complete
+DBus not running, starting it
+Wanted GTK theme: ''
+Prefer dark theme: False
+reload_global: 'F12'
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+
+(guake:7800): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7800): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7800): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7800): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+
+(guake:7800): Vte-WARNING **: 19:20:50.889: (../../src/vtegtk.cc:1906):int vte_terminal_match_add_gregex(VteTerminal*, GRegex*, GRegexMatchFlags): runtime check failed: (g_regex_get_compile_flags(gregex) & G_REGEX_MULTILINE)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+set_final_window_rect
+  height_percents = 50
+  width_percents = 100
+  halignment = 0
+  valignment = 0
+  vdisplacement = 0
+  hdisplacement = 0
+Current monitor geometry
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 900
+  window_rect.width: 1440
+is unity: False
+Correcteed monitor size:
+  total_width: 1440
+  total_height: 900
+RESIZING MAIN WINDOW TO THE FOLLOWING VALUES:
+  window_rect.x: 0
+  window_rect.y: 0
+  window_rect.height: 450
+  window_rect.width: 1440
+Updated window position: (root_x=0, root_y=0)
+Guake initialized
+Running main gtk loop
+Terminal exited: <terminal.GuakeTerminal object at 0x7f87da0f6d80 (guake+terminal+GuakeTerminal at 0x1bafbf0)>
+
+&&&
